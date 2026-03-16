@@ -14,6 +14,10 @@
     userEmail = "cervenec.a@protonmail.com";
   };
 
+
+
+# --- Deklarace SW ---
+
   home.packages = with pkgs; [
     fastfetch
     btop
@@ -25,4 +29,5 @@
   ];
 
   programs.zsh.enable = true;
+  programs.firefox.enable = true;
 }
