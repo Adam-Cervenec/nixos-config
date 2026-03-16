@@ -78,7 +78,6 @@
 
 
   # --- user ---
-
   users.users.user = {
     isNormalUser = true;
     description = "user";
@@ -87,8 +86,12 @@
     packages = with pkgs; [
       kdePackages.kate
     ];
+    #shell = pkgs.zsh;
+
   };
 
+  users.users.user.shell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   # --- SW ---
 
