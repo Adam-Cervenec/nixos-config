@@ -9,7 +9,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
   # --- System ---
 
   # Bootloader.
@@ -80,39 +79,16 @@
 
   # --- user ---
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    shell = pkgs.zsh;
+    #shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
   };
 
-
-  # --- ZSH ---
-
-  programs.zsh = {
-    enable = true;
-
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix-config";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "robbyrussell";
-    };
-  };
 
   # --- SW ---
 
