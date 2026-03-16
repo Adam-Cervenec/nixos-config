@@ -17,6 +17,9 @@
   home.packages = with pkgs; [
     fastfetch
     btop
-    
+    alacritty
+    copyq
+    flameshot
+        
   ];
 }
