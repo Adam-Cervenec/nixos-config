@@ -19,13 +19,25 @@
 # --- Deklarace SW ---
 
   home.packages = with pkgs; [
+
+    # TTI
     fastfetch
     btop
     alacritty
+
+    #utils
     copyq
     flameshot
+
+    #code
     arduino
     vscodium
+
+    #music
+    high-tide
+
+    #3D
+    cura-appimage
   ];
 
   programs.zsh.enable = true;
