@@ -21,8 +21,8 @@
     copyq
     flameshot
     arduino
+    vscodium
   ];
 
   programs.zsh.enable = true;
-  programs.vscodium.enable = true;
 }
