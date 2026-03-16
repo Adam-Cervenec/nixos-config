@@ -40,26 +40,5 @@
     cura-appimage
   ];
 
-  programs.zsh = {
-    enable = true;
-
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix-config";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-      ];
-    };
-
-  };
-
   programs.firefox.enable = true;
 }
