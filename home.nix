@@ -20,6 +20,9 @@
     alacritty
     copyq
     flameshot
-        
+    arduino
   ];
+
+  programs.zsh.enable = true;
+  programs.vscodium.enable = true;
 }
