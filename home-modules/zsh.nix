@@ -37,10 +37,22 @@
             precmd() { vcs_info }
             zstyle ':vcs_info:git:*' formats '(%b)'
 
-            # Funkce pro získání git větve
+            # Funkce pro získání git větve a statusu
             git_branch() {
-            git rev-parse --is-inside-work-tree &>/dev/null && \
-            echo " (%F{33}$(git symbolic-ref --short HEAD)%f)"
+            # Zjistí, jestli jsme v git repozitáři
+            if git rev-parse --is-inside-work-tree &>/dev/null; then
+                # Získá název větve
+                branch=$(git symbolic-ref --short HEAD)
+                
+                # Zkontroluje, jestli jsou necommitnuté změny
+                if [[ -n $(git status --porcelain) ]]; then
+                # Pokud jsou změny, přidá křížek (✘) žlutě za větev
+                echo " (%F{33}$branch%f)%F{3}✘%f"
+                else
+                # Pokud není nic změněného, jen zobrazuje název větve
+                echo " (%F{33}$branch%f)"
+                fi
+            fi
             }
 
             PROMPT='
