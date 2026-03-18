@@ -98,7 +98,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [  ];
+  environment.systemPackages = with pkgs; [ 
+    protonup
+    mangohud
+   ];
 
 
   # Enable the OpenSSH daemon.
@@ -128,4 +131,14 @@
     open = false;
     nvidiaSettings = true;
   };
+
+  # --- Steam ---
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+
+
+  programs.gamemode.enable = true;
+
+
 }

@@ -48,4 +48,6 @@
   ];
 
   programs.firefox.enable = true;
+
+
 }
