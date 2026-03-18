@@ -1,6 +1,13 @@
+#home.nix
+
 { config, pkgs, ... }:
 
 {
+
+  imports = [
+    ./home-modules/zsh.nix
+  ];
+
   home.username = "user";
   home.homeDirectory = "/home/user";
 
@@ -39,27 +46,6 @@
     #3D
     cura-appimage
   ];
-
-
-  programs.zsh = {
-    enable = true;
-
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "robbyrussell";
-    };
-  };
 
   programs.firefox.enable = true;
 }

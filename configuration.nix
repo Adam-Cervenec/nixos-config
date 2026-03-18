@@ -1,3 +1,5 @@
+#configuration.nix
+
 { config, pkgs, ... }:
 
 {
@@ -81,12 +83,10 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    #shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
-    #shell = pkgs.zsh;
 
   };
 
@@ -95,14 +95,9 @@
 
   # --- SW ---
 
-  # Install firefox.
-  # programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [  ];
 
 
