@@ -25,9 +25,21 @@
         };
 
 
-        initExtra = ''
-            export PROMPT='
-            ╭─[%B%F{39}%2~%f%b] %F{213}${vcs_info_msg_0_}%f %(?..%F{196}✘ %?%f )%F{244}
+        initContent = ''
+            
+            #fastfetch
+            if command -v fastfetch >/dev/null 2>&1; then
+                fastfetch
+            fi
+
+            #git cosi
+            autoload -Uz vcs_info
+            precmd() { vcs_info }
+            zstyle ':vcs_info:git:*' formats '(%b)'
+
+            # prompt
+            PROMPT='
+            ╭─[%B%F{39}%2~%f%b] %F{213}$%f %(?..%F{196}✘ %?%f )%F{244}
             ╰─%F{45}(U ω U❁)%f ❯ '
         '';
     };
