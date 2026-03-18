@@ -37,10 +37,15 @@
             precmd() { vcs_info }
             zstyle ':vcs_info:git:*' formats '(%b)'
 
-            # prompt
+            # Funkce pro získání git větve
+            git_branch() {
+            git rev-parse --is-inside-work-tree &>/dev/null && \
+            echo " (%F{33}$(git symbolic-ref --short HEAD)%f)"
+            }
+
             PROMPT='
             ╭─[%B%F{39}%2~%f%b] %F{213}$%f %(?..%F{196}✘ %?%f )%F{244}
-            ╰─%F{45}(U ω U❁)%f ❯ '
+            ╰─%F{45}(U ω U❁)%f$(git_branch) ❯ '
         '';
     };
 }
