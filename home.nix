@@ -45,6 +45,10 @@
 
     #3D
     cura-appimage
+
+    #for steam
+    protonup-ng
+    mangohud
   ];
 
   programs.firefox.enable = true;
