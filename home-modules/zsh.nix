@@ -47,7 +47,7 @@
                 # Zkontroluje, jestli jsou necommitnuté změny
                 if [[ -n $(git status --porcelain) ]]; then
                 # Pokud jsou změny, přidá křížek (✘) žlutě za větev
-                echo " (%F{33}$branch%f)%F{3}✘%f"
+                echo " (%F{33}$branch%f)%F{3} ✘%f"
                 else
                 # Pokud není nic změněného, jen zobrazuje název větve
                 echo " (%F{33}$branch%f)"
