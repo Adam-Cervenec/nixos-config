@@ -50,6 +50,9 @@
     #for steam
     protonup-ng
     mangohud
+
+    #app launcher
+    ulauncher
   ];
 
   programs.firefox.enable = true;
