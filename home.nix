@@ -21,8 +21,6 @@
     userName = "Adam-Cervenec";
   };
 
-
-
 # --- Deklarace SW ---
 
   home.packages = with pkgs; [
@@ -53,9 +51,9 @@
 
     #app launcher
     ulauncher
+    wmctrl # for wayland shortcut
   ];
 
   programs.firefox.enable = true;
-
 
 }
