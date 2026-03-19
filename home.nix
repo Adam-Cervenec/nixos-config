@@ -35,6 +35,7 @@
     #utils
     copyq
     flameshot
+    networkmanagerapplet
 
     #code
     arduino
