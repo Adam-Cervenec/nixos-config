@@ -15,6 +15,7 @@
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
             test = "sudo nixos-rebuild build --flake ~/nixos-config --accept-flake-config";
+            update = "nix flake update";
         };
 
         oh-my-zsh = {
