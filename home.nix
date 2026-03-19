@@ -27,7 +27,7 @@
 
   home.packages = with pkgs; [
 
-    # TTI
+    # terminal
     fastfetch
     btop
     alacritty
