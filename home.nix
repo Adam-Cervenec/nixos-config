@@ -44,7 +44,7 @@
 
     #3D
     cura-appimage
-    freecad
+    #freecad
 
     #for steam
     protonup-ng
