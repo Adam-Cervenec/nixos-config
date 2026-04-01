@@ -53,6 +53,8 @@
     #app launcher
     ulauncher
     wmctrl # for wayland shortcut
+
+    qbittorrent
   ];
 
   programs.firefox.enable = true;
