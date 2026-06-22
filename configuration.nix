@@ -5,7 +5,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./hosts/MainDesktop/hardware-configuration.nix
       ./global-modules/system.nix
       ./global-modules/software.nix
       ./global-modules/gui.nix
