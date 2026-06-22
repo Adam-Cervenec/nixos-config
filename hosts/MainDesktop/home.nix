@@ -6,7 +6,8 @@
 
   imports = [
     ../../home-modules/zsh.nix
-    ../../home-modules/dev.nix
+    
+    ../../home-modules/roles/dev.nix
   ];
 
   home.username = "user";
