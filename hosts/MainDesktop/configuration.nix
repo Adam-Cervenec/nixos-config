@@ -5,6 +5,6 @@
 
 
     # modules
-    ../../modules/common/hardware/roles/nvidia.nix
+    ../../modules/roles/nvidia.nix
   ];
 }
