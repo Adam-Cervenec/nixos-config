@@ -20,14 +20,6 @@
             upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
         };
 
-
-        initContent = ''
-            add-commit() {
-            git add .
-            git commit -m "$*"
-            }
-        '';
-
         oh-my-zsh = {
             enable = true;
             plugins = [
@@ -38,6 +30,12 @@
 
 
         initContent = ''
+
+            #zkratka pro git
+            add-commit() {
+            git add .
+            git commit -m "$*"
+            }
             
             #fastfetch
             if command -v fastfetch >/dev/null 2>&1; then
