@@ -29,10 +29,11 @@
         };
 
 
+
         initContent = ''
 
             #zkratka pro git
-            add-commit() {
+            gitsave() {
             git add .
             git commit -m "$*"
             }
