@@ -4,9 +4,13 @@
 
 {
 
+
+  #allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ../../home-modules/zsh.nix
-    
+
     ../../home-modules/roles/dev.nix
   ];
 
@@ -38,8 +42,8 @@
     networkmanagerapplet
 
     #code
-    arduino
-    vscodium
+    #arduino
+    #vscodium
 
     #music
     high-tide
