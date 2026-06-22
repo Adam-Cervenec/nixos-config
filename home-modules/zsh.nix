@@ -18,6 +18,7 @@
             test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
             upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
+            rollback = "sudo nixos-rebuild switch --rollback";
         };
 
         oh-my-zsh = {
@@ -43,7 +44,7 @@
             if command -v fastfetch >/dev/null 2>&1; then
                 fastfetch
             fi
-            
+
 
             #git cosi
             autoload -Uz vcs_info
