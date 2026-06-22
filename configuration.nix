@@ -9,7 +9,7 @@
       ./global-modules/system.nix
       ./global-modules/software.nix
       ./global-modules/gui.nix
-      ./global-modules/gpu.nix
+      #./global-modules/gpu.nix
       ./global-modules/periferies/audio.nix
       ./global-modules/periferies/printers.nix
       #./global-modules/periferies/basic.nix
