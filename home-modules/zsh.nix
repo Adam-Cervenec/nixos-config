@@ -24,7 +24,7 @@
         add-commit() {
             git add .
             git commit -m "$*"
-        }
+        };
 
         oh-my-zsh = {
             enable = true;
