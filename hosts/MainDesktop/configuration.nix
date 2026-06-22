@@ -14,6 +14,9 @@
     ../../modules/desktop/network.nix
     ../../modules/desktop/audio.nix
     ../../modules/desktop/printers.nix
+
+      #roles
+    ../../modules/roles/steam.nix
   ];
 
   # HOSTNAME
