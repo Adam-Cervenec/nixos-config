@@ -19,6 +19,7 @@
             update = "nix flake update";
             upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
             rollback = "sudo nixos-rebuild switch --rollback";
+            clean = "sudo nix-collect-garbage -d";
         };
 
         oh-my-zsh = {
