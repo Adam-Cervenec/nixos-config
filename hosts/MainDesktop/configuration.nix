@@ -1,6 +1,10 @@
 { config, pkgs, ...}:
 
 {
+
+  # HOSTNAME
+  networking.hostName = "MainDesktop"; # Define your hostname.
+  
   imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
@@ -25,7 +29,4 @@
       #roles
     ../../modules/roles/steam.nix
   ];
-
-  # HOSTNAME
-  networking.hostName = "MainDesktop"; # Define your hostname.
 }
