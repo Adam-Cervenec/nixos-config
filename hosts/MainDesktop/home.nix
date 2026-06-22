@@ -23,8 +23,11 @@
 
   programs.git = {
     enable = true;
-    userEmail = "cervenec.a@protonmail.com";
-    userName = "Adam-Cervenec";
+
+    settings = {
+      user.name = "Adam-Cervenec";
+      user.email = "cervenec.a@protonmail.com";
+    };
   };
 
 # --- Deklarace SW ---
