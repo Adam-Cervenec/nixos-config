@@ -18,6 +18,9 @@
     ../../modules/desktop/network.nix
     ../../modules/desktop/audio.nix
     ../../modules/desktop/printers.nix
+    (import ../../modules/desktop/wol.nix {
+      interface = "enp6s0";
+    })
 
         #gui
     ../../modules/desktop/gui/x11.nix
@@ -29,19 +32,4 @@
       #roles
     ../../modules/roles/steam.nix
   ];
-
-
-  # WOL
-    systemd.services.wol = {
-    description = "Enable Wake-on-LAN";
-
-    after = [ "network.target" ];
-
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.ethtool}/bin/ethtool -s enp37s0 wol g";
-    };
-
-    wantedBy = [ "multi-user.target" ];
-  };
 }
