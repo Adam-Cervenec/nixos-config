@@ -56,6 +56,4 @@
     qbittorrent
   ];
 
-  programs.firefox.enable = true;
-
 }
