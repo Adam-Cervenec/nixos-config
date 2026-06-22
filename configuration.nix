@@ -16,7 +16,7 @@
       ./hosts/Asus-A16/hardware-configuration.nix
 
 
-      ./global-modules/system.nix
+      #./global-modules/system.nix
       #./global-modules/software.nix
       #./global-modules/gui.nix
       #./global-modules/gpu.nix
