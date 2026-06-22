@@ -12,6 +12,11 @@
     ../../home-modules/zsh.nix
 
     ../../home-modules/roles/dev.nix
+    ../../home-modules/roles/3d-printing.nix
+    ../../home-modules/roles/firefox.nix
+    ../../home-modules/roles/games.nix
+    ../../home-modules/roles/office.nix
+    ../../home-modules/roles/utils.nix
   ];
 
   home.username = "user";
