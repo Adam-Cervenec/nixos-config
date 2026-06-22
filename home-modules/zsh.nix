@@ -40,6 +40,12 @@
             git commit -m "$*"
             }
 
+            upgrade() {
+                nix flake update
+                save "flake update $(date +%Y-%m-%d)"
+                sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)
+            }
+
             
             #fastfetch
             if command -v fastfetch >/dev/null 2>&1; then
