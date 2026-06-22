@@ -17,7 +17,6 @@
             boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
             test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
-            upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
             rollback = "sudo nixos-rebuild switch --rollback";
             clean = "sudo nix-collect-garbage -d";
         };
