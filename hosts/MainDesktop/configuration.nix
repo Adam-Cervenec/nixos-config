@@ -7,8 +7,8 @@
 
 
     # modules
-      #roles
-    ../../modules/roles/nvidia.nix
+      #hardware
+    ../../modules/hardware/nvidia.nix
 
       #destkop
     ../../modules/desktop/network.nix
