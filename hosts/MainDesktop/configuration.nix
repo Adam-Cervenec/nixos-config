@@ -29,4 +29,19 @@
       #roles
     ../../modules/roles/steam.nix
   ];
+
+
+  # WOL
+    systemd.services.wol = {
+    description = "Enable Wake-on-LAN";
+
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.ethtool}/bin/ethtool -s enp37s0 wol g";
+    };
+
+    wantedBy = [ "multi-user.target" ];
+  };
 }
