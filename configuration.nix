@@ -6,7 +6,7 @@
   imports =
     [
       #common modules
-      ./modules/system.nix
+      ./modules/common/system.nix
       ./modules/common/firewall.nix
       ./modules/common/users.nix
       ./modules/common/shell.nix
