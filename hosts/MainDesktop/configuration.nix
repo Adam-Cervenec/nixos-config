@@ -11,7 +11,7 @@
     ../../modules/roles/nvidia.nix
 
       #destkop
-    ../../modules/destkop/network.nix
+    ../../modules/desktop/network.nix
   ];
 
   # HOSTNAME
