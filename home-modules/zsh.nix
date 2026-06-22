@@ -20,11 +20,13 @@
             upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
         };
 
+
         initContent = ''
-        add-commit() {
+            add-commit() {
             git add .
             git commit -m "$*"
-        };
+            }
+        '';
 
         oh-my-zsh = {
             enable = true;
