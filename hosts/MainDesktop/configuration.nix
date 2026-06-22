@@ -19,7 +19,7 @@
     ../../modules/desktop/audio.nix
     ../../modules/desktop/printers.nix
     (import ../../modules/desktop/wol.nix {
-      interface = "enp6s0";
+      interface = "enp37s0";
     })
 
         #gui
