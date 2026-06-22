@@ -54,6 +54,8 @@
     wmctrl # for wayland shortcut
 
     qbittorrent
+
+    obsidian
   ];
 
 }
