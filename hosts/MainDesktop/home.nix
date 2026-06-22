@@ -49,17 +49,6 @@
     flameshot
     networkmanagerapplet
 
-    #code
-    #arduino
-    #vscodium
-
-
-
-
-    #for steam
-    protonup-ng
-    mangohud
-
     #app launcher
     ulauncher
     wmctrl # for wayland shortcut
