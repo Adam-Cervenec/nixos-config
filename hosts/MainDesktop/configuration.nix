@@ -16,10 +16,10 @@
     ../../modules/desktop/printers.nix
 
         #gui
-    ../../modules/destkop/gui/x11.nix
-    ../../modules/destkop/gui/de/plasma.nix
-    ../../modules/destkop/gui/display/sddm.nix
-    ../../modules/destkop/gui/wm/qtile.nix
+    ../../modules/desktop/gui/x11.nix
+    ../../modules/desktop/gui/de/plasma.nix
+    ../../modules/desktop/gui/display/sddm.nix
+    ../../modules/desktop/gui/wm/qtile.nix
 
 
       #roles
