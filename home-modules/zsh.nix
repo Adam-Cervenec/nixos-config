@@ -33,10 +33,11 @@
         initContent = ''
 
             #zkratka pro git
-            gitsave() {
+            save() {
             git add .
             git commit -m "$*"
             }
+
             
             #fastfetch
             if command -v fastfetch >/dev/null 2>&1; then
