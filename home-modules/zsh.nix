@@ -41,7 +41,6 @@
 
             upgrade() {
                 nix flake update
-                save "flake update $(date +%Y-%m-%d)"
                 sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)
             }
 
