@@ -53,12 +53,8 @@
     #arduino
     #vscodium
 
-    #music
-    high-tide
 
-    #3D
-    cura-appimage
-    #freecad
+
 
     #for steam
     protonup-ng
