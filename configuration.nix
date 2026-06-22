@@ -24,4 +24,6 @@
       #./global-modules/network/wireless.nix
     ];
 
+  #allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 }
