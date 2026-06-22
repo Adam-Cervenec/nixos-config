@@ -12,6 +12,8 @@
 
       #destkop
     ../../modules/desktop/network.nix
+    ../../modules/desktop/audio.nix
+    ../../modules/desktop/printers.nix
   ];
 
   # HOSTNAME
