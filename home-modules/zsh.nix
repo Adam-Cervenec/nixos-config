@@ -13,11 +13,12 @@
         syntaxHighlighting.enable = true;
 
         shellAliases = {
-            rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-            test = "sudo nixos-rebuild build --flake ~/nixos-config --accept-flake-config";
+            rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
+            boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
+            test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
+            upgrade = "nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
         };
-
         oh-my-zsh = {
             enable = true;
             plugins = [
