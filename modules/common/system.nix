@@ -6,6 +6,10 @@
     #experimental
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+
+    #allow unfree packages
+    nixpkgs.config.allowUnfree = true;
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -28,20 +32,6 @@
         LC_TELEPHONE = "cs_CZ.UTF-8";
         LC_TIME = "cs_CZ.UTF-8";
     };
-
-    # --- user ---
-    users.users.user = {
-        isNormalUser = true;
-        description = "user";
-        extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-        kdePackages.kate
-        ];
-
-    };
-
-    users.users.user.shell = pkgs.zsh;
-    programs.zsh.enable = true;
 
 
     # --- OS version ---

@@ -6,7 +6,10 @@
   imports =
     [
       #common modules
+      ./modules/system.nix
       ./modules/common/firewall.nix
+      ./modules/common/users.nix
+      ./modules/common/shell.nix
 
 
       ./hosts/MainDesktop/hardware-configuration.nix
@@ -24,6 +27,4 @@
       #./global-modules/network/wireless.nix
     ];
 
-  #allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 }
