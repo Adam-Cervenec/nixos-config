@@ -3,7 +3,7 @@
 {
     # --- Network ---
 
-    networking.hostName = "nixos"; # Define your hostname.
+    networking.hostName = "MainDesktop"; # Define your hostname.
 
     # Enable networking
     networking.networkmanager = {
