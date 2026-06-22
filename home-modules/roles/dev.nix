@@ -13,6 +13,8 @@
             formulahendry.code-runner
 
             bradlc.vscode-tailwindcss
+
+            jnoortheen.nix-ide
         ];
     };
 
