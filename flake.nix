@@ -22,10 +22,23 @@
           home-manager.nixosModules.home-manager
 
           {
-            home-manager.users.user = import ./home.nix;
+            home-manager.users.user = import ./hosts/MainDesktop/home.nix;
           }
         ];
-      }
+      };
+      Asus-A16 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          ./hosts/Asus-A16/configuration.nix
+
+          home-manager.nixosModules.home-manager
+
+          {
+            home-manager.users.user = import ./hosts/Asus-A16/home.nix;
+          }
+        ];
+      };
     };
   };
 }
