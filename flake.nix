@@ -12,18 +12,20 @@
 
   outputs = { self, nixpkgs, home-manager }:
   {
-    nixosConfigurations.MainDesktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations = {
+      MainDesktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-      modules = [
-        ./hosts/MainDesktop/configuration.nix
+        modules = [
+          ./hosts/MainDesktop/configuration.nix
 
-        home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager
 
-        {
-          home-manager.users.user = import ./home.nix;
-        }
-      ];
+          {
+            home-manager.users.user = import ./home.nix;
+          }
+        ];
+      }
     };
   };
 }
