@@ -8,7 +8,7 @@
             ms-vscode.cpptools
             ms-vscode.cpptools-extension-pack
 
-            vscode-extensions.platformio.platformio-vscode-ide
+            platformio.platformio-vscode-ide
 
             formulahendry.code-runner
 
