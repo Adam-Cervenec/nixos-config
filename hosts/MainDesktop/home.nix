@@ -5,7 +5,7 @@
 {
 
   imports = [
-    ../home-modules/zsh.nix
+    ../../home-modules/zsh.nix
   ];
 
   home.username = "user";
