@@ -39,10 +39,11 @@
 
   home.packages = with pkgs; [
 
-    # terminal
+    # common
     fastfetch
     btop
     alacritty
+    thunar
 
     #utils
     copyq
