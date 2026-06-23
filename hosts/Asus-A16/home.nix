@@ -17,6 +17,8 @@
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
+
+    
   ];
 
   home.username = "user";
@@ -34,6 +36,11 @@
       user.email = "cervenec.a@protonmail.com";
     };
   };
+
+  xdg.configFile."hypr/hyprland.conf" = {
+    source = ../../hyprland-modules/hyprland.conf;
+  };
+
 
 # --- Deklarace SW ---
 
