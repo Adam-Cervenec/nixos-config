@@ -63,7 +63,7 @@
     hyprlock
     hyprpaper
     hyprshot
-    swaync
+    swaynotificationcenter
   ];
 
 }
