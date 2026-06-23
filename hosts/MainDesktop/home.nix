@@ -61,7 +61,7 @@
     waypaper
     hypridle
     hyprlock
-    hyprpapr
+    hyprpaper
     hyprshot
   ];
 
