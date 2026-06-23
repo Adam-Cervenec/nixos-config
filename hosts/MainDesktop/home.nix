@@ -56,6 +56,13 @@
     qbittorrent
 
     obsidian
+
+    #hyprland temporary
+    waypaper
+    hypridle
+    hyprlock
+    hyprpapr
+    hyprshot
   ];
 
 }
