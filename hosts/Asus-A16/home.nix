@@ -37,10 +37,6 @@
     };
   };
 
-  xdg.configFile."hypr/hyprland.conf" = {
-    source = ../../hyprland-modules/hyprland.conf;
-  };
-
 
 # --- Deklarace SW ---
 

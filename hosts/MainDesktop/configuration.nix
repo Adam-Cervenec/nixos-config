@@ -27,13 +27,12 @@
     ../../modules/desktop/gui/de/plasma.nix
     ../../modules/desktop/gui/display/sddm.nix
     ../../modules/desktop/gui/wm/qtile.nix
+    ./../modules/desktop/gui/wm/hyprland.nix
 
 
       #roles
     ../../modules/roles/steam.nix
 
 
-    #hyprland modules
-    ../../hyprland-modules/hyprland.nix
   ];
 }
