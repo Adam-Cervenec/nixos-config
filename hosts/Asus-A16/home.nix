@@ -38,6 +38,7 @@
   };
 
 
+
 # --- Deklarace SW ---
 
   home.packages = with pkgs; [
