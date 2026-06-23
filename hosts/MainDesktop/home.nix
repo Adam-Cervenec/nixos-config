@@ -64,6 +64,7 @@
     hyprpaper
     hyprshot
     swaynotificationcenter
+    waybar
   ];
 
 }
