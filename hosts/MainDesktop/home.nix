@@ -47,7 +47,6 @@
 
     #utils
     copyq
-    flameshot
     networkmanagerapplet
 
     #app launcher
