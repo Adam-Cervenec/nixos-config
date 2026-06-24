@@ -10,7 +10,7 @@
   thunar-volman
 
   #terminal + utils
-  alacritty
+  #alacritty
   fastfetch
   btop
 
@@ -21,5 +21,11 @@
   #notes
   obsidian
   ];
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      # Můžeš nechat prázdné, Stylix to stejně přepíše
+    };
 
 }
