@@ -14,6 +14,7 @@
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
+    ../../home-modules/roles/hyprland.nix
   ];
 
   home.username = "user";
@@ -29,24 +30,6 @@
 
   home.packages = with pkgs; [
 
-    #utils
-    copyq
-    networkmanagerapplet
-
-    #app launcher
-    ulauncher
-    wmctrl # for wayland shortcut
-
-
-
-    #hyprland temporary
-    waypaper
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprshot
-    swaynotificationcenter
-    waybar
   ];
 
   
