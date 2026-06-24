@@ -17,6 +17,7 @@
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
+    ../../home-modules/roles/common.nix
   ];
 
   home.username = "user";
@@ -39,12 +40,6 @@
 
   home.packages = with pkgs; [
 
-    # common
-    fastfetch
-    btop
-    alacritty
-    thunar
-
     #utils
     copyq
     networkmanagerapplet
@@ -53,9 +48,7 @@
     ulauncher
     wmctrl # for wayland shortcut
 
-    qbittorrent
 
-    obsidian
 
     #hyprland temporary
     waypaper
