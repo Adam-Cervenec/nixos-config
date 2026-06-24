@@ -11,7 +11,6 @@
   imports = [
     ../../home-modules/programs/zsh.nix
     ../../home-modules/programs/firefox.nix
-    ../../home-modules/programs/thunar.nix
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix
