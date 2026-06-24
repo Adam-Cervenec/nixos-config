@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
   {
     nixosConfigurations = {
       MainDesktop = nixpkgs.lib.nixosSystem {
