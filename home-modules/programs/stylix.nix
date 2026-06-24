@@ -45,5 +45,9 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
+
+  targets = {
+      #vscode.enable = false; 
+    };
   };
 }
