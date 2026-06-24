@@ -27,7 +27,7 @@
     settings = {
       window = {
         
-        opacity = 0.9;
+        opacity = 0.7;
         
         blur = true; 
       };
