@@ -27,18 +27,18 @@
     settings = {
       window = {
         
-        opacity = 0.7;
+        opacity = 0.75;
         
         blur = true;
 
         padding = {
-          x = 10;
-          y = 10;
+          x = 7;
+          y = 7;
         };
       };
       
       font = {
-        size = 12.0;
+        size = 9.5;
       };
     };
   };
