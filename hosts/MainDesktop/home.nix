@@ -7,7 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ../../home-modules/programs
+    ../../home-modules/common
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix

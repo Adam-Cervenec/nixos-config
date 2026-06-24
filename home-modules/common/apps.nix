@@ -22,6 +22,7 @@
   obsidian
   ];
 
+  #due to stylix
   programs.alacritty = {
     enable = true;
     settings = {};
