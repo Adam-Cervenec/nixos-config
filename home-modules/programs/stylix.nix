@@ -46,8 +46,10 @@
       light = "Papirus-Light";
     };
 
-  targets = {
-      #vscode.enable = false; 
+    targets = {
+      firefox = {
+        enable = false;
+      };
     };
   };
 }
