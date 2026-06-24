@@ -10,7 +10,7 @@
   thunar-volman
 
   #terminal + utils
-  #alacritty
+  alacritty
   fastfetch
   btop
 
@@ -21,24 +21,5 @@
   #notes
   obsidian
   ];
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      window = {
-        
-        opacity = 0.75;
-        
-        blur = false;
-
-        padding = {
-          x = 7;
-          y = 7;
-        };
-
-        decorations = "None";
-      };
-    };
-  };
 
 }
