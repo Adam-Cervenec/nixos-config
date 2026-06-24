@@ -10,6 +10,7 @@
       ./modules/common/firewall.nix
       ./modules/common/users.nix
       ./modules/common/shell.nix
+      ./modules/common/programs.nix
     ];
 
 }
