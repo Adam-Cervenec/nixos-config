@@ -86,7 +86,7 @@
       # Velikosti pro různé části systému
       sizes = {
         applications = 10;
-        terminal = 9;
+        terminal = 10;
         desktop = 10;
         popups = 8;
       };
