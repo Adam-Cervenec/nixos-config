@@ -32,7 +32,7 @@
 
       #roles
     ../../modules/roles/steam.nix
-    ../../modules/roles/services.nix
+    ../../modules/roles/thunar.nix
 
 
   ];
