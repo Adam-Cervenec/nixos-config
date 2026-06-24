@@ -27,26 +27,12 @@
 
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-
-    settings = {
-      user.name = "Adam-Cervenec";
-      user.email = "cervenec.a@protonmail.com";
-    };
-  };
-
 
 
 # --- Deklarace SW ---
 
   home.packages = with pkgs; [
 
-    # common
-    fastfetch
-    btop
-    alacritty
-    thunar
 
     #utils
     copyq
@@ -55,10 +41,6 @@
     #app launcher
     ulauncher
     wmctrl # for wayland shortcut
-
-    qbittorrent
-
-    obsidian
 
     #hyprland temporary
     waypaper
