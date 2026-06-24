@@ -63,7 +63,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/cacao.yaml";
 
     polarity = "dark";
 
