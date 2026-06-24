@@ -9,14 +9,11 @@
     ntfs3g
     thunar
     thunar-volman
-  ];
 
-
-  #terminal + terminal utils
-  alacritty
-  fastfetch
-  btop
-
+    #terminal + utils
+    alacritty
+    fastfetch
+    btop
 
   #torrent client
   qbittorrent
@@ -24,4 +21,6 @@
 
   #notes
   obsidian
+  ];
+
 }
