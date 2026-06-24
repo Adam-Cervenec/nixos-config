@@ -1,6 +1,6 @@
 #home.nix
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -9,6 +9,8 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
+    inputs.stylix.homeManagerModules.stylix
+
     ../../home-modules/programs/zsh.nix
     ../../home-modules/programs/firefox.nix
 
