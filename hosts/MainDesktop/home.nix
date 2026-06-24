@@ -85,7 +85,7 @@
       
       # Velikosti pro různé části systému
       sizes = {
-        applications = 11;
+        applications = 10;
         terminal = 11;
         desktop = 10;
         popups = 8;
@@ -103,8 +103,6 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
-    targets = {
-      alacritty.enable = true;
-    };
+    #targets.firefox.profileNames = [ "default" ];
   };
 }

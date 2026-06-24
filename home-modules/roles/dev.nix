@@ -4,7 +4,7 @@
     programs.vscode = {
         enable = true;
 
-        extensions = with pkgs.vscode-extensions; [
+        profiles.default.extensions = with pkgs.vscode-extensions; [
             ms-vscode.cpptools
             ms-vscode.cpptools-extension-pack
 
