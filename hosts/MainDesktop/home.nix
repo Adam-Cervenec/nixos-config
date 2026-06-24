@@ -75,8 +75,8 @@
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.eb-garamond;
+        name = "EB Garamond";
       };
       serif = {
         package = pkgs.dejavu_fonts;
