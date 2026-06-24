@@ -15,10 +15,13 @@
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
             boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
-            test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname) --show-trace";
             update = "nix flake update";
             rollback = "sudo nixos-rebuild switch --rollback";
             clean = "sudo nix-collect-garbage -d";
+
+            test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname) --show-trace";
+            eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
+            
         };
 
         oh-my-zsh = {
