@@ -12,13 +12,13 @@
     ../../home-modules/programs/firefox.nix
     ../../home-modules/programs/stylix.nix
     ../../home-modules/programs/git.nix
+    ../../home-modules/programs/common.nix
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
-    ../../home-modules/roles/common.nix
   ];
 
   home.username = "user";
