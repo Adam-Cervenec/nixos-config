@@ -103,10 +103,8 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
+    targets = {
+      alacritty.enable = true;
+    };
   };
-
-  targets = {
-    #alacritty.enable = true;
-  };
-
 }
