@@ -20,15 +20,18 @@
 
         modules = [
           ./hosts/MainDesktop/configuration.nix
-
-          home-manager.nixosModules.home-manager
-
-          {
-            home-manager.users.user = import ./hosts/MainDesktop/home.nix;
-          }
-
           #activation of stylix
           stylix.nixosModules.stylix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.user = import ./hosts/MainDesktop/home.nix;
+
+            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+
         ];
       };
       Asus-A16 = nixpkgs.lib.nixosSystem {
