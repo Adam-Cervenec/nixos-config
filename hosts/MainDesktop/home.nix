@@ -5,11 +5,9 @@
 {
 
 
-  #allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
 
     ../../home-modules/programs/zsh.nix
     ../../home-modules/programs/firefox.nix
