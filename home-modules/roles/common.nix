@@ -29,12 +29,14 @@
         
         opacity = 0.75;
         
-        blur = true;
+        blur = false;
 
         padding = {
           x = 7;
           y = 7;
         };
+
+        decorations = "None";
       };
       
       font = {
