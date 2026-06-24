@@ -8,6 +8,7 @@
   ntfs3g
   thunar
   thunar-volman
+  xfce.exo
 
   #terminal + utils
   alacritty
