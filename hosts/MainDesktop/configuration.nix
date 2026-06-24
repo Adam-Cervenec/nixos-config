@@ -15,12 +15,8 @@
     ../../modules/hardware/nvidia.nix
 
       #destkop
-    ../../modules/desktop/network.nix
-    ../../modules/desktop/audio.nix
-    ../../modules/desktop/printers.nix
-    (import ../../modules/desktop/wol.nix {
-      interface = "enp37s0";
-    })
+    ../../modules/desktop
+
 
       #gui
     ../../modules/gui/x11.nix
@@ -33,6 +29,9 @@
       #roles
     ../../modules/roles/steam.nix
     ../../modules/roles/thunar.nix
+    (import ../../modules/roles/wol.nix {
+      interface = "enp37s0";
+    })
 
 
   ];
