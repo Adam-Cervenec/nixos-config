@@ -60,4 +60,12 @@
     waybar
   ];
 
+  stylix = {
+    enable = true;
+
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/darkviolet.yaml";
+
+    polarity = "dark";
+  };
+
 }

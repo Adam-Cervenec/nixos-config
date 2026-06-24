@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #stylix for automatic themes
+    stylix.url = "github:danth/stylix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }:
   {
     nixosConfigurations = {
       MainDesktop = nixpkgs.lib.nixosSystem {
@@ -24,6 +26,9 @@
           {
             home-manager.users.user = import ./hosts/MainDesktop/home.nix;
           }
+
+          #activation of stylix
+          stylix.nixosModules.stylix
         ];
       };
       Asus-A16 = nixpkgs.lib.nixosSystem {
