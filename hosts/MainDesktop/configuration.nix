@@ -32,6 +32,7 @@
 
       #roles
     ../../modules/roles/steam.nix
+    ../../modules/roles/services.nix
 
 
   ];

@@ -4,6 +4,11 @@
 
   home.packages = with pkgs; [
 
+  #thunar
+  ntfs3g
+  thunar
+  thunar-volman
+
   #terminal + utils
   alacritty
   fastfetch
