@@ -22,12 +22,12 @@
     #  interface = "enp37s0";
     #})
 
-        #gui
-    ../../modules/desktop/gui/x11.nix
-    ../../modules/desktop/gui/de/plasma.nix
-    ../../modules/desktop/gui/display/sddm.nix
-    ../../modules/desktop/gui/wm/qtile.nix
-    ../../modules/desktop/gui/wm/hyprland.nix
+      #gui
+    ../../modules/gui/x11.nix
+    ../../modules/gui/de/plasma.nix
+    ../../modules/gui/display/sddm.nix
+    ../../modules/gui/wm/qtile.nix
+    ../../modules/gui/wm/hyprland.nix
     
       #roles
     ../../modules/roles/steam.nix
