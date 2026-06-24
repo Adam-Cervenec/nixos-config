@@ -63,7 +63,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/mountain.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/mezcal.yaml";
 
     polarity = "dark";
 
