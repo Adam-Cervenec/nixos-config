@@ -38,10 +38,6 @@
 
         decorations = "None";
       };
-      
-      font = {
-        size = 9.5;
-      };
     };
   };
 
