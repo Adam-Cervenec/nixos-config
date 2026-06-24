@@ -37,4 +37,13 @@
     # --- OS version ---
 
     system.stateVersion = "25.11"; # Did you read the comment?
+
+
+    # --- Firewall ---
+
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+
+    networking.firewall.enable = true; 
 }
