@@ -66,6 +66,32 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     polarity = "dark";
+
+    fonts = {
+
+      # Základní rodiny písem
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      
+      # Velikosti pro různé části systému
+      sizes = {
+        applications = 12;
+        terminal = 13;
+        desktop = 10;
+        popups = 10;
+      };
+
+    };
   };
 
 }
