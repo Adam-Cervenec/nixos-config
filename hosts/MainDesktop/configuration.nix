@@ -33,6 +33,7 @@
       #roles
     ../../modules/roles/steam.nix
     ../../modules/roles/thunar.nix
+    ../../modules/roles/vscode.nix
 
 
   ];
