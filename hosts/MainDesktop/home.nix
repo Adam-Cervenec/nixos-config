@@ -11,6 +11,7 @@
     ../../home-modules/programs/zsh.nix
     ../../home-modules/programs/firefox.nix
     ../../home-modules/programs/stylix.nix
+    ../../home-modules/programs/git.nix
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix
@@ -27,14 +28,7 @@
 
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
 
-    settings = {
-      user.name = "Adam-Cervenec";
-      user.email = "cervenec.a@protonmail.com";
-    };
-  };
 
 # --- Deklarace SW ---
 
