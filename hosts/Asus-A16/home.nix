@@ -33,21 +33,6 @@
 
   home.packages = with pkgs; [
 
-
-    #utils
-    copyq
-    networkmanagerapplet
-
-    #app launcher
-    ulauncher
-    wmctrl # for wayland shortcut
-
-    #hyprland temporary
-    waypaper
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprshot
   ];
 
 }
