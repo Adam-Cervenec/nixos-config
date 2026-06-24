@@ -105,4 +105,8 @@
     };
   };
 
+  targets = {
+    #alacritty.enable = true;
+  };
+
 }
