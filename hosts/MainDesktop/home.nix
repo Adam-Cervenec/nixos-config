@@ -90,11 +90,18 @@
         desktop = 10;
         popups = 8;
       };
-      
-      opacity = {
-        terminal = 0.85;
-      };
+    };
 
+      
+    opacity = {
+      terminal = 0.85;
+    };
+
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
   };
 
