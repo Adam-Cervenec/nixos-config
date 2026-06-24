@@ -4,7 +4,7 @@
 
 {
 
-
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     inputs.stylix.homeModules.stylix
