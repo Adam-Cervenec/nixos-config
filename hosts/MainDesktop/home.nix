@@ -75,8 +75,8 @@
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
-        package = pkgs.eb-garamond;
-        name = "EB Garamond";
+        package = pkgs.inter;
+        name = "Inter";
       };
       serif = {
         package = pkgs.dejavu_fonts;
@@ -89,6 +89,10 @@
         terminal = 11;
         desktop = 10;
         popups = 8;
+      };
+      
+      opacity = {
+        terminal = 0.85;
       };
 
     };
