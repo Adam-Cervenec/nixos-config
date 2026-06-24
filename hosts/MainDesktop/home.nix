@@ -63,7 +63,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/papercolor-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tinta.yaml";
 
     polarity = "dark";
 
