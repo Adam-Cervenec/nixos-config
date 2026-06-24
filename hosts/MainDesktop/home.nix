@@ -103,6 +103,5 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
-    #targets.firefox.profileNames = [ "default" ];
   };
 }
