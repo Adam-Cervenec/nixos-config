@@ -24,8 +24,7 @@
 
   programs.alacritty = {
     enable = true;
-    settings = {
-      # Můžeš nechat prázdné, Stylix to stejně přepíše
-    };
+    settings = {};
+  };
 
 }
