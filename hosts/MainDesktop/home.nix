@@ -7,12 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-
-    ../../home-modules/programs/zsh.nix
-    ../../home-modules/programs/firefox.nix
-    ../../home-modules/programs/stylix.nix
-    ../../home-modules/programs/git.nix
-    ../../home-modules/programs/common.nix
+    ../../home-modules/programs
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix
