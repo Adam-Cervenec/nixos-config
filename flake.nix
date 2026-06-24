@@ -28,7 +28,7 @@
             home-manager.users.user = import ./hosts/MainDesktop/home.nix;
 
             home-manager.useGlobalPkgs = true;
-            home-manager.useGlobalPackages = true;
+            home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
 
