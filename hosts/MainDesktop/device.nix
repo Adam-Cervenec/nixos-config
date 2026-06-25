@@ -24,9 +24,9 @@
 
   #for stylix,
   theme = {
-    base16 = "chalk";
+    base16 = "chalk"; #https://tinted-theming.github.io/tinted-gallery/
 
-    polarity = "dark";
+    polarity = "dark"; #dark or light
 
     size = {
       applications = 10;
