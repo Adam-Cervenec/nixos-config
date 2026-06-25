@@ -22,5 +22,9 @@
         gaps_in = 5;
       };
     };
+
+  extraConfig = ''
+    source = ~/nixos-config/hypr/local.conf
+  '';
   };
 }
