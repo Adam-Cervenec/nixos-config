@@ -15,7 +15,7 @@
   ];
 
   imports = [
-    ./monitor.nix
+    ./monitors.nix
   ];
 
   wayland.windowManager.hyprland = {
