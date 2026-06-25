@@ -17,7 +17,11 @@
     nixosConfigurations = {
       MainDesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
+        
+        specialArgs = {
+          inherit inputs;
+          device = import ./hosts/MainDesktop/device.nix;
+        };
 
         modules = [
           ./hosts/MainDesktop/configuration.nix
