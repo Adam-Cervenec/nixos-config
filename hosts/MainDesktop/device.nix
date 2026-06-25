@@ -9,6 +9,15 @@
     homeVersion = "25.11";
   };
 
+  hardware = {
+    gpu = "nvidia"; # set to nVidia, AMD or Integrated (TODO: add AMD or Integrated option, if needed)
+    de = "hyprland";
+    network = {
+      interface = "enp37s0";
+      wol.enable = true;
+    };
+  };
+
   apps = {
     browser = "firefox";
     terminal = "alacritty";

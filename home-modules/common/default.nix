@@ -2,7 +2,7 @@
 
 #define variables for paths in device.nix
 let
-  inherit (device) apps modules machine;
+  inherit (device) apps modules ;
 in
 {
   imports =
