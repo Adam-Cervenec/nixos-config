@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #stylix for automatic themes
+
     stylix.url = "github:danth/stylix";
 
     home-manager = {
@@ -13,47 +13,45 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
-  {
-    nixosConfigurations = {
-      MainDesktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        
-        specialArgs = {
-          inherit inputs;
-          device = import ./hosts/MainDesktop/device.nix;
+
+    let
+      lib = nixpkgs.lib;
+
+      mkHost = host:
+        let
+          device = import ./hosts/${host}/device.nix;
+        in
+        lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = {
+            inherit inputs device;
+          };
+
+          modules =
+            [
+              ./hosts/${host}/configuration.nix
+
+              home-manager.nixosModules.home-manager
+
+              {
+                home-manager.users.user =
+                  import ./hosts/${host}/home.nix;
+
+                home-manager.useUserPackages = true;
+
+                home-manager.extraSpecialArgs = {
+                  inherit inputs device;
+                };
+              }
+            ]
+            ++ lib.optional (device.modules.stylix or false) stylix.nixosModules.stylix;
         };
-
-        modules = [
-          ./hosts/MainDesktop/configuration.nix
-          #activation of stylix
-          stylix.nixosModules.stylix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.user = import ./hosts/MainDesktop/home.nix;
-
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { 
-              inherit inputs; 
-              device = import ./hosts/MainDesktop/device.nix;
-              };
-          }
-
-        ];
-      };
-      Asus-A16 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          ./hosts/Asus-A16/configuration.nix
-
-          home-manager.nixosModules.home-manager
-
-          {
-            home-manager.users.user = import ./hosts/Asus-A16/home.nix;
-          }
-        ];
+    in
+    {
+      nixosConfigurations = {
+        MainDesktop = mkHost "MainDesktop";
+        Asus-A16 = mkHost "Asus-A16";
       };
     };
-  };
 }
