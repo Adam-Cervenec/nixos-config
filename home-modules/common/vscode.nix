@@ -1,24 +1,16 @@
 { config, pkgs, lib, device, ... }:
 
-#define variable cfg for path
+#define variable cfg for path and for extensions
 let
   cfg = device.modules.vscode or {};
+  extensions = cfg.extensions or [];
+  getExtension = path:
+    lib.attrByPath (lib.splitString "." path) null pkgs.vscode-extensions;
 in
 lib.mkIf (cfg.enable or false) {
   programs.vscode = {
     enable = true;
 
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      ms-vscode.cpptools
-      ms-vscode.cpptools-extension-pack
-
-      platformio.platformio-vscode-ide
-
-      formulahendry.code-runner
-
-      bradlc.vscode-tailwindcss
-
-      jnoortheen.nix-ide
-    ];
+    profiles.default.extensions = map getExtension extensions;
   };
 }

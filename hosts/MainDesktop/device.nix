@@ -36,8 +36,25 @@
       email = "cervenec.a@protonmail.com";
     };
 
-    vscode.enable = true;
-    firefox.enable = true;
+    vscode = {
+      enable = true;
+      extensions = [
+        "ms-vscode.cpptools"
+        "ms-vscode.cpptools-extension-pack"
+        "platformio.platformio-vscode-ide"
+        "formulahendry.code-runner"
+        "bradlc.vscode-tailwindcss"
+        "jnoortheen.nix-ide"
+      ];
+    };
+
+    firefox = {
+      enable = true;
+      configPath = ".mozilla/firefox";
+      disableTelemetry = true;
+      homePageURL = ""; #f.e. https://start.duckduckgo.com
+      defaultSearchEngie = "DuckDuckGo";
+    };
     
     hyprland = {
       enable = true;

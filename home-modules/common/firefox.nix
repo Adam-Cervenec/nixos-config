@@ -7,19 +7,19 @@ in
 lib.mkIf (cfg.enable or false) {
   programs.firefox = {
     enable = true;
-    configPath = ".mozilla/firefox";
+    configPath = cfg.configPath;
 
     policies = {
-      DisableTelemetry = true;
-      DisablePocket = true;
+      DisableTelemetry = cfg.disableTelemetry;
+      DisablePocket = cfg.disableTelemetry;
 
       Homepage = {
-        URL = "https://start.duckduckgo.com";
+        URL = cfg.homePageURL;
         StartPage = "homepage";
       };
 
       SearchEngines = {
-        Default = "DuckDuckGo";
+        Default = cfg.defaultSearchEngie;
       };
     };
   };
