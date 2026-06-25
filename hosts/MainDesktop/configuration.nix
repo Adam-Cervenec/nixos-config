@@ -3,7 +3,7 @@
 {
 
   # HOSTNAME
-  networking.hostName = device.hostname; # Define your hostname.
+  networking.hostName = device.machine.hostname; # Define your hostname.
   
   imports = [
     ./hardware-configuration.nix

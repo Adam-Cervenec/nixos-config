@@ -22,7 +22,7 @@
           device = import ./hosts/${host}/device.nix;
         in
         lib.nixosSystem {
-          system = "x86_64-linux";
+          system = device.machine.system;
 
           specialArgs = {
             inherit inputs device;
@@ -35,7 +35,7 @@
               home-manager.nixosModules.home-manager
 
               {
-                home-manager.users.user =
+                home-manager.users.${device.machine.username} =
                   import ./hosts/${host}/home.nix;
 
                 home-manager.useUserPackages = true;

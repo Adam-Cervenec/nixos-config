@@ -1,8 +1,11 @@
 #device.nix 
 
 {
-  hostname = "MainDeskop";
-  username = "user";
+  machine = {
+    hostname = "MainDeskop";
+    username = "user";
+    system = "x86_64-linux";
+  };
 
   apps = {
     browser = "firefox";

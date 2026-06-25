@@ -17,8 +17,8 @@
     ../../home-modules/roles/utils.nix
   ];
 
-  home.username = device.username;
-  home.homeDirectory = "/home/${device.username}";
+  home.username = device.machine.username;
+  home.homeDirectory = "/home/${device.machine.username}";
 
   home.stateVersion = "25.11";
 
