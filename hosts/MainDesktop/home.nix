@@ -4,7 +4,7 @@
 
 {
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = device.machine.unfreePkgs;
 
   imports = [
     ../../home-modules/common
@@ -20,7 +20,7 @@
   home.username = device.machine.username;
   home.homeDirectory = "/home/${device.machine.username}";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = device.machine.homeVersion;
 
   programs.home-manager.enable = true;
 

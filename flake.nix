@@ -1,3 +1,5 @@
+#flake.nix
+
 {
   description = "My NixOS config";
 
@@ -43,9 +45,12 @@
                 home-manager.extraSpecialArgs = {
                   inherit inputs device;
                 };
+                home-manager.sharedModules =
+                  lib.optional (device.modules.stylix.enable or false)
+                    inputs.stylix.homeModules.stylix;
               }
             ]
-            ++ lib.optional (device.modules.stylix or false) stylix.nixosModules.stylix;
+            ++ lib.optional (device.modules.stylix.enable or false) stylix.nixosModules.stylix;
         };
     in
     {

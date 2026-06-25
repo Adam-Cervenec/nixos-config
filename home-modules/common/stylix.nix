@@ -1,16 +1,19 @@
-{ config, pkgs, inputs, device, ... }:
+{ config, pkgs, inputs, device, lib, ... }:
 
-{
+#define variable cfg for path
+let
+  cfg = device.modules.stylix or {};
+in
 
-  imports = [
-    inputs.stylix.homeModules.stylix
-  ];
+#if stylix is enabled, define stylix...
+lib.mkIf (cfg.enable or false) {
+
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${device.theme.base16}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.base16}.yaml";
 
-    polarity = device.theme.polarity;
+    polarity = cfg.polarity;
 
     fonts = {
 
@@ -30,16 +33,16 @@
       
       # Velikosti pro různé části systému
       sizes = {
-        applications = device.theme.size.applications;
-        terminal = device.theme.size.terminal;
-        desktop = device.theme.size.desktop;
-        popups = device.theme.size.popups;
+        applications = cfg.size.applications;
+        terminal = cfg.size.terminal;
+        desktop = cfg.size.desktop;
+        popups = cfg.size.popups;
       };
     };
 
       
     opacity = {
-      terminal = device.theme.opacity.terminal;
+      terminal = cfg.opacity.terminal;
     };
 
     icons = {

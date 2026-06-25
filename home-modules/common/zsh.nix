@@ -1,8 +1,14 @@
 #zsh.nix
 
-{ config, pkgs, ... }:
+{ config, pkgs, device, lib, ... }:
 
-{
+#define variable cfg for path
+let
+  cfg = device.modules.zsh or {};
+in
+
+#if zsh is enabled, define zsh...
+lib.mkIf (cfg.enable or false) {
 
 
     programs.zsh = {
