@@ -35,6 +35,9 @@
       username = "Adam-Cervenec";
       email = "cervenec.a@protonmail.com";
     };
+
+    vscode.enable = true;
+    firefox.enable = true;
     
     hyprland = {
       enable = true;
