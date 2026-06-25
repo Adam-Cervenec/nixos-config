@@ -6,8 +6,8 @@ let
 in
 {
   imports =
-    lib.optional (apps.browser == "firefox") ./firefox.nix
-    ++ lib.optional (apps.codeEditor == "vscode") ./vscode.nix
+    lib.optional (apps.default.browser == "firefox") ./firefox.nix
+    ++ lib.optional (apps.default.codeEditor == "vscode") ./vscode.nix
     ++ lib.optional (modules.git.enable or false )./git.nix
     ++ lib.optional (modules.zsh.enable or false ) ./zsh.nix
     ++ lib.optional (modules.stylix.enable or false ) ./stylix.nix;
@@ -31,12 +31,12 @@ in
     #notes
     obsidian
   ]
-  ++ lib.optional (apps.browser != "firefox") pkgs.${apps.browser}
-  ++ lib.optional (apps.codeEditor != "vscode") pkgs.${apps.codeEditor}
-  ++ lib.optional (apps.terminal != "alacritty") pkgs.${apps.terminal};
+  ++ lib.optional (apps.default.browser != "firefox") pkgs.${apps.default.browser}
+  ++ lib.optional (apps.default.codeEditor != "vscode") pkgs.${apps.default.codeEditor}
+  ++ lib.optional (apps.default.terminal != "alacritty") pkgs.${apps.default.terminal};
 
   #due to stylix
-  programs.alacritty = lib.mkIf (apps.terminal == "alacritty") {
+  programs.alacritty = lib.mkIf (apps.default.terminal == "alacritty") {
     enable = true;
     settings = {};
   };

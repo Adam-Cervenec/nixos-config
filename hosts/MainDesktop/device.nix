@@ -19,10 +19,13 @@
   };
 
   apps = {
-    browser = "firefox";
-    terminal = "alacritty";
-    fileManager = "thunar";
-    codeEditor = "vscode";
+      default = {
+      browser = "firefox";
+      terminal = "alacritty";
+      fileManager = "thunar";
+      codeEditor = "vscode";
+    };
+
   };
 
   modules = {
