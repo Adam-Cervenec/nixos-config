@@ -3,6 +3,7 @@
 {
   imports =
     lib.optional (device.apps.browser == "firefox") ./firefox.nix
+    ++ lib.optional (device.apps.codeEditor == "vscode") ./vscode.nix
     ++ lib.optional (device.modules.git or false )./git.nix
     ++ lib.optional (device.modules.zsh or false ) ./zsh.nix
     ++ lib.optional (device.modules.stylix or false ) ./stylix.nix;
@@ -27,6 +28,7 @@
     obsidian
   ]
   ++ lib.optional (device.apps.browser != "firefox") pkgs.${device.apps.browser}
+  ++ lib.optional (device.apps.codeEditor != "vscode") pkgs.${device.apps.codeEditor}
   ++ lib.optional (device.apps.terminal != "alacritty") pkgs.${device.apps.terminal};
 
   #due to stylix
