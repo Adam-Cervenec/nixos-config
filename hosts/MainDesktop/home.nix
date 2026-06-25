@@ -1,6 +1,6 @@
 #home.nix
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, device, ... }:
 
 {
 
@@ -17,8 +17,8 @@
     ../../home-modules/roles/utils.nix
   ];
 
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = device.username;
+  home.homeDirectory = "/home/${device.username}";
 
   home.stateVersion = "25.11";
 

@@ -2,6 +2,7 @@
 
 {
   hostname = "MainDeskop";
+  username = "user";
 
   apps = {
     browser = "firefox";
