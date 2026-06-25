@@ -13,4 +13,14 @@
     swaynotificationcenter
     waybar
   ];
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    settings = {
+      general = {
+        gaps_in = 5;
+      };
+    };
+  };
 }
