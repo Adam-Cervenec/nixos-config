@@ -18,6 +18,10 @@
       MainDesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
+        specialArgs = {
+          device = import ./hosts/MainDesktop/device.nix
+        };
+
         modules = [
           ./hosts/MainDesktop/configuration.nix
           #activation of stylix
