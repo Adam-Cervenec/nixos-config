@@ -1,4 +1,4 @@
-#device.nix
+#device.nix 
 
 {
   hostname = "MainDeskop";
