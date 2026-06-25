@@ -10,7 +10,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${device.theme.base16}.yaml";
 
-    polarity = "dark";
+    polarity = device.theme.polarity;
 
     fonts = {
 
@@ -30,16 +30,16 @@
       
       # Velikosti pro různé části systému
       sizes = {
-        applications = ${device.theme.size.applications};
+        applications = device.theme.size.applications;
         terminal = device.theme.size.terminal;
-        desktop = 10;
-        popups = 8;
+        desktop = device.theme.size.desktop;
+        popups = device.theme.size.popups;
       };
     };
 
       
     opacity = {
-      terminal = 0.85;
+      terminal = device.theme.opacity.terminal;
     };
 
     icons = {

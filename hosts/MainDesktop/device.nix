@@ -21,8 +21,11 @@
     "DP-3,preferred,1920x0,1"
   ];
 
+  #for stylix,
   theme = {
     base16 = "chalk";
+
+    polarity = "dark";
 
     size = {
       applications = 10;
