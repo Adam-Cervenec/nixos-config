@@ -1,9 +1,9 @@
-{ config, pkgs, ...}:
+{ config, pkgs, device, ...}:
 
 {
 
   # HOSTNAME
-  networking.hostName = "MainDesktop"; # Define your hostname.
+  networking.hostName = device.hostname; # Define your hostname.
   
   imports = [
     ./hardware-configuration.nix
