@@ -30,8 +30,8 @@
       
       # Velikosti pro různé části systému
       sizes = {
-        applications = 10;
-        terminal = 11;
+        applications = ${device.theme.size.applications};
+        terminal = device.theme.size.terminal;
         desktop = 10;
         popups = 8;
       };
