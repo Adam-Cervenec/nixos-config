@@ -29,7 +29,6 @@
 
   extraConfig = ''
     source = ~/nixos-config/hypr/variables.conf
-    source = ~/nixos-config/hypr/monitors.conf
     source = ~/nixos-config/hypr/environment.conf
     source = ~/nixos-config/hypr/autostart.conf
     source = ~/nixos-config/hypr/input-rules.conf
