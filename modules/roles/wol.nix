@@ -2,7 +2,7 @@
 
 #define variables for paths in device.nix
 let
-  cfg = hardware.network or {};
+  cfg = device.hardware.network or {};
 in
 
 lib.mkIf (cfg.wol.enable or false) {
