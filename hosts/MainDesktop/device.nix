@@ -61,6 +61,15 @@
       homePageURL = ""; #f.e. https://start.duckduckgo.com
       defaultSearchEngie = "DuckDuckGo";
     };
+
+    thunar = {
+      enable = true;
+      install = [
+        "thunar"
+        "thunar-volman"
+        "ntfs3g"
+      ];
+    };
     
     hyprland = {
       enable = true;
