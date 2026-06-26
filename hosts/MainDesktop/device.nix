@@ -30,6 +30,8 @@
     install = [
       "fastfetch"
       "btop"
+      "zip"
+      "unzip"
       "qbittorrent"
       "obsidian"
       "cmatrix"
