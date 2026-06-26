@@ -9,7 +9,7 @@ in
   imports = [
     ./monitors.nix
   ];
-  
+
   config = lib.mkIf (cfg.enable or false) {
     home.packages = with pkgs; [
 
@@ -31,7 +31,7 @@ in
 
       settings = {
         general = {
-          gaps_in = 15;
+          gaps_in = 5;
         };
       };
 
