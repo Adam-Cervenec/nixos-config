@@ -10,7 +10,7 @@ in
       gaps_out = 15;
       border_size = 3;
 
-      "col.active_border" = lib.mkForce "${color "primary"} ${color "special"} 45deg";
+      "col.active_border" = lib.mkForce "${color "primary"} ${color "special"} 169deg";
     };
 
     decoration = {
