@@ -9,6 +9,7 @@ in
   imports = [
     ./monitors.nix
     ./aesthetics.nix
+    ./wallpaper.nix
 
     #modules
     ./modules/clipboard.nix
@@ -23,7 +24,6 @@ in
       waypaper
       hypridle
       hyprlock
-      hyprpaper
       hyprshot
       swaynotificationcenter
       waybar
