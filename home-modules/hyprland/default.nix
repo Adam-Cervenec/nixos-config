@@ -45,14 +45,18 @@ in
 
         #hyprlauncher
         bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
-        bind = [ "SUPER SHIFT, C, exec, copyq"];
+        bind = [ "SUPER SHIFT, C, exec, copyq toggle"];
+        windowrulev2 = [
+          "float, class:^(com.github.hluk.copyq)$"
+          "size 800 500, class:^(com.github.hluk.copyq)$"
+          "center, class:^(com.github.hluk.copyq)$"
+        ];
 
         # autostart
         exec-once = [
-          "uwsm app -- copyq --start-server &
+          "uwsm app -- copyq --start-server &"
         ];
       };
-
 
     extraConfig = ''
       source = ~/nixos-config/hypr/variables.conf
