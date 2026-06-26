@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, device, ... }:
 
-{
+#define variable cfg for path
+let
+  cfg = device.modules.hyprland or {};
+in
+lib.mkIf (cfg.enable or false) {
   home.packages = with pkgs; [
 
 
@@ -20,6 +24,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
 
     settings = {
       general = {
