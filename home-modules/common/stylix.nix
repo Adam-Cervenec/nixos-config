@@ -40,11 +40,6 @@ lib.mkIf (cfg.enable or false) {
       };
     };
 
-      
-    opacity = {
-      terminal = cfg.opacity.terminal;
-    };
-
     icons = {
       enable = true;
       package = pkgs.papirus-icon-theme;

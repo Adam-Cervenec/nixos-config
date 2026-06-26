@@ -19,6 +19,7 @@ in
         float = "on";
         center = "on";
         size = "800 500";
+        opacity = "0.9 0.85";
       }
     ];
     # autostart

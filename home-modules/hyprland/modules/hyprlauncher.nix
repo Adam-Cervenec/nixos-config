@@ -19,7 +19,7 @@ in
         math_prefix = "=";
       };
       general = {
-        grab_focus = true;
+        grab_focus = false;
       };
       ui = {
         window_size = "969 420";
