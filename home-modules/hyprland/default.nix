@@ -45,6 +45,7 @@ in
 
         #hyprlauncher
         bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
+        bind = [ "SUPER SHIFT, C, exec, copyq"];
 
         # autostart
         exec-once = [
