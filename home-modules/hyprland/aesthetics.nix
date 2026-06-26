@@ -1,9 +1,16 @@
+{ device, config, lib, ... }:
+let
+  color = name:
+    "rgb(${config.lib.stylix.colors.${device.theme.colors.${name}}})";
+in
 {
   wayland.windowManager.hyprland.settings = {
     general = {
       gaps_in = 7.5;
       gaps_out = 15;
       border_size = 3;
+
+      "col.active_border" = lib.mkForce "${color "primary"} ${color "special"} 45deg";
     };
 
     decoration = {
@@ -26,17 +33,16 @@
       inactive_opacity = 0.9;
     };
 
-    #windowrule = [
-      #{
-        #name = "Floating windows";
-        #"match:floating" = true;
+    windowrule = [
+      {
+        name = "Floating windows";
+        "match:float" = true;
+        
+        no_blur = true;
+        opacity = "1 override 0.8 override";
+        border_color = color "secondary";
 
-      #}
-      #{
-        #name = "Alacritty transparency";
-        #"match:class" = "^Alacritty$";
-        #opacity = "0.85 override 0.7 override";
-      #}
-    #];
+      }
+    ];
   };
 }

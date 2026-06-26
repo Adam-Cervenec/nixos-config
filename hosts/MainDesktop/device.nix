@@ -108,4 +108,16 @@
     };
   };
 
+  theme = {
+    colors = {
+      background = "base00";
+      foreground = "base05";
+      primary = "base0D";
+      accent = "base0C";
+      secondary = "base0A";
+      special = "base0E";
+      warning = "base08";
+    };
+  };
+
 }
