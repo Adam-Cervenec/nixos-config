@@ -26,6 +26,12 @@
       codeEditor = "vscode";
     };
 
+    install = [
+      "fastfetch"
+      "btop"
+      "qbittorrent"
+      "obsidian"
+    ];
   };
 
   modules = {

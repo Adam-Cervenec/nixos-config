@@ -3,6 +3,15 @@
 #define variables for paths in device.nix
 let
   inherit (device) apps modules ;
+  install = apps.install or [];
+  getInstall = path:
+    let
+      pkg = lib.attrByPath (lib.splitString "." path) null pkgs;
+    in
+      if pkg == null then
+        throw "Package '${path}' does not exist."
+      else
+        pkg;
 in
 {
   imports =
@@ -12,25 +21,7 @@ in
     ++ lib.optional (modules.zsh.enable or false ) ./zsh.nix
     ++ lib.optional (modules.stylix.enable or false ) ./stylix.nix;
 
-  home.packages = with pkgs; [
-    #browser
-
-    #thunar
-    ntfs3g
-    thunar
-    thunar-volman
-
-    #terminal + utils
-    fastfetch
-    btop
-
-    #torrent client
-    qbittorrent
-
-
-    #notes
-    obsidian
-  ]
+  home.packages = map getInstall install
   ++ lib.optional (apps.default.browser != "firefox") pkgs.${apps.default.browser}
   ++ lib.optional (apps.default.codeEditor != "vscode") pkgs.${apps.default.codeEditor}
   ++ lib.optional (apps.default.terminal != "alacritty") pkgs.${apps.default.terminal};
