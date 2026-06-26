@@ -8,6 +8,7 @@ in
 
   wayland.windowManager.hyprland.settings = {
     bindr = [ "${cfg.keybindings.mod}, ${cfg.keybindings.hyprlauncher}, exec, hyprlauncher" ];
+  };
 
   services.hyprlauncher = {
     enable = true;
