@@ -17,6 +17,7 @@ in
   imports =
     lib.optional (apps.default.browser == "firefox") ./firefox.nix
     ++ lib.optional (apps.default.codeEditor == "vscode") ./vscode.nix
+    ++ lib.optional (apps.default.fileManager == "thunar") ./thunar.nix
     ++ lib.optional (modules.git.enable or false )./git.nix
     ++ lib.optional (modules.zsh.enable or false ) ./zsh.nix
     ++ lib.optional (modules.stylix.enable or false ) ./stylix.nix;
@@ -24,6 +25,7 @@ in
   home.packages = map getInstall install
   ++ lib.optional (apps.default.browser != "firefox") pkgs.${apps.default.browser}
   ++ lib.optional (apps.default.codeEditor != "vscode") pkgs.${apps.default.codeEditor}
+  ++ lib.optional (apps.default.fileManager != "thunar") pkgs.${apps.default.fileManager}
   ++ lib.optional (apps.default.terminal != "alacritty") pkgs.${apps.default.terminal};
 
   #due to stylix

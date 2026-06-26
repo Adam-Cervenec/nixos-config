@@ -1,9 +1,8 @@
-{ config, pkgs, device, lib, ... }:
+{ lib, pkgs, device, ... }:
 
-#define variables for paths in device.nix
 let
-  cfg = "device.modules.thunar" ;
-  install = cfg.install or [];
+  cfg = device.modules.thunar or {};
+
   getInstall = path:
     let
       pkg = lib.attrByPath (lib.splitString "." path) null pkgs;
@@ -13,6 +12,10 @@ let
       else
         pkg;
 in
+
 lib.mkIf (cfg.enable or false) {
-  imports = home.packages = map getInstall install
+
+  home.packages =
+    map getInstall (cfg.install or []);
+
 }
