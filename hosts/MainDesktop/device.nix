@@ -7,6 +7,7 @@
     system = "x86_64-linux";
     unfreePkgs = true;
     homeVersion = "25.11";
+    type = "desktop"; #set desktop, laptop, server...
   };
 
   hardware = {
