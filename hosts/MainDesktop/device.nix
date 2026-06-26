@@ -78,7 +78,13 @@
     hyprland = {
       enable = true;
 
-      keybindings.mod = "SUPER";
+      keybindings = {
+        mod = "SUPER";
+      
+
+        # modules
+        hyprlauncher = "SUPER_L";
+      };
 
       monitors = [
         "HDMI-A-1,preferred,0x0,1"
