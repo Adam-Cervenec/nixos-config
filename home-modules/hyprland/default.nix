@@ -8,6 +8,9 @@ in
 
   imports = [
     ./monitors.nix
+
+    #modules
+    ./modules/clipboard.nix
   ];
 
   config = lib.mkIf (cfg.enable or false) {
@@ -45,19 +48,6 @@ in
 
         #hyprlauncher
         bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
-        bind = [ "SUPER SHIFT, C, exec, copyq toggle"];
-
-        # "hyprctl clients" for class
-        windowrule = [
-          "float, class:^(com.github.hluk.copyq)$"
-          "size 800 500, class:^(com.github.hluk.copyq)$"
-          "center, class:^(com.github.hluk.copyq)$"
-        ];
-
-        # autostart
-        exec-once = [
-          "uwsm app -- copyq --start-server &"
-        ];
       };
 
     extraConfig = ''
