@@ -32,6 +32,7 @@
       "btop"
       "qbittorrent"
       "obsidian"
+      "cmatrix"
     ];
   };
 
