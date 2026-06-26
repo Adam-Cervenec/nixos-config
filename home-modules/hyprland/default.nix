@@ -22,6 +22,9 @@ in
       hyprshot
       swaynotificationcenter
       waybar
+
+      # utils for WM
+      copyq # clipboard history
     ];
 
 
@@ -42,6 +45,11 @@ in
 
         #hyprlauncher
         bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
+
+        # autostart
+        exec-once = [
+          "copyq --start-server"
+        ];
       };
 
 
