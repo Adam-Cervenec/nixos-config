@@ -4,40 +4,44 @@
 let
   cfg = device.modules.hyprland or {};
 in
-lib.mkIf (cfg.enable or false) {
-  home.packages = with pkgs; [
-
-
-    #hyprland temporary
-    waypaper
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprshot
-    swaynotificationcenter
-    waybar
-  ];
+{
 
   imports = [
     ./monitors.nix
   ];
+  
+  config = lib.mkIf (cfg.enable or false) {
+    home.packages = with pkgs; [
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    configType = "hyprlang";
 
-    settings = {
-      general = {
-        gaps_in = 15;
+      #hyprland temporary
+      waypaper
+      hypridle
+      hyprlock
+      hyprpaper
+      hyprshot
+      swaynotificationcenter
+      waybar
+    ];
+
+
+    wayland.windowManager.hyprland = {
+      enable = true;
+      configType = "hyprlang";
+
+      settings = {
+        general = {
+          gaps_in = 15;
+        };
       };
-    };
 
-  extraConfig = ''
-    source = ~/nixos-config/hypr/variables.conf
-    source = ~/nixos-config/hypr/environment.conf
-    source = ~/nixos-config/hypr/autostart.conf
-    source = ~/nixos-config/hypr/input-rules.conf
-    source = ~/nixos-config/hypr/keybindings.conf
-  '';
+    extraConfig = ''
+      source = ~/nixos-config/hypr/variables.conf
+      source = ~/nixos-config/hypr/environment.conf
+      source = ~/nixos-config/hypr/autostart.conf
+      source = ~/nixos-config/hypr/input-rules.conf
+      source = ~/nixos-config/hypr/keybindings.conf
+    '';
+    };
   };
 }
