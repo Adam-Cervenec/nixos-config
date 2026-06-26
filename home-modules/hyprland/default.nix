@@ -46,6 +46,8 @@ in
         #hyprlauncher
         bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
         bind = [ "SUPER SHIFT, C, exec, copyq toggle"];
+
+        # "hyprctl clients" for class
         windowrulev2 = [
           "float, class:^(com.github.hluk.copyq)$"
           "size 800 500, class:^(com.github.hluk.copyq)$"
