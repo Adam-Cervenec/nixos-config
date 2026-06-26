@@ -17,20 +17,26 @@
 
       blur = {
         enabled = true;
-        size = 6;
-        passes = 2;
+        size = 4;
+        passes = 3;
+        vibrancy = 0.1696;
       };
 
       active_opacity = 0.97;
       inactive_opacity = 0.9;
     };
 
-    windowrule = [
-      {
-        name = "Alacritty transparency";
-        "match:class" = "^Alacritty$";
-        opacity = "0.85 0.7";
-      }
-    ];
+    #windowrule = [
+      #{
+        #name = "Floating windows";
+        #"match:floating" = true;
+
+      #}
+      #{
+        #name = "Alacritty transparency";
+        #"match:class" = "^Alacritty$";
+        #opacity = "0.85 override 0.7 override";
+      #}
+    #];
   };
 }

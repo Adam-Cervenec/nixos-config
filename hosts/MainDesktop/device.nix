@@ -104,6 +104,7 @@
         desktop = 10;
         popups = 8;
       };
+      opacity.terminal = 0.5;
     };
   };
 

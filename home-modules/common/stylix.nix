@@ -47,6 +47,10 @@ lib.mkIf (cfg.enable or false) {
       light = "Papirus-Light";
     };
 
+    opacity = {
+      terminal = cfg.opacity.terminal;
+    };
+
     targets = {
       firefox = {
         enable = false;
