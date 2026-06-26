@@ -49,7 +49,7 @@ in
 
         # autostart
         exec-once = [
-          "uwsm app -- copyq --start-server"
+          "uwsm app -- copyq --start-server &
         ];
       };
 
