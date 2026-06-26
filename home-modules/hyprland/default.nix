@@ -48,7 +48,7 @@ in
         bind = [ "SUPER SHIFT, C, exec, copyq toggle"];
 
         # "hyprctl clients" for class
-        windowrulev2 = [
+        windowrule = [
           "float, class:^(com.github.hluk.copyq)$"
           "size 800 500, class:^(com.github.hluk.copyq)$"
           "center, class:^(com.github.hluk.copyq)$"
