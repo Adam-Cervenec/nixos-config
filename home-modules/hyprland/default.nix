@@ -39,6 +39,9 @@ in
         decoration = {
           rounding = 5;
         };
+
+        #hyprlauncher
+        bindr = [ "SUPER, SUPER_L, exec, hyprlauncher" ];
       };
 
 
@@ -49,6 +52,23 @@ in
       source = ~/nixos-config/hypr/input-rules.conf
       source = ~/nixos-config/hypr/keybindings.conf
     '';
+    };
+
+    services.hyprlauncher = {
+      enable = true;
+      settings = {
+        cache.enable = true;
+        finders = {
+          desktop_icons = true;
+          math_prefix = "=";
+        };
+        general = {
+          grab_focus = true;
+        };
+        ui = {
+          window_size = "969 400";
+        };
+      };
     };
   };
 }
