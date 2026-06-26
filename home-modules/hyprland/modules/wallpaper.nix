@@ -1,12 +1,22 @@
+{ pkgs, ... }:
+
 {
   home.packages = with pkgs; [
-    awww
     waypaper
+    mpvpaper
   ];
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "awww daemon"
+
+    windowrule = [
+      {
+        name = "Waypaper";
+        "match:class" = "^waypaper$";
+
+        float = "on";
+        center = "on";
+        size = "800 500";
+      }
     ];
-  }
+  };
 }

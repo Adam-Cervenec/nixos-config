@@ -118,8 +118,6 @@
       special = "base0E";
       warning = "base08";
     };
-
-    wallpaper = "../assets/wallpapers/egyptian-pyramids.jpg"
   };
 
 }

@@ -9,11 +9,11 @@ in
   imports = [
     ./monitors.nix
     ./aesthetics.nix
-    ./wallpaper.nix
 
     #modules
     ./modules/clipboard.nix
     ./modules/hyprlauncher.nix
+    ./modules/wallpaper.nix
   ];
 
   config = lib.mkIf (cfg.enable or false) {
