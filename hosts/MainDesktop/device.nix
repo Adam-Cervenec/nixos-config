@@ -82,6 +82,7 @@
 
       keybindings = {
         mod = "SUPER";
+        resizeSize = "15";
       };
 
       monitors = [

@@ -2,6 +2,8 @@
 
 let
   mod = device.modules.hyprland.keybindings.mod;
+  size = device.modules.hyprland.keybindings.resizeSize;
+
   browser = device.apps.default.browser;
   terminal = device.apps.default.terminal;
   fileManager = device.apps.default.fileManager;
@@ -78,6 +80,13 @@ in
     ]
     ++ workspaceBinds
     ++ moveWorkspaceBinds;
+
+    binde = [      
+      "${mod} CTRL, H, resizeactive, -${size} 0"
+      "${mod} CTRL, L, resizeactive, ${size} 0"
+      "${mod} CTRL, K, resizeactive, 0 -${size}"
+      "${mod} CTRL, J, resizeactive, 0 ${size}"
+    ];
 
     bindm = [
       "${mod}, mouse:272, movewindow"
