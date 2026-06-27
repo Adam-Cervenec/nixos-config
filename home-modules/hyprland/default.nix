@@ -9,6 +9,7 @@ in
   imports = [
     ./monitors.nix
     ./aesthetics.nix
+    ./keybindings.nix
 
     #modules
     ./modules/clipboard.nix
@@ -21,7 +22,6 @@ in
 
 
       #hyprland temporary
-      waypaper
       hypridle
       hyprlock
       hyprshot

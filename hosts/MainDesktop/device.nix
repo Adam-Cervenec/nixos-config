@@ -25,6 +25,7 @@
       terminal = "alacritty";
       fileManager = "thunar";
       codeEditor = "vscode";
+      notes = "obsidian"
     };
 
     install = [
