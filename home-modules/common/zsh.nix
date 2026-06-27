@@ -53,6 +53,10 @@ lib.mkIf (cfg.enable or false) {
                 sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)
             }
 
+              tmp() {
+                nix shell "nixpkgs#$1"
+            }
+
             
             #fastfetch
             if command -v fastfetch >/dev/null 2>&1; then
