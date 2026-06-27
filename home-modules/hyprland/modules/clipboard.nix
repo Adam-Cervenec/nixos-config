@@ -1,14 +1,14 @@
 {device, pkgs, ... }:
 
 let
-  cfg = device.modules.hyprland or {};
+  mod = device.modules.hyprland.keybindings.mod or {};
 in
 {
   home.packages = [ pkgs.copyq ];
 
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "${cfg.keybindings.mod} SHIFT, C, exec, copyq toggle"
+      "${mod} SHIFT, C, exec, copyq toggle"
     ];
 
     windowrule = [

@@ -80,10 +80,6 @@
 
       keybindings = {
         mod = "SUPER";
-      
-
-        # modules
-        hyprlauncher = "SUPER_L";
       };
 
       monitors = [
@@ -91,9 +87,14 @@
         "DP-3,preferred,1920x0,1"
       ];
 
-      wallpaper.duration = "120";
-      wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
-      wallpaper.autostart = true;
+      modules = {
+        wallpaper.duration = "120";
+        wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
+        wallpaper.autostart = true;
+
+
+        launcher.keybind = "SUPER_L";
+      };
     };
 
     stylix = {

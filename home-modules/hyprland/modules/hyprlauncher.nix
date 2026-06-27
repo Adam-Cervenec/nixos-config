@@ -1,13 +1,14 @@
 {device, pkgs, ... }:
 
 let
-  cfg = device.modules.hyprland or {};
+  cfg = device.modules.hyprland.modules.launcher or {};
+  mod = device.modules.hyprland.keybindings.mod or {};
 in
 {
   home.packages = [ pkgs.copyq ];
 
   wayland.windowManager.hyprland.settings = {
-    bindr = [ "${cfg.keybindings.mod}, ${cfg.keybindings.hyprlauncher}, exec, hyprlauncher" ];
+    bindr = [ "${mod}, ${cfg.keybind}, exec, hyprlauncher" ];
   };
 
   services.hyprlauncher = {
@@ -19,7 +20,7 @@ in
         math_prefix = "=";
       };
       general = {
-        grab_focus = false;
+        grab_focus = true;
       };
       ui = {
         window_size = "969 420";

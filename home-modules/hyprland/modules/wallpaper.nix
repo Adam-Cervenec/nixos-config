@@ -1,7 +1,7 @@
 { pkgs, device, lib, ... }:
 
 let
-  cfg = device.modules.hyprland.wallpaper;
+  cfg = device.modules.hyprland.modules.wallpaper;
 in
 {
   home.packages = with pkgs; [
@@ -9,7 +9,7 @@ in
     mpvpaper
   ];
 
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = {    
 
     windowrule = [
       {
