@@ -24,7 +24,8 @@
       browser = "firefox";
       terminal = "alacritty";
       fileManager = "thunar";
-      codeEditor = "vscode";
+      codeEditor = "vscode"; #vscode
+	    codeEditorCommand = "code"; #same as codeEditor for the most, code for vs code      
       notes = "obsidian";
     };
 

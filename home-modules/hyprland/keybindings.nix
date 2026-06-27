@@ -5,7 +5,7 @@ let
   browser = device.apps.default.browser;
   terminal = device.apps.default.terminal;
   fileManager = device.apps.default.fileManager;
-  codeEditor = device.apps.default.codeEditor;
+  codeEditor = device.apps.default.codeEditorCommand;
   notes = device.apps.default.notes;
 
   inherit (lib) genList;
