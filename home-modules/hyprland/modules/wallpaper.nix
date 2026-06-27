@@ -18,5 +18,8 @@
         size = "800 500";
       }
     ];
+    exec-once = [
+      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=10\" ALL ~/nixos-config/assets/wallpapers"
+    ];
   };
 }
