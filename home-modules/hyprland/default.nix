@@ -7,10 +7,9 @@ in
 {
 
   imports = [
-    ./monitors.nix
-    ./aesthetics.nix
-    ./keybindings.nix
-    ./environment.nix
+    ./session.nix # monitor, input and evn settings
+    ./aesthetics.nix # windowrules, appearance and animations 
+    ./keybindings.nix # bind and keymaps
 
     #modules
     ./modules/clipboard.nix
@@ -34,14 +33,6 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";
-
-
-
-    extraConfig = ''
-      source = ~/nixos-config/hypr/variables.conf
-      source = ~/nixos-config/hypr/autostart.conf
-      source = ~/nixos-config/hypr/input-rules.conf
-    '';
     };
   };
 }
