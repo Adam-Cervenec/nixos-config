@@ -22,7 +22,7 @@ in
       }
     ];
     exec-once = lib.optionals (cfg.autostart or false) [
-      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ALL ~/nixos-config/assets/wallpapers"
+      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ${cfg.monitor} ~/nixos-config/assets/wallpapers"
     ];
   };
 }
