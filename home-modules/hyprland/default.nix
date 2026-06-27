@@ -29,7 +29,6 @@ in
 
       #notification tests
       #swaynotificationcenter
-      libnotify
     ];
 
 
