@@ -128,7 +128,7 @@ in
 
       bind = ${mod}, S, submap, system
 
-      submap = system, reset
+      submap = system
 
         bind = , C, exec, uwsm app -- copyq toggle
         bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
