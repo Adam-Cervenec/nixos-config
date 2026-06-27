@@ -90,6 +90,10 @@
         "HDMI-A-1,preferred,0x0,1"
         "DP-3,preferred,1920x0,1"
       ];
+
+      wallpaper.duration = 120;
+      wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
+      wallpaper.autostart = true;
     };
 
     stylix = {

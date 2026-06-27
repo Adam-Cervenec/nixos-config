@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, device, lib, ... }:
 
+let
+  cfg = device.modules.hyprland.wallpaper;
+in
 {
   home.packages = with pkgs; [
     waypaper
@@ -18,8 +21,8 @@
         size = "800 500";
       }
     ];
-    exec-once = [
-      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=120\" ALL ~/nixos-config/assets/wallpapers"
+    exec-once = lib.optionals (cfg.autostart or false) [
+      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ALL ~/nixos-config/assets/wallpapers"
     ];
   };
 }
