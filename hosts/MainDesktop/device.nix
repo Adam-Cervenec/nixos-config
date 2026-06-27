@@ -87,6 +87,16 @@
         "DP-3,preferred,1920x0,1"
       ];
 
+      aesthetics = {
+        shadow.enable = true;
+        blur.enable = true;
+        gaps = 15;
+        opacity.active = 0.95;
+        opacity.inactive = 0.9;
+        opacity.floatOverride = "1 override 0.8 override";
+
+      };
+
       modules = {
         wallpaper.duration = "120";
         wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
