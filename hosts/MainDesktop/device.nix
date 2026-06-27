@@ -91,10 +91,12 @@
         shadow.enable = true;
         blur.enable = true;
         gaps = 15;
-        opacity.active = 0.95;
-        opacity.inactive = 0.9;
-        opacity.floatOverride = "1 override 0.8 override";
-
+        opacity = {
+          active = 0.95;
+          inactive = 0.9;
+          floatOverride = "1 override 0.8 override";
+          fullscreenOverride = "1 override 1 override";
+        };
       };
 
       modules = {

@@ -44,6 +44,12 @@ in
         border_color = color "secondary";
 
       }
+      {
+        name = "Fullscreen windows";
+        "match:fullscreen" = true;
+        opacity = cfg.opacity.fullscreenOverride;
+        no_shadow = true;
+      }
     ];
   };
 }
