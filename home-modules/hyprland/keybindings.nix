@@ -12,16 +12,16 @@ let
 
   workspaceBinds =
     genList
-      (i: {
-        "${mod}, code:${toString (i + 10)}, workspace, ${toString (i + 1)}";
-      })
+      (i:
+        "${mod}, code:${toString (i + 10)}, workspace, ${toString (i + 1)}"
+      )
       10;
 
   moveWorkspaceBinds =
     genList
-      (i: {
-        "${mod} SHIFT, code:${toString (i + 10)}, movetoworkspace, ${toString (i + 1)}";
-      })
+      (i:
+        "${mod} SHIFT, code:${toString (i + 10)}, movetoworkspace, ${toString (i + 1)}"
+      )
       10;
 in
 {
@@ -30,17 +30,6 @@ in
     bind = [
 
       "${mod}, return, exec, uwsm app -- ${terminal}"
-
-      "${mod}, A, submap, apps"
-
-        ", A, exec, uwsm app -- ${terminal}"
-        ", W, exec, uwsm app -- ${browser}"
-        ", O, exec, uwsm app -- ${notes}"
-        ", C, exec, uwsm app -- ${codeEditor}"
-        ", E, exec, uwsm app -- ${fileManager}"
-
-      ", SPACE, submap, reset"
-      ", escape, submap, reset"
 
       "${mod}, Q, killactive,"
       "${mod}, F, fullscreen"
@@ -70,11 +59,9 @@ in
       "${mod} SHIFT, mouse_down, movetoworkspace, +1"
       "${mod} SHIFT, mouse_up, movetoworkspace, -1"
 
-      #"${mod}, V, submap, volume"
-      #"${mod}, B, submap, brightness"
     ]
-    ++ map (x: x.bind) workspaceBinds
-    ++ map (x: x.bind) moveWorkspaceBinds;
+    ++ workspaceBinds
+    ++ moveWorkspaceBinds;
 
     bindm = [
       "${mod}, mouse:272, movewindow"
@@ -96,7 +83,25 @@ in
       ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
       ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
     ];
-
-    submap = "reset";
   };
+
+  wayland.windowManager.hyprland.extraConfig =
+    ''
+
+      bind = ${mod}, A, submap, apps
+
+      submap = apps
+
+        bind = , A, exec, uwsm app -- ${terminal}
+        bind = , W, exec, uwsm app -- ${browser}
+        bind = , O, exec, uwsm app -- ${notes}
+        bind = , C, exec, uwsm app -- ${codeEditor}
+        bind = , E, exec, uwsm app -- ${fileManager}
+
+        bind = , SPACE, submap, reset
+        bind = , escape, submap, reset
+
+      submap = reset
+
+    '';
 }
