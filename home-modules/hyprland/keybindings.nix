@@ -29,13 +29,26 @@ in
 
     bind = [
 
+      # terminal
+
       "${mod}, return, exec, uwsm app -- ${terminal}"
+
+
+      # operations
 
       "${mod}, Q, killactive,"
       "${mod}, F, fullscreen"
       "${mod}, T, togglefloating"
       "${mod}, P, pseudo,"
       "${mod} SHIFT, R, exec, hyprctl reload"
+
+
+      # utils
+
+      "${mod} SHIFT, S, exec, hyprshot -m region --clipboard-only -s"
+
+
+      # windows
 
       "${mod}, H, movefocus, l"
       "${mod}, L, movefocus, r"
@@ -46,6 +59,9 @@ in
       "${mod} SHIFT, L, movewindow, r"
       "${mod} SHIFT, K, movewindow, u"
       "${mod} SHIFT, J, movewindow, d"
+
+
+      # worspaces
 
       "${mod}, comma, workspace, -1"
       "${mod}, period, workspace, +1"

@@ -1,12 +1,12 @@
 
 
 {
-  services.swayncs = {
+  services.swaync = {
     enable = true;
 
     settings = {
       positionX = "right";
-      positionY = "bottom";
+      positionY = "center";
     };
   };
 }
