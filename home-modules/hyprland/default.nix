@@ -15,6 +15,7 @@ in
     ./modules/clipboard.nix
     ./modules/hyprlauncher.nix
     ./modules/wallpaper.nix
+    ./modules/notifications.nix
   ];
 
   config = lib.mkIf (cfg.enable or false) {
@@ -25,8 +26,10 @@ in
       hypridle
       hyprlock
       hyprshot
-      swaynotificationcenter
-      waybar
+
+      #notification tests
+      #swaynotificationcenter
+      libnotify
     ];
 
 
