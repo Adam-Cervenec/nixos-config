@@ -42,7 +42,7 @@ in
   };
 
   wayland.windowManager.hyprland.settings.exec-once = [
-    "swaync"
-    "hypr-submap-listener"
+    "uwsm app -- swaync"
+    "uwsm app -- hypr-submap-listener"
   ];
 }
