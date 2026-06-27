@@ -29,6 +29,12 @@ in
 
       # GUI authentication daemon
       hyprpolkitagent
+
+      # GUI pipewire controller
+      hyprpwcenter
+
+      # GUI logout util
+      hyprshutdown
     ];
 
 
