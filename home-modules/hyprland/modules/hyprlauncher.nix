@@ -7,10 +7,6 @@ in
 {
   home.packages = [ pkgs.copyq ];
 
-  wayland.windowManager.hyprland.settings = {
-    bindr = [ "${mod}, ${cfg.keybind}, exec, hyprlauncher" ];
-  };
-
   services.hyprlauncher = {
     enable = true;
     settings = {

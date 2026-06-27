@@ -45,9 +45,6 @@ in
       "${mod} SHIFT, R, exec, hyprctl reload"
 
 
-      # utils
-
-      "${mod} SHIFT, S, exec, hyprshot -m region --clipboard-only -s"
 
 
       # windows
@@ -125,6 +122,19 @@ in
 
         bind = , SPACE, submap, reset
         bind = , escape, submap, reset
+
+      submap = reset
+
+
+      bind = ${mod}, S, submap, system
+
+      submap = system, reset
+
+        bind = , C, exec, uwsm app -- copyq toggle
+        bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
+        bind = , SUPER_L, exec, uwsm app -- hyprlauncher
+
+        bind = , catchall, submap, reset
 
       submap = reset
 

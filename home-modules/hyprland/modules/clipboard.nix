@@ -7,10 +7,6 @@ in
   home.packages = [ pkgs.copyq ];
 
   wayland.windowManager.hyprland.settings = {
-    bind = [
-      "${mod} SHIFT, C, exec, copyq toggle"
-    ];
-
     windowrule = [
       {
         name = "CopyQ";
