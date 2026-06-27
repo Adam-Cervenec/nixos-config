@@ -91,7 +91,7 @@
         "DP-3,preferred,1920x0,1"
       ];
 
-      wallpaper.duration = 120;
+      wallpaper.duration = "120";
       wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
       wallpaper.autostart = true;
     };
