@@ -27,8 +27,8 @@ in
       hyprlock
       hyprshot
 
-      #notification tests
-      #swaynotificationcenter
+      # GUI authentication daemon
+      hyprpolkitagent
     ];
 
 

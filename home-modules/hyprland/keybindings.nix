@@ -132,7 +132,7 @@ in
 
         bind = , C, exec, uwsm app -- copyq toggle
         bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
-        bind = , SUPER_L, exec, uwsm app -- hyprlauncher
+        bind = , A, exec, uwsm app -- hyprlauncher
 
         bind = , catchall, submap, reset
 
