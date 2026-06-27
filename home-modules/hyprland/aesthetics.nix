@@ -39,7 +39,7 @@ in
         name = "Floating windows";
         "match:float" = true;
         
-        no_blur = true;
+        #no_blur = true;
         opacity = cfg.opacity.floatOverride;
         border_color = color "secondary";
 
