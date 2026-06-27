@@ -53,7 +53,7 @@ lib.mkIf (cfg.enable or false) {
                 sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)
             }
 
-              tmp() {
+            tmp() {
                 nix shell "nixpkgs#$1"
             }
 
