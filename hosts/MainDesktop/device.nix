@@ -103,9 +103,10 @@
       };
 
       modules = {
-        wallpaper.duration = "120";
+        wallpaper.duration = 60*4; #seconds
         wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
         wallpaper.autostart = true;
+        wallpaper.loop = true;
 
 
         launcher.keybind = "SUPER_L";
