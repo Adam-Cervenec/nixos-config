@@ -1,29 +1,26 @@
 #home.nix
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, device, ... }:
 
 {
 
-
-  #allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = device.machine.unfreePkgs;
 
   imports = [
-    ../../home-modules/common.nix
+    ../../home-modules/common
+    ../../home-modules/hyprland
 
     ../../home-modules/roles/dev.nix
     ../../home-modules/roles/3d-printing.nix
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
-
-    
   ];
 
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = device.machine.username;
+  home.homeDirectory = "/home/${device.machine.username}";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = device.machine.homeVersion;
 
   programs.home-manager.enable = true;
 
@@ -35,4 +32,5 @@
 
   ];
 
+  
 }
