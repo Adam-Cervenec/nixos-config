@@ -122,7 +122,7 @@
         applications = 11;
         terminal = 11;
         desktop = 11;
-        popups = 10;
+        popups = 11;
       };
       opacity.terminal = 0.5;
     };
