@@ -55,7 +55,8 @@ lib.mkIf (cfg.enable or false) {
 
     targets = {
       firefox = {
-        enable = false;
+        enable = true;
+        profileNames = [ "default" ];
       };
     };
   };
