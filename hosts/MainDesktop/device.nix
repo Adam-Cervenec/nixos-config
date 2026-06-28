@@ -114,7 +114,8 @@
 
     stylix = {
       enable = true;
-      base16 = "chalk"; #https://tinted-theming.github.io/tinted-gallery/
+      base16 = "flexoki-dark"; #https://tinted-theming.github.io/tinted-gallery/
+      #good ones: chalk, ayu-dark, flexoki-dark, 
 
       polarity = "dark"; #dark or light
 
