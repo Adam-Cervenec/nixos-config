@@ -119,10 +119,10 @@
       polarity = "dark"; #dark or light
 
       size = {
-        applications = 10;
+        applications = 11;
         terminal = 11;
-        desktop = 10;
-        popups = 8;
+        desktop = 11;
+        popups = 10;
       };
       opacity.terminal = 0.5;
     };

@@ -21,16 +21,18 @@ lib.mkIf (cfg.enable or false) {
 
       # Základní rodiny písem
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font";
       };
+
       sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
+        package = pkgs.atkinson-hyperlegible-next;
+        name = "Atkinson Hyperlegible Next";
       };
+
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.source-serif;
+        name = "Source Serif 4";
       };
       
       # Velikosti pro různé části systému
