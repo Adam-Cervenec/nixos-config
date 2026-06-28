@@ -6,7 +6,9 @@ in
 {
   home.packages = with pkgs; [
     waypaper
-    mpvpaper
+    #mpvpaper
+
+    swww
   ];
 
   wayland.windowManager.hyprland.settings = {    
@@ -21,8 +23,8 @@ in
         size = "800 500";
       }
     ];
-    exec-once = lib.optionals (cfg.autostart or false) [
-      "mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ${cfg.monitor} ~/nixos-config/assets/wallpapers"
-    ];
+    #exec-once = lib.optionals (cfg.autostart or false) [
+      #"mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ${cfg.monitor} ~/nixos-config/assets/wallpapers"
+    #];
   };
 }
