@@ -15,6 +15,8 @@ lib.mkIf (cfg.enable or false) {
 
     polarity = cfg.polarity;
 
+    #image = ../../assets/wallpapers/anime-girl-relaxing.jpg;
+
     fonts = {
 
       # Základní rodiny písem
