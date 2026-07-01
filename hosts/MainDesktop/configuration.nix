@@ -22,8 +22,7 @@ in
       #gui
     ../../modules/gui/x11.nix
     #../../modules/gui/de/plasma.nix
-    #../../modules/gui/display/sddm.nix
-    ../../modules/gui/display/regreet.nix
+    ../../modules/gui/display/sddm.nix
 
 
       #roles
