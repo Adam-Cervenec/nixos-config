@@ -50,6 +50,7 @@ in
     Timer = {
       OnBootSec = "2min";
       OnUnitActiveSec = "${toString cfg.duration}s";
+      AccuracySec = "1s";
       Persistent = true;
     };
 
