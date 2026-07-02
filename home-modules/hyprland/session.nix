@@ -44,12 +44,14 @@ in
       kb_layout = "us,cz";
       kb_variant = ",qwerty";
       kb_options = "grp:win_space_toggle";
+      numlock_by_default = true;
+
 
       follow_mouse = 1;
       sensitivity = 0.5;
 
       touchpad = {
-        natural_scroll = false;
+        natural_scroll = true;
       };
     };
 
