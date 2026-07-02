@@ -45,6 +45,7 @@ in
       "${mod} SHIFT, R, exec, hyprctl reload"
 
 
+      "${mod}, W, exec, uwsm app -- hyprlauncher"
 
 
       # windows
@@ -115,7 +116,7 @@ in
       submap = apps
 
         bind = , A, exec, uwsm app -- ${terminal}
-        bind = , W, exec, uwsm app -- ${browser}
+        bind = , F, exec, uwsm app -- ${browser}
         bind = , O, exec, uwsm app -- ${notes}
         bind = , C, exec, uwsm app -- ${codeEditor}
         bind = , E, exec, uwsm app -- ${fileManager}
@@ -132,7 +133,6 @@ in
 
         bind = , C, exec, uwsm app -- copyq toggle
         bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
-        bind = , A, exec, uwsm app -- hyprlauncher
 
         bind = , catchall, submap, reset
 
