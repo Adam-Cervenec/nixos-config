@@ -35,6 +35,9 @@ in
 
       # GUI logout util
       hyprshutdown
+
+      # per window keyboard layout
+      hyprland-per-window-layout
     ];
 
 
@@ -42,7 +45,10 @@ in
       enable = true;
       configType = "hyprlang";
 
-      settings.exec-once = ["uwsm app -- systemctl --user start hyprpolkitagent"];
+      settings.exec-once = [
+        "uwsm app -- systemctl --user start hyprpolkitagent"
+        "uwsm app -- systemctl --user start hyprland-per-window-layout"
+      ];
     };
   };
 }
