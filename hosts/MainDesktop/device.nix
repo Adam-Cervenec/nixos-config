@@ -37,6 +37,7 @@
       "qbittorrent"
       "obsidian"
       "cmatrix"
+      "discord"
     ];
   };
 
