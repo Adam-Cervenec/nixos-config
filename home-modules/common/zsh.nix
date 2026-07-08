@@ -57,7 +57,7 @@ lib.mkIf (cfg.enable or false) {
                 nix shell "nixpkgs#$1"
             }
 
-            gc() {
+            garbage() {
                 echo "🗑️  Collecting old generations..."
                 sudo nix-collect-garbage --delete-older-than 14d
 
