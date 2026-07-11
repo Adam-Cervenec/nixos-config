@@ -21,7 +21,7 @@
 
   apps = {
       default = {
-        browser = "firefox";
+        browser = "zen";
         terminal = "alacritty";
         fileManager = "thunar";
         codeEditor = "vscode"; #vscode
