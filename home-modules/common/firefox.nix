@@ -10,16 +10,11 @@ lib.mkIf (cfg.enable or false) {
     configPath = cfg.configPath;
 
     policies = {
-      DisableTelemetry = cfg.disableTelemetry;
-      DisablePocket = cfg.disableTelemetry;
-
-      Homepage = {
-        URL = cfg.homePageURL;
-        StartPage = "homepage";
-      };
+      DisableTelemetry = cfg.disableTelemetry or true;
+      DisablePocket = cfg.disableTelemetry or true;
 
       SearchEngines = {
-        Default = cfg.defaultSearchEngie;
+        Default = cfg.defaultSearchEngine or "DuckDuckGo";
       };
     };
   };

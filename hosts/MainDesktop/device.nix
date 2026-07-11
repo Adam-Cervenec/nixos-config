@@ -21,12 +21,12 @@
 
   apps = {
       default = {
-      browser = "firefox";
-      terminal = "alacritty";
-      fileManager = "thunar";
-      codeEditor = "vscode"; #vscode
-	    codeEditorCommand = "code"; #same as codeEditor for the most, code for vs code      
-      notes = "obsidian";
+        browser = "firefox";
+        terminal = "alacritty";
+        fileManager = "thunar";
+        codeEditor = "vscode"; #vscode
+        codeEditorCommand = "code"; #same as codeEditor for the most, code for vs code      
+        notes = "obsidian";
     };
 
     install = [
@@ -64,9 +64,6 @@
     firefox = {
       enable = true;
       configPath = ".mozilla/firefox";
-      disableTelemetry = true;
-      homePageURL = ""; #f.e. https://start.duckduckgo.com
-      defaultSearchEngie = "DuckDuckGo";
     };
 
     thunar = {
