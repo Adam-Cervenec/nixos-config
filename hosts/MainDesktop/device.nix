@@ -43,6 +43,7 @@
 
   modules = {
     zsh.enable = true;
+    alacritty.enable = true;
     git = {
       enable = true;
       username = "Adam-Cervenec";
@@ -65,6 +66,8 @@
       enable = true;
       configPath = ".mozilla/firefox";
     };
+
+    zen.enable = true;
 
     thunar = {
       enable = true;
