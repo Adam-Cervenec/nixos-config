@@ -60,6 +60,7 @@ lib.mkIf (cfg.enable or false) {
         enable = true;
         profileNames = [ "default" ];
       };
+      waybar.enable = false;
     };
   };
 }

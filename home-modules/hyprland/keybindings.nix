@@ -111,9 +111,9 @@ in
   wayland.windowManager.hyprland.extraConfig =
     ''
 
-      bind = ${mod}, A, submap, apps
+      bind = ${mod}, A, submap, Apps
 
-      submap = apps
+      submap = Apps
 
         bind = , A, exec, uwsm app -- ${terminal}
         bind = , F, exec, uwsm app -- ${browser}
@@ -127,9 +127,9 @@ in
       submap = reset
 
 
-      bind = ${mod}, S, submap, system
+      bind = ${mod}, S, submap, System
 
-      submap = system
+      submap = System
 
         bind = , C, exec, uwsm app -- copyq toggle
         bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s

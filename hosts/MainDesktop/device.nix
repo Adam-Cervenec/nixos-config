@@ -110,8 +110,9 @@
         wallpaper.loop = true;
 
         waybar = {
-          monitor.main = ["DP-3"];
-          monitor.second = ["HDMI-A-1"];
+          monitor.main = ["HDMI-A-1"];
+          monitor.second = [];
+          font-size = "17px";
         };
 
 
