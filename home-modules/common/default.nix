@@ -12,26 +12,21 @@ let
         throw "Package '${path}' does not exist."
       else
         pkg;
+
+  #automatic file reader from this folder level
+  dir = builtins.readDir ./.;
+
+  files = builtins.filter
+    (name:
+      dir.${name} == "regular"
+      && name != "default.nix"
+      && lib.hasSuffix ".nix" name
+    )
+    (builtins.attrNames dir);
 in
 {
-  imports =
-    lib.optional (apps.default.browser == "firefox") ./firefox.nix
-    ++ lib.optional (apps.default.codeEditor == "vscode") ./vscode.nix
-    ++ lib.optional (apps.default.fileManager == "thunar") ./thunar.nix
-    ++ lib.optional (modules.git.enable or false )./git.nix
-    ++ lib.optional (modules.zsh.enable or false ) ./zsh.nix
-    ++ lib.optional (modules.stylix.enable or false ) ./stylix.nix;
+  imports = map (file: ./. + "/${file}") files;
 
-  home.packages = map getInstall install
-  ++ lib.optional (apps.default.browser != "firefox") pkgs.${apps.default.browser}
-  ++ lib.optional (apps.default.codeEditor != "vscode") pkgs.${apps.default.codeEditor}
-  ++ lib.optional (apps.default.fileManager != "thunar") pkgs.${apps.default.fileManager}
-  ++ lib.optional (apps.default.terminal != "alacritty") pkgs.${apps.default.terminal};
-
-  #due to stylix
-  programs.alacritty = lib.mkIf (apps.default.terminal == "alacritty") {
-    enable = true;
-    settings = {};
-  };
+  home.packages = map getInstall install;
 
 }
