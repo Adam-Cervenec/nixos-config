@@ -109,6 +109,11 @@
         wallpaper.autostart = true;
         wallpaper.loop = true;
 
+        waybar = {
+          monitor.main = ["DP-3"];
+          monitor.second = ["HDMI-A-1"];
+        };
+
 
         launcher.keybind = "SUPER_L";
       };
