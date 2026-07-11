@@ -16,6 +16,7 @@ in
     ./modules/hyprlauncher.nix
     ./modules/wallpaper.nix
     ./modules/notifications.nix
+    ./modules/waybar.nix
   ];
 
   config = lib.mkIf (cfg.enable or false) {
