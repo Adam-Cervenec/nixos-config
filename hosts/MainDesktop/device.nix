@@ -112,7 +112,7 @@
         waybar = {
           monitor.main = ["HDMI-A-1"];
           monitor.second = [];
-          font-size = "17px";
+          font-size = "16px";
         };
 
 

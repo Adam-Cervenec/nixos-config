@@ -30,10 +30,11 @@ in
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        margin-top = 4;
+        height = 25;
         output = cfg.monitor.main;
 
-        modules-left = [ "battery"  "cpu" "memory" "disk" "hyprland/submap" ];
+        modules-left = [ "cpu" "memory" "disk" "hyprland/submap" ];
         modules-center = ["hyprland/workspaces" ];
         modules-right = [ "battery" "tray" "network" "wireplumber#sink" "wireplumber#source" "hyprland/language"  "clock" ];
 
@@ -43,7 +44,7 @@ in
           format = "{name}";
 
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5 6 ];
+            "*" = [ 1 2 3 4 5 6 7 8 9];
           };
         };
 
@@ -62,9 +63,14 @@ in
 
         "battery" = {
           bat = "BAT1";
-          interval = 60;
+          interval = 20;
 
           format = "{capacity}% {icon}";
+
+          states = {
+            warning = 25;
+            critical = 10;
+          };
 
           format-icons = {
             default = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
@@ -75,10 +81,9 @@ in
 
         "clock" = {
           interval = 1;
-          tooltip = true;
+          tooltip = false;
 
-          format = "{:%H.%M}";
-          tooltip-format = "{:%Y-%m-%d}";
+          format = "󰃰 {:%d.%m. %H:%M}";
         };
 
         "network" = {
@@ -107,7 +112,11 @@ in
           on-click = "hyprpwcenter";
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
-          scroll-step = 5;
+          scroll-step = 5;          
+          
+          states = {
+            low = 0;
+          };
         };
 
         "wireplumber#source" = {
@@ -130,20 +139,34 @@ in
 
         "memory" = {
           interval = 10;
-          format = " {used:0.1f}/{total:0.1f}G";
-          max-length = 12;
+          format = "  {used:0.1f}/{total:0.1f}G";
+          max-length = 12;          
+          
+          states = {
+            warning = 70;
+            critical = 90;
+          };
         };
 
         "disk" = {
           interval = 30;
-          format = " {used}";
-          unit = "TB";
+          format = "  {used}";
+
+          states = {
+            warning = 70;
+            critical = 90;
+          };
         };
 
         "cpu" = {
           interval = 1;
-          format = " {icon0}{icon1}{icon2}{icon3} {usage:>2}%";
+          format = "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%";
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+          
+          states = {
+            warning = 70;
+            critical = 90;
+          };
         };
 
       };
@@ -166,31 +189,61 @@ in
           color: ${color "foreground"};
         }
 
-        #workspaces {
-          transition: all 300ms ease-in-out;
-        }
 
         #workspaces button {
           transition: all 300ms ease-in-out;
           background: ${color "background"};
-          color: ${color "special"};
-          padding: 0 6px;
-          margin: 3px;
+          color: ${color "primary"};
+          padding: 0 4px;
+          margin: 0 2px;
+          font-weight: 400;
+
           border-radius: 666px;
+          border: 3px solid ${color "primary"};
         }
 
         #workspaces button.active {
-          transition: all 300ms ease-in-out;
           min-width: 40px;
           background: ${color "background"};
           color: ${color "foreground"};
-          font-weight: bold;
+          font-weight: 900;
 
-          border: none;
-          border-bottom: none;
-          box-shadow: none;
-
+          border: 3px solid ${color "special"};
         }
+
+
+        #clock,  #language, #wireplumber, #network, #battery, #cpu, #memory, #disk, #submap {
+          transition: all 600ms ease-in-out;
+
+          font-weight: 500;
+          background: ${color "background"};
+          color: ${color "foreground"};
+          padding: 0 15px;
+          margin: 0 4px;
+          border-radius: 20px;
+          border: 3px solid ${color "primary"};
+        }
+
+        #wireplumber:hover, #network:hover {
+          background: ${color "foreground"};
+          color: ${color "background"};
+          border-radius: 666px;
+          border: 3px solid ${color "special"};
+        }
+
+        #battery.warning, #cpu.warning, #ram.warning, #disk.warning {
+          background: ${color "background"};
+          color: ${color "secondary"};
+          border: 3px solid ${color "secondary"};
+        }
+
+        #network.disconnected, #wireplumber.muted, #battery.critical, #cpu.critical, #ram.critical, #disk.critical {
+          background: ${color "background"};
+          color: ${color "warning"};
+          border: 3px solid ${color "warning"};
+        }
+
+
       '';
   };
 }
