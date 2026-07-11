@@ -50,6 +50,7 @@ in
         "uwsm app -- systemctl --user start hyprpolkitagent"
         "uwsm app -- hyprland-per-window-layout"
         "uwsm app -- waybar &"
+        "uwsm app -- swaync &"
       ];
     };
   };
