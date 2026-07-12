@@ -115,8 +115,11 @@
           font-size = "16px";
         };
 
+        hypridle.lock-time = 10; # int minutes
+        hypridle.black-screen-time = 20; # int minutes
 
-        launcher.keybind = "SUPER_L";
+
+        #launcher.keybind = "SUPER_L";
       };
     };
 

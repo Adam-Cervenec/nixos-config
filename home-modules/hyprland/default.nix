@@ -17,6 +17,7 @@ in
     ./modules/wallpaper.nix
     ./modules/notifications.nix
     ./modules/waybar.nix
+    ./modules/hypridle.nix
   ];
 
   config = lib.mkIf (cfg.enable or false) {
