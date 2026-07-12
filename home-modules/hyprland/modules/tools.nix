@@ -40,7 +40,7 @@
 
         float = "on";
         center = "on";
-        size = "800 500";
+        size = "666 420";
       }
     ];
   };

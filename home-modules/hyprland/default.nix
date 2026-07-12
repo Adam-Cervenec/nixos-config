@@ -22,11 +22,7 @@ in
 
   config = lib.mkIf (cfg.enable or false) {
     home.packages = with pkgs; [
-
-
-      #hyprland temporary
-      hypridle
-
+      
     ];
 
 
