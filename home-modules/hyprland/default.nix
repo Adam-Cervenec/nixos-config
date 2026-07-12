@@ -12,7 +12,7 @@ in
     ./keybindings.nix # bind and keymaps
 
     #modules
-    ./modules/clipboard.nix
+    ./modules/tools.nix
     ./modules/hyprlauncher.nix
     ./modules/wallpaper.nix
     ./modules/notifications.nix
@@ -25,33 +25,13 @@ in
 
       #hyprland temporary
       hypridle
-      hyprlock
-      hyprshot
 
-      # GUI authentication daemon
-      hyprpolkitagent
-
-      # GUI pipewire controller
-      hyprpwcenter
-
-      # GUI logout util
-      hyprshutdown
-
-      # per window keyboard layout
-      hyprland-per-window-layout
     ];
 
 
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";
-
-      settings.exec-once = [
-        "uwsm app -- systemctl --user start hyprpolkitagent"
-        "uwsm app -- hyprland-per-window-layout"
-        "uwsm app -- waybar &"
-        "uwsm app -- swaync &"
-      ];
     };
   };
 }
