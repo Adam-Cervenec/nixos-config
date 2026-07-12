@@ -22,6 +22,9 @@
 
     #copy history
     copyq
+
+    # pause, stop, play... audio
+    playerctl
   ];
 
   wayland.windowManager.hyprland.settings = {

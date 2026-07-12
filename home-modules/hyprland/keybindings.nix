@@ -131,6 +131,11 @@ in
       ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+      ", H, exec, playerctl previous"
+      ", J, exec, playerctl play-pause"
+      ", K, exec, playerctl stop"
+      ", L, exec, playerctl next"
+
       ", escape, submap, reset"
       ", SPACE, submap, reset"
     ];
