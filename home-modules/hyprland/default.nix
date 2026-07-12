@@ -29,6 +29,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";
+      settings.cursor.no_hardware_cursors = true;
     };
   };
 }
