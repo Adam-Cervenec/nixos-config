@@ -47,6 +47,8 @@ in
 
       "${mod}, W, exec, uwsm app -- hyprlauncher"
 
+      "${mod}, V, submap, Volume"
+
 
       # windows
 
@@ -106,6 +108,20 @@ in
       ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
       ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
     ];
+  };
+
+  wayland.windowManager.hyprland.submaps = {
+    Volume.settings = {
+      bind = [
+        ", U, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", D, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+        ", escape, submap, reset"
+        ", SPACE, submap, reset"
+      ];
+    };
   };
 
   wayland.windowManager.hyprland.extraConfig =
