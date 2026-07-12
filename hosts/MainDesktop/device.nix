@@ -34,6 +34,7 @@
       "btop"
       "zip"
       "unzip"
+      "p7zip"
       "qbittorrent"
       "obsidian"
       "cmatrix"
@@ -75,6 +76,8 @@
         "thunar"
         "thunar-volman"
         "ntfs3g"
+        "gvfs"
+        "tumbler"
       ];
     };
     
