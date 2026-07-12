@@ -40,14 +40,19 @@ in
 
       "${mod}, Q, killactive,"
       "${mod}, F, fullscreen"
-      "${mod}, T, togglefloating"
+      "${mod} SHIFT, F, togglefloating"
       "${mod}, P, pseudo,"
       "${mod} SHIFT, R, exec, hyprctl reload"
 
 
       "${mod}, W, exec, uwsm app -- hyprlauncher"
 
+
+      #submaps definitions
       "${mod}, V, submap, Volume"
+      "${mod}, A, submap, Apps"
+      "${mod}, T, submap, Tools"
+      "${mod}, S, submap, System"
 
 
       # windows
@@ -111,48 +116,43 @@ in
   };
 
   wayland.windowManager.hyprland.submaps = {
-    Volume.settings = {
-      bind = [
-        ", U, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", D, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    Volume.settings.binde = [
+      ", U, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ", D, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ", comma, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+      ", period, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
 
-        ", escape, submap, reset"
-        ", SPACE, submap, reset"
-      ];
-    };
+      "SHIFT, U, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"
+      "SHIFT, D, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
+      "SHIFT, comma, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"
+      "SHIFT, period, exec, wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"
+    ];
+    Volume.settings.bind = [
+      ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+      ", escape, submap, reset"
+      ", SPACE, submap, reset"
+    ];
+
+    Apps.settings.bind = [
+      ", A, exec, uwsm app -- ${terminal}"
+      ", F, exec, uwsm app -- ${browser}"
+      ", O, exec, uwsm app -- ${notes}"
+      ", C, exec, uwsm app -- ${codeEditor}"
+      ", E, exec, uwsm app -- ${fileManager}"
+
+      ", escape, submap, reset"
+      ", SPACE, submap, reset"
+    ];
+
+    Tools.onDispatch = "reset";
+    Tools.settings.bind = [
+      ", C, exec, uwsm app -- copyq toggle"
+      ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -s"
+      ", V, exec, uwsm app -- hyprpwcenter"
+
+      ", catchall, submap, reset"
+    ];
   };
-
-  wayland.windowManager.hyprland.extraConfig =
-    ''
-
-      bind = ${mod}, A, submap, Apps
-
-      submap = Apps
-
-        bind = , A, exec, uwsm app -- ${terminal}
-        bind = , F, exec, uwsm app -- ${browser}
-        bind = , O, exec, uwsm app -- ${notes}
-        bind = , C, exec, uwsm app -- ${codeEditor}
-        bind = , E, exec, uwsm app -- ${fileManager}
-
-        bind = , SPACE, submap, reset
-        bind = , escape, submap, reset
-
-      submap = reset
-
-
-      bind = ${mod}, S, submap, System
-
-      submap = System
-
-        bind = , C, exec, uwsm app -- copyq toggle
-        bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
-
-        bind = , catchall, submap, reset
-
-      submap = reset
-
-    '';
 }
