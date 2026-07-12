@@ -45,6 +45,7 @@
   modules = {
     zsh.enable = true;
     alacritty.enable = true;
+    music-player.enable = true;
     git = {
       enable = true;
       username = "Adam-Cervenec";
