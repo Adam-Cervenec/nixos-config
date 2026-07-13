@@ -39,6 +39,18 @@
       "obsidian"
       "cmatrix"
       "discord"
+
+      "lazygit"
+      "lm_sensors"
+      "nvtopPackages.full"
+      "yazi"
+      "zellij"
+      "neovim"
+      "lazyjournal"
+
+      "nix-tree"
+      "nh"
+      
     ];
   };
 

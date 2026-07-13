@@ -20,6 +20,7 @@ lib.mkIf (cfg.enable or false) {
 
         shellAliases = {
             rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
+            rbv2 = "nh os switch ~/nixos-config#$(hostname)";
             boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
             rollback = "sudo nixos-rebuild switch --rollback";
