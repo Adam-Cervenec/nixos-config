@@ -19,8 +19,8 @@ lib.mkIf (cfg.enable or false) {
         syntaxHighlighting.enable = true;
 
         shellAliases = {
-            rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
-            rbv2 = "nh os switch ~/nixos-config#$(hostname)";
+            rebuild-old = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
+            rebuild = "nh os switch ~/nixos-config#$(hostname)";
             boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
             rollback = "sudo nixos-rebuild switch --rollback";
@@ -31,13 +31,12 @@ lib.mkIf (cfg.enable or false) {
             
         };
 
-        oh-my-zsh = {
-            enable = true;
-            plugins = [
-                "git"
-            ];
-            theme = "robbyrussell";
-        };
+        plugins = [
+            {
+            name = "zsh-autosuggestions";
+            src = pkgs.zsh-autosuggestions;
+            }
+        ];
 
 
 
