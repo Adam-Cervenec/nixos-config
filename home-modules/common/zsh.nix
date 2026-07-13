@@ -37,7 +37,7 @@ lib.mkIf (cfg.enable or false) {
             src = pkgs.zsh-autosuggestions;
             }
         ];
-        
+
         setOptions = [
             "PROMPT_SUBST"
         ];
@@ -77,10 +77,7 @@ lib.mkIf (cfg.enable or false) {
             }
 
             
-            #fastfetch
-            if command -v fastfetch >/dev/null 2>&1; then
-                fastfetch
-            fi
+            fastfetch
 
             # Funkce pro získání git větve a statusu
             git_branch() {
