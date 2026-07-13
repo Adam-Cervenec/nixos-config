@@ -21,12 +21,12 @@
 
   apps = {
       default = {
-      browser = "firefox";
-      terminal = "alacritty";
-      fileManager = "thunar";
-      codeEditor = "vscode"; #vscode
-	    codeEditorCommand = "code"; #same as codeEditor for the most, code for vs code      
-      notes = "obsidian";
+        browser = "zen";
+        terminal = "alacritty";
+        fileManager = "thunar";
+        codeEditor = "vscode"; #vscode
+        codeEditorCommand = "code"; #same as codeEditor for the most, code for vs code      
+        notes = "obsidian";
     };
 
     install = [
@@ -34,14 +34,19 @@
       "btop"
       "zip"
       "unzip"
+      "p7zip"
       "qbittorrent"
       "obsidian"
       "cmatrix"
+      "discord"
     ];
   };
 
   modules = {
     zsh.enable = true;
+    alacritty.enable = true;
+    music-player.enable = true;
+    music-player.path = "~/Music";
     git = {
       enable = true;
       username = "Adam-Cervenec";
@@ -63,10 +68,9 @@
     firefox = {
       enable = true;
       configPath = ".mozilla/firefox";
-      disableTelemetry = true;
-      homePageURL = ""; #f.e. https://start.duckduckgo.com
-      defaultSearchEngie = "DuckDuckGo";
     };
+
+    zen.enable = true;
 
     thunar = {
       enable = true;
@@ -74,6 +78,8 @@
         "thunar"
         "thunar-volman"
         "ntfs3g"
+        "gvfs"
+        "tumbler"
       ];
     };
     
@@ -103,18 +109,29 @@
       };
 
       modules = {
-        wallpaper.duration = "120";
+        wallpaper.duration = 60*4; #seconds
         wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
         wallpaper.autostart = true;
+        wallpaper.loop = true;
+
+        waybar = {
+          monitor.main = ["HDMI-A-1"];
+          monitor.second = [];
+          font-size = "16px";
+        };
+
+        hypridle.lock-time = 10; # int minutes
+        hypridle.black-screen-time = 20; # int minutes
 
 
-        launcher.keybind = "SUPER_L";
+        #launcher.keybind = "SUPER_L";
       };
     };
 
     stylix = {
       enable = true;
-      base16 = "chalk"; #https://tinted-theming.github.io/tinted-gallery/
+      base16 = "flexoki-dark"; #https://tinted-theming.github.io/tinted-gallery/
+      #good ones: chalk, ayu-dark, flexoki-dark, 
 
       polarity = "dark"; #dark or light
 
@@ -122,7 +139,7 @@
         applications = 11;
         terminal = 11;
         desktop = 11;
-        popups = 10;
+        popups = 11;
       };
       opacity.terminal = 0.5;
     };

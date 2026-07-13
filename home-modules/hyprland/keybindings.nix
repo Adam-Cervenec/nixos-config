@@ -40,11 +40,19 @@ in
 
       "${mod}, Q, killactive,"
       "${mod}, F, fullscreen"
-      "${mod}, T, togglefloating"
+      "${mod} SHIFT, F, togglefloating"
       "${mod}, P, pseudo,"
       "${mod} SHIFT, R, exec, hyprctl reload"
 
 
+      "${mod}, W, exec, uwsm app -- hyprlauncher"
+
+
+      # submaps definitions
+
+      "${mod}, V, submap, Volume"
+      "${mod}, A, submap, Apps"
+      "${mod}, S, submap, System"
 
 
       # windows
@@ -107,36 +115,52 @@ in
     ];
   };
 
-  wayland.windowManager.hyprland.extraConfig =
-    ''
+  wayland.windowManager.hyprland.submaps = {
+    Volume.settings.binde = [
+      ", U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+      ", D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+      ", comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%-"
+      ", period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%+"
 
-      bind = ${mod}, A, submap, apps
+      "SHIFT, U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+"
+      "SHIFT, D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-"
+      "SHIFT, comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%-"
+      "SHIFT, period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+"
+    ];
+    Volume.settings.bind = [
+      ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-      submap = apps
+      ", H, exec, playerctl previous"
+      ", J, exec, playerctl play-pause"
+      ", K, exec, playerctl stop"
+      ", L, exec, playerctl next"
 
-        bind = , A, exec, uwsm app -- ${terminal}
-        bind = , W, exec, uwsm app -- ${browser}
-        bind = , O, exec, uwsm app -- ${notes}
-        bind = , C, exec, uwsm app -- ${codeEditor}
-        bind = , E, exec, uwsm app -- ${fileManager}
+      ", escape, submap, reset"
+      ", SPACE, submap, reset"
+    ];
 
-        bind = , SPACE, submap, reset
-        bind = , escape, submap, reset
+    Apps.settings.bind = [
+      ", A, exec, uwsm app -- ${terminal}"
+      ", F, exec, uwsm app -- ${browser}"
+      ", O, exec, uwsm app -- ${notes}"
+      ", C, exec, uwsm app -- ${codeEditor}"
+      ", E, exec, uwsm app -- ${fileManager}"
 
-      submap = reset
+      ", escape, submap, reset"
+      ", SPACE, submap, reset"
+    ];
 
-
-      bind = ${mod}, S, submap, system
-
-      submap = system
-
-        bind = , C, exec, uwsm app -- copyq toggle
-        bind = , S, exec, uwsm app -- hyprshot -m region --clipboard-only -s
-        bind = , A, exec, uwsm app -- hyprlauncher
-
-        bind = , catchall, submap, reset
-
-      submap = reset
-
-    '';
+    System.onDispatch = "reset";
+    System.settings.bind = [
+      ", C, exec, uwsm app -- copyq toggle"
+      ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -s"
+      ", V, exec, uwsm app -- hyprpwcenter"
+      ", N, exec, uwsm app -- nm-connection-editor"
+      ", L, exec, uwsm app -- hyprlock"
+      ", Q, exec, uwsm app -- hyprshutdown"
+      
+      ", catchall, submap, reset"
+    ];
+  };
 }

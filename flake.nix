@@ -8,6 +8,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     stylix.url = "github:danth/stylix";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";

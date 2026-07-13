@@ -60,6 +60,14 @@ lib.mkIf (cfg.enable or false) {
         enable = true;
         profileNames = [ "default" ];
       };
+      waybar.enable = false;
+    };
+
+    cursor = {
+      package = pkgs.layan-cursors; #banana-cursor, layan-cursors
+      name = "layan-cursors"; #Banana
+      size = 32;
     };
   };
+  home.pointerCursor.enable = true;
 }

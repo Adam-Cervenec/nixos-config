@@ -23,7 +23,7 @@ lib.mkIf (cfg.enable or false) {
             boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
             update = "nix flake update";
             rollback = "sudo nixos-rebuild switch --rollback";
-            clean = "sudo nix-collect-garbage -d";
+            #clean = "sudo nix-collect-garbage -d";
 
             test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname) --show-trace";
             eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
@@ -55,6 +55,21 @@ lib.mkIf (cfg.enable or false) {
 
             tmp() {
                 nix shell "nixpkgs#$1"
+            }
+
+            garbage() {
+                echo "🗑️  Collecting old generations..."
+                sudo nix-collect-garbage --delete-older-than 14d
+
+                echo "📦 Optimizing store..."
+                sudo nix store optimise
+
+                echo "✅ Done."
+            }
+
+            nuke() {
+                sudo nix-collect-garbage -d
+                sudo nix store optimise
             }
 
             
