@@ -78,12 +78,6 @@ lib.mkIf (cfg.enable or false) {
                 fastfetch
             fi
 
-
-            #git cosi
-            autoload -Uz vcs_info
-            precmd() { vcs_info }
-            zstyle ':vcs_info:git:*' formats '(%b)'
-
             # Funkce pro získání git větve a statusu
             git_branch() {
             # Zjistí, jestli jsme v git repozitáři
@@ -101,6 +95,8 @@ lib.mkIf (cfg.enable or false) {
                 fi
             fi
             }
+            
+            setopt prompt_subst
 
             PROMPT='
             ╭─[%B%F{39}%2~%f%b] %F{213}$%f %(?..%F{196}✘ %?%f )%F{244}
