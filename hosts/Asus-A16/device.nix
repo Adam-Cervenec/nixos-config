@@ -70,6 +70,8 @@
       configPath = ".mozilla/firefox";
     };
 
+    zen.enable = true;
+    
     thunar = {
       enable = true;
       install = [
