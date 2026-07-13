@@ -30,16 +30,29 @@
     };
 
     install = [
-      "fastfetch"
-      "btop"
       "zip"
       "unzip"
       "p7zip"
       "qbittorrent"
       "obsidian"
-      "cmatrix"
       "discord"
 
+      "cava" # frekvenci graf audia
+      "cmatrix" # hacker mode
+      "pipes-rs" # proste trubky, neres bro
+      "asciiquarium" # akvarium
+      "cbonsai" # bonsai
+      "hollywood" #hackerv2
+      "genact" # simulator prace
+      "bonsai" # dalsi strom
+      "rainfrog" # dest
+      "bb" # bad bytes
+      "clock-rs" # hodiny do kazde rodiny
+      "tty-solitaire" # solitaire
+
+
+      "fastfetch"
+      "btop"
       "lazygit"
       "lm_sensors"
       "nvtopPackages.full"
