@@ -12,7 +12,7 @@ in
   services.mpd = {
     enable = cfg.enable;
 
-    musicDirectory = "/home/user/Music";
+    musicDirectory = cfg.path;
 
     network = {
       listenAddress = "127.0.0.1";
@@ -24,6 +24,7 @@ in
       type "pipewire"
       name "PipeWire"
       }
+      auto_update "yes"
     '';
   };
   xdg.configFile."rmpc/config.ron".text = ''

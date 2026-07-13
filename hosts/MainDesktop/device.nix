@@ -46,6 +46,7 @@
     zsh.enable = true;
     alacritty.enable = true;
     music-player.enable = true;
+    music-player.path = "~/Music";
     git = {
       enable = true;
       username = "Adam-Cervenec";
