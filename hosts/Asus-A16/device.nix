@@ -14,14 +14,14 @@
     gpu = "nvidia"; # set to nVidia, AMD or Integrated (TODO: add AMD or Integrated option, if needed)
     de = "hyprland";
     network = {
-      #interface = "enp37s0";
+      interface = "wlp4s0";
       wol.enable = false;
     };
   };
 
   apps = {
       default = {
-      browser = "firefox";
+      browser = "zen";
       terminal = "alacritty";
       fileManager = "thunar";
       codeEditor = "vscode"; #vscode
@@ -34,14 +34,19 @@
       "btop"
       "zip"
       "unzip"
+      "p7zip"
       "qbittorrent"
       "obsidian"
       "cmatrix"
+      "discord"
     ];
   };
 
   modules = {
     zsh.enable = true;
+    alacritty.enable = true;
+    music-player.enable = true;
+    music-player.path = "~/Music";
     git = {
       enable = true;
       username = "Adam-Cervenec";
@@ -63,9 +68,6 @@
     firefox = {
       enable = true;
       configPath = ".mozilla/firefox";
-      disableTelemetry = true;
-      homePageURL = ""; #f.e. https://start.duckduckgo.com
-      defaultSearchEngie = "DuckDuckGo";
     };
 
     thunar = {
@@ -74,6 +76,8 @@
         "thunar"
         "thunar-volman"
         "ntfs3g"
+        "gvfs"
+        "tumbler"
       ];
     };
     
@@ -102,10 +106,19 @@
       };
 
       modules = {
-        wallpaper.duration = "120";
+        wallpaper.duration = 60*4; #seconds
         wallpaper.monitor = "ALL"; # write "ALL" or name of monitors interface
         wallpaper.autostart = true;
+        wallpaper.loop = true;
 
+        waybar = {
+          monitor.main = ["eDP-1"];
+          monitor.second = [];
+          font-size = "16px";
+        };
+
+        hypridle.lock-time = 10; # int minutes
+        hypridle.black-screen-time = 20; # int minutes
 
         launcher.keybind = "SUPER_L";
       };
@@ -121,7 +134,7 @@
         applications = 11;
         terminal = 11;
         desktop = 11;
-        popups = 10;
+        popups = 11;
       };
       opacity.terminal = 0.5;
     };
