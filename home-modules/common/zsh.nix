@@ -37,6 +37,10 @@ lib.mkIf (cfg.enable or false) {
             src = pkgs.zsh-autosuggestions;
             }
         ];
+        
+        setOptions = [
+            "PROMPT_SUBST"
+        ];
 
 
 
@@ -95,8 +99,6 @@ lib.mkIf (cfg.enable or false) {
                 fi
             fi
             }
-            
-            setopt prompt_subst
 
             PROMPT='
             ╭─[%B%F{39}%2~%f%b] %F{213}$%f %(?..%F{196}✘ %?%f )%F{244}
