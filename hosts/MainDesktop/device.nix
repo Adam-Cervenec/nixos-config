@@ -63,6 +63,14 @@
 
       "nix-tree"
       "nh"
+
+      # music downloader and analytics
+      "ytmdl"
+      "mediainfo"
+      "ffmpeg"
+      "flac"
+      "sox"
+      "spek"
     ];
   };
 
