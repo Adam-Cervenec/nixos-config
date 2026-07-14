@@ -11,7 +11,7 @@
       };
 
       display = {
-        separator = " 󰁔 ";
+        separator = " 󱄅 ";
         color = {
           keys = "blue";
           output = "white";
