@@ -36,6 +36,7 @@
       "qbittorrent"
       "obsidian"
       "discord"
+      "gh"
 
       "cava" # frekvenci graf audia
       "cmatrix" # hacker mode
