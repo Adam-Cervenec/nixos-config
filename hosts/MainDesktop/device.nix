@@ -66,11 +66,14 @@
 
       # music downloader and analytics
       "ytmdl"
+      "yt-dlp"
       "mediainfo"
       "ffmpeg"
       "flac"
       "sox"
       "spek"
+      "kid3" # manual metadata tagger
+      "picard" # automatic metadata tagger
     ];
   };
 
