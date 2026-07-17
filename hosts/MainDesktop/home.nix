@@ -15,7 +15,6 @@
     ../../home-modules/roles/games.nix
     ../../home-modules/roles/office.nix
     ../../home-modules/roles/utils.nix
-    ../../home-modules/roles/claude.nix
   ];
 
   home.username = device.machine.username;
