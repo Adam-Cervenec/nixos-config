@@ -154,7 +154,7 @@ in
     System.onDispatch = "reset";
     System.settings.bind = [
       ", C, exec, uwsm app -- copyq toggle"
-      ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -s"
+      ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -zs"
       ", V, exec, uwsm app -- hyprpwcenter"
       ", N, exec, uwsm app -- nm-connection-editor"
       ", L, exec, uwsm app -- hyprlock"
