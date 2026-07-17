@@ -61,6 +61,7 @@
       "zellij"
       "neovim"
       "lazyjournal"
+      "numr"
 
       "nix-tree"
       "nh"
