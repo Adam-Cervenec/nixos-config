@@ -29,6 +29,7 @@ in
     ../../modules/roles/steam.nix
     ../../modules/roles/thunar.nix
     ../../modules/roles/wol.nix
+    ../../modules/roles/ollama.nix
 
 
   ]
