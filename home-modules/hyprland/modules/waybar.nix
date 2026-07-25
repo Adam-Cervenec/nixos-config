@@ -235,7 +235,7 @@ in
           background: ${color "background"};
           color: ${color "foreground"};
           padding: 0 15px;
-          margin: 0 4px;
+          margin: 0 2px;
           border-radius: 11px;
           border: 3px solid ${color "primary"};
         }
