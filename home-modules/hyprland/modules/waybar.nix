@@ -80,8 +80,12 @@ in
 
         "power-profiles-daemon" = {
           format = "{icon}";
-          tooltip-format = "Power profile: {profile}nCPU driver: {cpu_driver}nPlatform driver: {platform_driver}";
           tooltip = true;
+          tooltip-format = ''
+            Power profile: {profile}
+            Driver: {driver}
+          '';
+
           format-icons = {
             default = "";
             performance = "";
