@@ -7,6 +7,7 @@
   };
 
   programs.rog-control-center.enable = true;
+  services.supergfxd.enable = true;
 
   environment.systemPackages = with pkgs; [
     asusctl
