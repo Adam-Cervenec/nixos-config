@@ -4,17 +4,19 @@
 let
   cfg = device.modules.firefox or {};
 in
+
+# Enable Firefox if configured
 lib.mkIf (cfg.enable or false) {
   programs.firefox = {
     enable = true;
-    configPath = cfg.configPath;
+    configPath = cfg.configPath or "${config.xdg.configHome}/firefox";
 
     policies = {
-      DisableTelemetry = cfg.disableTelemetry or true;
-      DisablePocket = cfg.disableTelemetry or true;
+      DisableTelemetry = cfg.DisableTelemetry or true;
+      DisablePocket = cfg.DisablePocket or true;
 
       SearchEngines = {
-        Default = cfg.defaultSearchEngine or "DuckDuckGo";
+        Default = cfg.SearchEngines.Default or "DuckDuckGo";
       };
     };
   };
