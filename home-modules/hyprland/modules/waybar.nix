@@ -1,4 +1,4 @@
-{ config, device, lib, ... }:
+{ config, device, lib, pkgs, ... }:
 
 let
   cfg = device.modules.hyprland.modules.waybar or {};
@@ -75,14 +75,6 @@ in
           format-icons = {
             default = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
             charging = [ "󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
-          };
-
-          events = {
-            on-discharging-warning = "notify-send -u normal 'Low Battery'";
-            on-discharging-critical = "notify-send -u critical 'Very Low Battery'";
-            on-charging-100 = "notify-send -u normal 'Battery Full!'";
-            on-discharging = "notify-send -u normal 'Power Switch' Discharging";
-            on-charging = "notify-send -u normal 'Power Switch' Charging'";
           };
         };
 
@@ -254,4 +246,8 @@ in
 
       '';
   };
+
+  home.packages = with pkgs; [
+    libnotify
+  ];
 }
