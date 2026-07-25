@@ -236,14 +236,13 @@ in
           color: ${color "foreground"};
           padding: 0 15px;
           margin: 0 4px;
-          border-radius: 20px;
+          border-radius: 11px;
           border: 3px solid ${color "primary"};
         }
 
         #wireplumber:hover, #network:hover {
           background: ${color "foreground"};
           color: ${color "background"};
-          border-radius: 666px;
           border: 3px solid ${color "special"};
         }
 
