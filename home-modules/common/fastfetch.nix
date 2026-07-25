@@ -1,3 +1,6 @@
+# ToDo:
+# Integrate with device.nix
+
 {
   programs.fastfetch = {
     enable = true;
