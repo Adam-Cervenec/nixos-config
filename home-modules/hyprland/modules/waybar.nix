@@ -36,7 +36,7 @@ in
 
         modules-left = [ "cpu" "memory" "disk" "hyprland/submap" ];
         modules-center = ["hyprland/workspaces" ];
-        modules-right = [ "battery" "tray" "network" "wireplumber#sink" "wireplumber#source" "hyprland/language"  "clock" ];
+        modules-right = [ "tray" "battery" "network" "wireplumber#sink" "wireplumber#source" "hyprland/language"  "clock" ];
 
 
 
