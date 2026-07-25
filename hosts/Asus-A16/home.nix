@@ -23,10 +23,4 @@
   home.stateVersion = device.machine.homeVersion;
 
   programs.home-manager.enable = true;
-
-
-
-  home.packages = with pkgs; [
-    asusctl
-  ];
 }

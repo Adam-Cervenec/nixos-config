@@ -14,6 +14,9 @@ in
     #./disks.nix
     ../../configuration.nix
 
+    # asus only HW controllers
+    ./asus.nix
+
 
       #destkop
     ../../modules/desktop
