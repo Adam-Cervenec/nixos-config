@@ -22,15 +22,5 @@
 
   home.stateVersion = device.machine.homeVersion;
 
-  programs.home-manager.enable = true;
-
-
-
-# --- Deklarace SW ---
-
-  home.packages = with pkgs; [
-
-  ];
-
-  
+  programs.home-manager.enable = true;  
 }
