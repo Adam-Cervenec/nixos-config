@@ -5,10 +5,10 @@
   services.asusd = {
     enable = true;
   };
-  
+
   programs.rog-control-center.enable = true;
 
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     asusctl
     power-profiles-daemon
   ];
