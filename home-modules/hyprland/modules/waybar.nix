@@ -63,9 +63,9 @@ in
 
         "battery" = {
           bat = "BAT1";
-          interval = 20;
+          interval = 1;
 
-          format = "{capacity}% {icon}";
+          format = "{capacity}% {icon} {power:.0f} W";
 
           states = {
             warning = 25;
