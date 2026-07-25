@@ -36,7 +36,7 @@ in
 
         modules-left = [ "cpu" "memory" "disk" "hyprland/submap" ];
         modules-center = ["hyprland/workspaces" ];
-        modules-right = [ "tray" "battery" "network" "wireplumber#sink" "wireplumber#source" "hyprland/language"  "clock" ];
+        modules-right = [ "tray" "battery" "power-profiles-daemon" "network" "wireplumber#sink" "wireplumber#source" "hyprland/language"  "clock" ];
 
 
 
@@ -75,6 +75,18 @@ in
           format-icons = {
             default = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
             charging = [ "󰢟" "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
+          };
+        };
+
+        power-profiles-daemon = {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}nCPU driver: {cpu_driver}nPlatform driver: {platform_driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
           };
         };
 
