@@ -261,8 +261,4 @@ in
 
       '';
   };
-
-  home.packages = with pkgs; [
-    libnotify
-  ];
 }
