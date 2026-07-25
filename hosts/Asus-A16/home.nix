@@ -27,6 +27,6 @@
 
 
   home.packages = with pkgs; [
-    "asusctl"
+    asusctl
   ];
 }
