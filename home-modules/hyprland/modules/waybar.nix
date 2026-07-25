@@ -247,13 +247,13 @@ in
           border: 3px solid ${color "special"};
         }
 
-        #battery.warning, #cpu.warning, #ram.warning, #disk.warning {
+        #battery.warning, #cpu.warning, #ram.warning, #disk.warning, #power-profiles-daemon.balanced {
           background: ${color "background"};
           color: ${color "secondary"};
           border: 3px solid ${color "secondary"};
         }
 
-        #network.disconnected, #wireplumber.muted, #battery.critical, #cpu.critical, #ram.critical, #disk.critical {
+        #network.disconnected, #wireplumber.muted, #battery.critical, #cpu.critical, #ram.critical, #disk.critical, #power-profiles-daemon.performance {
           background: ${color "background"};
           color: ${color "warning"};
           border: 3px solid ${color "warning"};
