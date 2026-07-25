@@ -78,7 +78,7 @@ in
           };
         };
 
-        power-profiles-daemon = {
+        "power-profiles-daemon" = {
           format = "{icon}";
           tooltip-format = "Power profile: {profile}nCPU driver: {cpu_driver}nPlatform driver: {platform_driver}";
           tooltip = true;
@@ -224,7 +224,7 @@ in
         }
 
 
-        #clock,  #language, #wireplumber, #network, #battery, #cpu, #memory, #disk, #submap {
+        #clock,  #language, #wireplumber, #network, #battery, #cpu, #memory, #disk, #submap, #power-profiles-daemon {
           transition: all 600ms ease-in-out;
 
           font-weight: 500;
