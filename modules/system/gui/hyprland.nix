@@ -2,9 +2,9 @@
 
 #define path
 let
-    profile = cfg.profile or {};
+    isEnabled = cfg.profile.hyprland.enable or {};
 in
-lib.mkIf (profile.hyprland.enable or false) {
+lib.mkIf (isEnabled or false) {
   programs.hyprland = {
     enable = true;
     withUWSM = true;
