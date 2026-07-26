@@ -7,7 +7,7 @@
 {
   machine = {
     hostname = "MainDesktop";
-    username = "adam";
+    username = "user";
     system = "x86_64-linux";
     # for device option use "desktop", "laptop"
     # "server" or "vm"
