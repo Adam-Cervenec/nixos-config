@@ -1,13 +1,18 @@
 { lib, ... }:
 
-#automatic import
-#all files in this directory
 let
-  files =
-    builtins.filter
-      (name: name != "default.nix" && lib.hasSuffix ".nix" name)
-      (builtins.attrNames (builtins.readDir ./.));
+  entries = builtins.readDir ./.;
+
+  imports =
+    lib.mapAttrsToList (name: type:
+      if type == "regular" && name != "default.nix" && lib.hasSuffix ".nix" name then
+        ./. + "/${name}"
+      else if type == "directory" then
+        ./. + "/${name}"
+      else
+        null
+    ) entries;
 in
 {
-  imports = map (file: ./. + "/${file}") files;
+  imports = builtins.filter (x: x != null) imports;
 }
