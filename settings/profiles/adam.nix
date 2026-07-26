@@ -58,18 +58,16 @@
       "picard" # automatic metadata tagger
     ];
 
-    enable = {
-      git = true;
-      vscode = true;
-      firefox = true;
-      zen = true;
-      thunar = true;
-      hyprland = true;
-      stylix = true;
-      zsh = true;
-      alacritty = true;
-    };
+    vscode.enable = true;
+    firefox.enable = true;
+    zen.enable = true;
+    thunar.enable = true;
+    hyprland.enable = true;
+    stylix.enable = true;
+    zsh.enable = true;
+    alacritty.enable = true;
 
+    git.enable = true;
     git.username = "Adam-Cervenec";
     git.email = "cervenec.a@protonmail.com";
 
