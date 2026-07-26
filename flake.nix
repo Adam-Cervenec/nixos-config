@@ -10,6 +10,7 @@
     };
 
     stylix.url = "github:danth/stylix";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
   outputs = { nixpkgs, home-manager, stylix, ... }:
