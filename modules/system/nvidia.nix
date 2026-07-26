@@ -1,4 +1,4 @@
-{ cfg, config, pkgs, ... }:
+{ cfg, config, pkgs, lib, ... }:
 
 lib.mkIf (cfg.hardware.nvidia.enable or false) {
     # --- nVidia GPU drivers and settings  ---
