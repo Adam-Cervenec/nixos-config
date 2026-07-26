@@ -67,6 +67,7 @@
     zsh.enable = true;
     fastfetch.enable = true;
     alacritty.enable = true;
+    wol.enable = true;
 
 
     musicPlayer.enable = true;

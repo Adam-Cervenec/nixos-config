@@ -24,11 +24,16 @@
   ];
 
   roles.system = [
-    "test"
+    "steam"
+    "thunar"
+    "virtualization"
+    "wol"
   ];
 
   roles.home = [
-    "test"
+    "games"
+    "dev"
+    "3d-printing"
   ];
 
   hardware = {
