@@ -1,7 +1,7 @@
 { config, cfg, lib, pkgs, ... }:
 
 let
-  monitors = cfg.waybar.monitors;
+  monitors = cfg.hardware.waybar.monitors;
   style = cfg.style;
   #stylix = device.modules.stylix;
 
