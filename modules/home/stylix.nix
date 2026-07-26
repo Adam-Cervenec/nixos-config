@@ -3,10 +3,11 @@
 #define variable cfg for path
 let
   style = cfg.style or {};
+  cfgStylix = cfg.profile.stylix or {};
 in
 
 #if stylix is enabled, define stylix...
-lib.mkIf (cfg.profile.stylix.enable or false) {
+lib.mkIf (cfgStylix.enable or false) {
 
   stylix = {
     enable = true;

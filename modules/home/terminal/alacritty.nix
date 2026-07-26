@@ -1,12 +1,12 @@
-{ config, pkgs, device, lib, ... }:
+{ config, pkgs, cfg, lib, ... }:
 
 #define variable cfg for path
 let
-  cfg = device.modules.alacritty or {};
+  cfgAlacritty = cfg.profile.alacritty or {};
 in
 
 # Enable Alacritty if configured
-lib.mkIf (cfg.enable or false) {
+lib.mkIf (cfgAlacritty.enable or false) {
   programs.alacritty = {
     enable = true;
     settings = {}; # due to Stylix

@@ -1,10 +1,10 @@
 { lib, pkgs, cfg, ... }:
 
 let
-  musicPlayer = cfg.profile.musicPlayer or {};
+  cfgMusicPlayer = cfg.profile.musicPlayer or {};
 in
 
-lib.mkIf (musicPlayer.enable or false) {
+lib.mkIf (cfgMusicPlayer.enable or false) {
 
   home.packages = with pkgs; [
     rmpc
@@ -15,7 +15,7 @@ lib.mkIf (musicPlayer.enable or false) {
   services.mpd = {
     enable = true;
 
-    musicDirectory = musicPlayer.path;
+    musicDirectory = cfgMusicPlayer.path;
 
     network = {
       listenAddress = "127.0.0.1";

@@ -2,11 +2,11 @@
 
 #define variable cfg for path
 let
-  firefox = cfg.profile.firefox or {};
+  cfgFirefox = cfg.profile.firefox or {};
 in
 
 # Enable Firefox if configured
-lib.mkIf (firefox.enable or false) {
+lib.mkIf (cfgFirefox.enable or false) {
   programs.firefox = {
     enable = true;
     configPath = "${config.xdg.configHome}/firefox";

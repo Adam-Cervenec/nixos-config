@@ -2,12 +2,12 @@
 
 { config, pkgs, cfg, lib, ... }:
 let
-    profile = cfg.profile or {};
+    cfgZsh = cfg.profile.zsh or {};
 
 in
 
 #if zsh is enabled, define zsh...
-lib.mkIf (profile.zsh.enable or false) {
+lib.mkIf (cfgZsh.enable or false) {
 
 
     programs.zsh = {

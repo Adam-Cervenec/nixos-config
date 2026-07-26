@@ -1,19 +1,19 @@
-{ lib, device, ... }:
+{ lib, cfg, ... }:
 
 #define variable cfg for path
 let
-  cfg = device.modules.git or {};
+  cfgGit = cfg.profile.git or {};
 in
 
 #if git is enabled, define git...
-lib.mkIf (cfg.enable or false) {
+lib.mkIf (cfgGit.enable or false) {
 
   programs.git = {
     enable = true;
 
     settings = {
-      user.name = cfg.username;
-      user.email = cfg.email;
+      user.name = cfgGit.username;
+      user.email = cfgGit.email;
     };
   };
 

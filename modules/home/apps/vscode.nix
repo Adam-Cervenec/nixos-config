@@ -2,9 +2,9 @@
 
 #define variable cfg for path and for extensions
 let
-  vscode = cfg.profile.vscode or {};
+  cfgVscode = cfg.profile.vscode or {};
 in
-lib.mkIf (vscode.enable or false) {
+lib.mkIf (cfgVscode.enable or false) {
   programs.vscode = {
     enable = true;
   };

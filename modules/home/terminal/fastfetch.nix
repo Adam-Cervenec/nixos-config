@@ -1,11 +1,11 @@
 { config, pkgs, cfg, lib, ... }:
 let
-    profile = cfg.profile or {};
+    cfgFastfetch = cfg.profile.fastfetch or {};
 
 in
 
 #if zsh is enabled, define zsh...
-lib.mkIf (profile.fastfetch.enable or false) {
+lib.mkIf (cfgFastfetch.enable or false) {
   programs.fastfetch = {
     enable = true;
 
