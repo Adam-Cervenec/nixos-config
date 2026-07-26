@@ -65,7 +65,12 @@
     hyprland.enable = true;
     stylix.enable = true;
     zsh.enable = true;
+    fastfetch.enable = true;
     alacritty.enable = true;
+
+
+    musicPlayer.enable = true;
+    musicPlayer.path = "~/Music";
 
     git.enable = true;
     git.username = "Adam-Cervenec";
