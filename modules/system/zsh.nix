@@ -1,10 +1,13 @@
 #zsh.nix
 
 { config, pkgs, cfg, lib, ... }:
+let
+    profile = cfg.profile or {};
 
+in
 
 #if zsh is enabled, define zsh...
-lib.mkIf (cfg.profile.enable.zsh or false) {
+lib.mkIf (profile.zsh.enable or false) {
 
 
     programs.zsh = {
