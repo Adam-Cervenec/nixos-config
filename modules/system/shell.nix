@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, cfg, ... }:
+let
+    username = cfg.machine.username;
+in
 
 {
-
-    users.users.user.shell = pkgs.zsh;
-    programs.zsh.enable = true;
-
+    users.users.${username}.shell = pkgs.zsh;
 }

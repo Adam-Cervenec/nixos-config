@@ -14,6 +14,7 @@
     device = "desktop";
     unfreePkgs = true;
     homeVersion = "25.11";
+    stateVersion = "25.11";
   };
 
   settings = [

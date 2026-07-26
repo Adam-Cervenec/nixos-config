@@ -1,11 +1,16 @@
-{ config, pkgs, ... }:
+{ cfg, ... }:
 
+let
+    username = cfg.machine.username;
+in
 {
-    # --- user ---
-    users.users.user = {
-        isNormalUser = true;
-        description = "user";
-        extraGroups = [ "networkmanager" "wheel" ];
+  users.users.${username} = {
+    isNormalUser = true;
+    description = username;
 
-    };
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
 }

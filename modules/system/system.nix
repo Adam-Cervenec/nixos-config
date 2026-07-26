@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, cfg, ... }:
+let
+    stateVersion = cfg.machine.stateVersion;
+    unfreePkgs = cfg.machine.unfreePkgs;
+in
 {
     # --- System ---
 
@@ -8,7 +11,7 @@
 
 
     #allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = unfreePkgs;
 
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
@@ -36,7 +39,7 @@
 
     # --- OS version ---
 
-    system.stateVersion = "25.11"; # Did you read the comment?
+    system.stateVersion = stateVersion; # Did you read the comment?
 
 
     # --- Firewall ---
