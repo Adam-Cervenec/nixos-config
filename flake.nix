@@ -64,6 +64,7 @@
 
               useGlobalPkgs = true;
               useUserPackages = true;
+              home.stateVersion = cfg.machine.homeVersion;
 
               extraSpecialArgs = {
                 inherit cfg;
