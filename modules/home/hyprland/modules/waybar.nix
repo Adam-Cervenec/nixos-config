@@ -181,7 +181,7 @@ in
         * {
           border: none;
           border-radius: 0;
-          font-size: ${style.fonts.size.waybar}px;
+          font-size: ${builtins.toString style.fonts.size.waybar}px;
           min-height: 0;
           margin: 0;
           padding: 0;
