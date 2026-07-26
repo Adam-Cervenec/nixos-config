@@ -66,6 +66,8 @@
       thunar = true;
       hyprland = true;
       stylix = true;
+      zsh = true;
+      alacritty = true;
     };
 
     git.username = "Adam-Cervenec";
