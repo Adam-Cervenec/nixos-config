@@ -25,7 +25,6 @@
 
   roles.system = [
     "steam"
-    "thunar"
     "virtualization"
     "wol"
   ];
