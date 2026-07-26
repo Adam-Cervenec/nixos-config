@@ -13,7 +13,7 @@
     zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
-  outputs = { nixpkgs, home-manager, stylix, ... }:
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
 
   let
     lib = nixpkgs.lib;
@@ -43,7 +43,7 @@
         system = cfg.machine.system;
 
         specialArgs = {
-          inherit cfg;
+          inherit cfg inputs;
         };
 
         modules = [
@@ -70,7 +70,7 @@
               useUserPackages = true;
 
               extraSpecialArgs = {
-                inherit cfg;
+                inherit cfg inputs;
               };
 
               users.${cfg.machine.username} = {
