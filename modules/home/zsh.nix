@@ -4,7 +4,7 @@
 
 
 #if zsh is enabled, define zsh...
-lib.mkIf (cfg.settings.profile.enable.zsh or false) {
+lib.mkIf (cfg.profile.enable.zsh) {
 
 
     programs.zsh = {
