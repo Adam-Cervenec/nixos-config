@@ -23,11 +23,11 @@
   ];
 
   roles.system = [
-
+    ./default.nix
   ];
 
   roles.home = [
-
+    ./default.nix
   ];
 
   hardware = {
