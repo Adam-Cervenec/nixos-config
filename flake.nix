@@ -79,6 +79,10 @@
                   ./modules/home/default.nix
                 ]
                 ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
+
+                nixpkgs = {
+                  config.allowUnfree = cfg.machine.unfreePkgs;
+                };
               };
 
               sharedModules = [
