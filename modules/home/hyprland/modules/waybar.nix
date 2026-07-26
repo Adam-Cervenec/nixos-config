@@ -2,7 +2,7 @@
 
 let
   monitors = cfg.waybar.monitors;
-  style = cfg.settings.style;
+  style = cfg.style;
   #stylix = device.modules.stylix;
 
   color = name:

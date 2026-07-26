@@ -1,13 +1,13 @@
 { lib, cfg, ... }:
 
 let
-  mod = cfg.settings.profile.hyprland.modKey;
+  mod = cfg.profile.hyprland.modKey;
 
-  browser = cfg.settings.profile.apps.default.browser;
-  terminal = cfg.settings.profile.apps.default.terminal;
-  fileManager = cfg.settings.profile.apps.default.fileManager;
-  codeEditor = cfg.settings.profile.apps.default.codeEditorCommand;
-  notes = cfg.settings.profile.apps.default.notes;
+  browser = cfg.profile.apps.default.browser;
+  terminal = cfg.profile.apps.default.terminal;
+  fileManager = cfg.profile.apps.default.fileManager;
+  codeEditor = cfg.profile.apps.default.codeEditorCommand;
+  notes = cfg.profile.apps.default.notes;
 
   inherit (lib) genList;
 

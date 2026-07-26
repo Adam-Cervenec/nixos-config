@@ -1,9 +1,5 @@
 { config, pkgs, lib, cfg, ... }:
 
-#define variable cfg for path
-let
-  isHyprlandEnabled = cfg.settings.profile.enable.hyprland or {};
-in
 {
 
   imports = [
@@ -20,7 +16,7 @@ in
     ./modules/hypridle.nix
   ];
 
-  config = lib.mkIf (isHyprlandEnabled or false) {
+  config = lib.mkIf (cfg.settings.profile.enable.hyprland or false) {
     home.packages = with pkgs; [
 
     ];

@@ -1,7 +1,7 @@
 {config, pkgs, cfg, ...}:
 
 let
-  hypridle = cfg.settings.profile.hypridle;
+  hypridle = cfg.profile.hypridle;
 in
 {
   services.hypridle = {

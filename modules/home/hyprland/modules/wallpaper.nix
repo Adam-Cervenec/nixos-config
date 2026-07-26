@@ -1,7 +1,7 @@
 { pkgs, cfg, lib, ... }:
 
 let
-  wallpaper = cfg.settings.profile.wallpaper;
+  wallpaper = cfg.profile.wallpaper;
 in
 {
   home.packages = with pkgs; [

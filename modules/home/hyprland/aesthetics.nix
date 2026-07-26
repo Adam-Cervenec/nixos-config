@@ -1,6 +1,6 @@
 { cfg, config, lib, ... }:
 let
-  style = cfg.settings.style;
+  style = cfg.style;
   color = name:
     "rgb(${config.lib.stylix.colors.${style.colors.${name}}})";
 in
