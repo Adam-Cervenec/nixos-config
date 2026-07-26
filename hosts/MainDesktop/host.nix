@@ -22,6 +22,14 @@
     ../../settings/presets/workstation.nix
   ];
 
+  roles.system = [
+
+  ];
+
+  roles.home = [
+
+  ];
+
   hardware = {
     gpu.nvidia = true;
     gpu.amd = false;
@@ -33,5 +41,7 @@
     ];
 
     waybar.monitors = ["HDMI-A-1"];
+
+    network.interface = "enp37s0";
   };
 }
