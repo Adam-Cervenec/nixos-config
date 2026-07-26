@@ -57,14 +57,13 @@
           home-manager.nixosModules.home-manager
 
           {
-
+            home.stateVersion = cfg.machine.homeVersion;
             networking.hostName = cfg.machine.hostname;
 
             home-manager = {
 
               useGlobalPkgs = true;
               useUserPackages = true;
-              home.stateVersion = cfg.machine.homeVersion;
 
               extraSpecialArgs = {
                 inherit cfg;
