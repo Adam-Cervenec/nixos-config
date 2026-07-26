@@ -57,7 +57,8 @@
           home-manager.nixosModules.home-manager
 
           {
-            home.stateVersion = cfg.machine.homeVersion;
+
+            networking.hostName = cfg.machine.hostname;
 
             home-manager = {
 
@@ -69,8 +70,7 @@
               };
 
               users.${cfg.machine.username} = {
-                networking.hostName = cfg.machine.hostname;
-                
+                home.stateVersion = cfg.machine.homeVersion;
                 imports = [
                   #./hosts/${hostName}/home.nix
                   ./modules/home/default.nix
