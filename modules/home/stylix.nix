@@ -37,10 +37,10 @@ lib.mkIf (cfg.profile.stylix.enable or false) {
       
       # Velikosti pro různé části systému
       sizes = {
-        applications = cfg.size.applications;
-        terminal = cfg.size.terminal;
-        desktop = cfg.size.desktop;
-        popups = cfg.size.popups;
+        applications = style.fonts.size.applications;
+        terminal = style.fonts.size.terminal;
+        desktop = style.fonts.size.desktop;
+        popups = style.fonts.size.popups;
       };
     };
 
