@@ -23,11 +23,11 @@
   ];
 
   roles.system = [
-    ../../roles/system/test.nix
+    "test"
   ];
 
   roles.home = [
-    ../../roles/home/test.nix
+    "test"
   ];
 
   hardware = {

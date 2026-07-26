@@ -48,7 +48,7 @@
           ./hosts/${hostName}/hardware-configuration.nix
           #./hosts/${hostName}/configuration.nix
 
-          ./system/modules/default.nix
+          ./modules/system/default.nix
         ]
         ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
         ++
