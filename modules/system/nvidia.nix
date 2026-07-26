@@ -1,6 +1,6 @@
 { cfg, config, pkgs, lib, ... }:
 
-lib.mkIf (cfg.hardware.nvidia.enable or false) {
+lib.mkIf (cfg.hardware.gpu.nvidia.enable or false) {
     # --- nVidia GPU drivers and settings  ---
     services.xserver.videoDrivers = [ "nvidia" ];
 
