@@ -68,6 +68,7 @@
     fastfetch.enable = true;
     alacritty.enable = true;
     wol.enable = true;
+    sddm.enable = true;
 
 
     musicPlayer.enable = true;
