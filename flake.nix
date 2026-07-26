@@ -55,6 +55,9 @@
 
           stylix.nixosModules.stylix
         ]
+        ++ lib.optional
+          (builtins.pathExists ./hosts/${hostName}/disks.nix)
+          ./hosts/${hostName}/disks.nix
         ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
         ++
         [
