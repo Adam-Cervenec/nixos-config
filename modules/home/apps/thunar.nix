@@ -1,9 +1,9 @@
 { lib, pkgs, cfg, ... }:
 
 let
-  thunar = cfg.profile.thunar or {};
+  cfgThunar = cfg.profile.thunar or {};
 in
-lib.mkIf (thunar.enable or false) {
+lib.mkIf (cfgThunar.enable or false) {
 
   home.packages = with pkgs; [
     thunar
