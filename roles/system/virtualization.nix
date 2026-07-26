@@ -1,11 +1,13 @@
-{ device, ... }:
-
+{ cfg, ... }:
+let
+  username = cfg.machine.username;
+in
 {
   virtualisation.libvirtd.enable = true;
 
   programs.virt-manager.enable = true;
 
-  users.users.${device.machine.username}.extraGroups = [
+  users.users.${username}.extraGroups = [
     "libvirtd"
   ];
 
