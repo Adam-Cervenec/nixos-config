@@ -8,9 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, stylix, ... }:
 
   let
     lib = nixpkgs.lib;
@@ -49,6 +51,8 @@
           #./hosts/${hostName}/configuration.nix
 
           ./modules/system/default.nix
+
+          stylix.nixosModules.stylix
         ]
         ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
         ++
@@ -77,6 +81,10 @@
                 ]
                 ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
               };
+
+              sharedModules = [
+                stylix.homeModules.stylix
+              ];
             };
           }
         ];
