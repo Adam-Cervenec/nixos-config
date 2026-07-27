@@ -61,6 +61,21 @@ lib.mkIf (cfgNixvim.enable or false) {
             # git commit status plugin
             gitsigns.enable = true;
         };
+
+        keymaps = [
+            # remap redo to U
+            {
+                mode = "n";
+                key = "U";
+                action = "<C-r>";
+            }
+            # remap noh to Esc
+            {
+                mode = "n";
+                key = "<Esc>";
+                action = "<cmd>nohlsearch<CR>";
+            }
+        ];
     };
 
-}
+
