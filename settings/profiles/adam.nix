@@ -17,7 +17,7 @@
       "obsidian"
       "discord"
       "gh"
-      #"networkmanagerapplet"
+      "networkmanagerapplet"
 
       "cava" # frekvenci graf audia
       "cmatrix" # hacker mode
