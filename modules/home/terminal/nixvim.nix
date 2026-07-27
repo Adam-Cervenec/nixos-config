@@ -85,6 +85,11 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<Esc>";
                 action = "<cmd>nohlsearch<CR>";
             }
+            {
+                mode = "n";
+                key = "-";
+                action = "<cmd>Oil %:h<CR>";
+            }
         ];
     };
 
