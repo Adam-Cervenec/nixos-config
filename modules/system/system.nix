@@ -53,5 +53,6 @@ in
     # sudo settings
     security.sudo.extraConfig = ''
         Defaults timestamp_type=tty
+        Defaults timestamp_timeout=-1
     '';
 }
