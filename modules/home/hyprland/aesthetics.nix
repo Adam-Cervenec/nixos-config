@@ -30,8 +30,8 @@ in
         vibrancy = 0.1696;
       };
 
-      active_opacity = style.opacity.active;
-      inactive_opacity = style.opacity.inactive;
+      active_opacity = style.opacity.window.active;
+      inactive_opacity = style.opacity.window.inactive;
     };
 
     windowrule = [
@@ -40,14 +40,14 @@ in
         "match:float" = true;
         
         #no_blur = true;
-        opacity = style.opacity.floatOverride;
+        opacity = style.opacity.window.floatOverride;
         border_color = color "secondary";
 
       }
       {
         name = "Fullscreen windows";
         "match:fullscreen" = true;
-        opacity = style.opacity.fullscreenOverride;
+        opacity = style.opacity.window.fullscreenOverride;
         no_shadow = true;
       }
     ];

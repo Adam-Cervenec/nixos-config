@@ -16,7 +16,7 @@
     ./modules/hypridle.nix
   ];
 
-  config = lib.mkIf (cfg.settings.profile.hyprland.enable or false) {
+  config = {
     home.packages = with pkgs; [
 
     ];

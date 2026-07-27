@@ -17,7 +17,7 @@
       "obsidian"
       "discord"
       "gh"
-      "networkmanagerapplet"
+      #"networkmanagerapplet"
 
       "cava" # frekvenci graf audia
       "cmatrix" # hacker mode
@@ -63,7 +63,6 @@
     firefox.enable = true;
     zen.enable = true;
     thunar.enable = true;
-    hyprland.enable = true;
     stylix.enable = true;
     zsh.enable = true;
     fastfetch.enable = true;
@@ -79,7 +78,8 @@
     git.username = "Adam-Cervenec";
     git.email = "cervenec.a@protonmail.com";
 
-    hyprland.modkey = "SUPER";
+    hyprland.enable = true;
+    hyprland.modKey = "SUPER";
 
     hypridle.lock-time = 10; # int minutes
     hypridle.black-screen-time = 20; # int minutes
