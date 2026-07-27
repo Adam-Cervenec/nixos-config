@@ -66,5 +66,8 @@
 
     # define which monitors will be used by waybar
     waybar.monitors = ["HDMI-A-1"];
+
+    # needed for wol role, set the interface name for this machine
+    network.interface = "enp37s0"; 
   };
 }
