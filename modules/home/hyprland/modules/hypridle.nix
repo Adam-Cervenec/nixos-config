@@ -2,6 +2,7 @@
 
 let
   isHyprlandOn =  cfg.profile.hyprland.enable or false;
+  hypridle = cfg.profile.hypridle;
 in
 lib.mkIf (isHyprlandOn) {
   services.hypridle = {
