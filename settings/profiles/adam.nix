@@ -69,6 +69,8 @@
     alacritty.enable = true;
     wol.enable = true;
     sddm.enable = true;
+    
+    nixvim.enable = true;
 
 
     musicPlayer.enable = true;
