@@ -3,6 +3,7 @@
 { config, pkgs, cfg, lib, ... }:
 let
     cfgZsh = cfg.profile.zsh or {};
+    nixosPath = cfg.machine.nixosPath or "/etc/nixos";
 
 in
 
@@ -18,14 +19,13 @@ lib.mkIf (cfgZsh.enable or false) {
         syntaxHighlighting.enable = true;
 
         shellAliases = {
-            rebuild-old = "sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)";
-            rebuild = "nh os switch ~/nixos-config#$(hostname)";
-            boot = "sudo nixos-rebuild boot --flake ~/nixos-config#$(hostname)";
+            rebuild-old = "sudo nixos-rebuild switch --flake ${nixosPath}#$(hostname)";
+            rebuild = "nh os switch ${nixosPath}#$(hostname)";
+            boot = "sudo nixos-rebuild boot --flake ${nixosPath}#$(hostname)";
             update = "nix flake update";
             rollback = "sudo nixos-rebuild switch --rollback";
-            #clean = "sudo nix-collect-garbage -d";
 
-            test = "sudo nixos-rebuild test --flake ~/nixos-config#$(hostname) --show-trace";
+            test = "sudo nixos-rebuild test --flake ${nixosPath}#$(hostname) --show-trace";
             eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
             
         };
@@ -52,12 +52,23 @@ lib.mkIf (cfgZsh.enable or false) {
             }
 
             upgrade() {
-                nix flake update
-                sudo nixos-rebuild switch --flake .#$(hostname)
-                git add flake.lock
-                if ! git diff --cached --quiet; then
-                    git commit -m "Update flake inputs $(date '+%Y-%m-%d %H:%M')"
+                cd ${nixosPath} || return
+
+                echo "🔄 Updating flake inputs..."
+                nix flake update || return
+
+                if ! git diff --quiet -- flake.lock; then
+                    echo "💾 Committing flake.lock..."
+                    git add flake.lock
+                    git commit -m "Update flake inputs $(date '+%Y-%m-%d %H:%M')" || return
+                else
+                    echo "✨ Flake already up to date!"
                 fi
+
+                echo "🏗️  Rebuilding $(hostname)..."
+                sudo nixos-rebuild switch --flake .#$(hostname) || return
+
+                echo "✅ Upgrade complete!"
             }
 
             tmp() {

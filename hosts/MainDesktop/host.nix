@@ -15,6 +15,7 @@
     unfreePkgs = true;
     homeVersion = "25.11";
     stateVersion = "25.11";
+    nixosPath = "~/nixos-config";
   };
 
   settings = [
