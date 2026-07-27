@@ -52,7 +52,10 @@ lib.mkIf (cfgNixvim.enable or false) {
     };
 
     plugins = {
+        # completion plugin with LSP 
       blink-cmp.enable = true;
+        # git commit status plugin
+      gitsigns.enable = true;
     };
   };
 
