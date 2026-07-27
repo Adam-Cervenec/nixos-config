@@ -29,7 +29,7 @@ lib.mkIf (cfgNixvim.enable or false) {
     };
 
     lsp = {
-      enable = true;
+      #enable = true;
       servers = {
         clangd.enable = true; # C/C++
         pyright.enable = true; # Python
