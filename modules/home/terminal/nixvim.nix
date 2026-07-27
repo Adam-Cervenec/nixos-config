@@ -26,6 +26,14 @@ lib.mkIf (cfgNixvim.enable or false) {
 
       # minimal number of screen lines to keep above and below the cursor
       scrolloff = 5;
+
+      wrap = false;
+      clipboard = "unnamedplus";
+
+      # highlight the screen line of the cursor
+      cursorline = true;
+      # save undo information in a file
+      undofile = true;
     };
 
     lsp = {
