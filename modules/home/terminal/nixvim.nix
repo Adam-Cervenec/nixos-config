@@ -60,6 +60,16 @@ lib.mkIf (cfgNixvim.enable or false) {
             blink-cmp.enable = true;
             # git commit status plugin
             gitsigns.enable = true;
+            # file explorer
+            oil = {
+                enable = true;
+
+                settings = {
+                    default_file_explorer = true;
+
+                    view_options.show_hidden = true;
+                };
+            };
         };
 
         keymaps = [
