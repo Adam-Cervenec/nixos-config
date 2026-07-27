@@ -1,6 +1,8 @@
 { config, cfg, lib, pkgs, ... }:
 
 let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+
   monitors = cfg.hardware.waybar.monitors;
   style = cfg.style;
   #stylix = device.modules.stylix;
@@ -8,7 +10,7 @@ let
   color = name:
     "#${config.lib.stylix.colors.${style.colors.${name}}}";
 in
-{
+lib.mkIf (isHyprlandOn) {
   programs.waybar = {
     enable = true;
 

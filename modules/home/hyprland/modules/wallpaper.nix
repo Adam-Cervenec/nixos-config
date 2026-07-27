@@ -1,9 +1,10 @@
 { pkgs, cfg, lib, ... }:
 
 let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
   wallpaper = cfg.profile.wallpaper;
 in
-{
+lib.mkIf (isHyprlandOn) {
   home.packages = with pkgs; [
     waypaper
     #mpvpaper

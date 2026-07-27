@@ -1,5 +1,7 @@
 { config, pkgs, lib, cfg, ... }:
-
+let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+in
 {
 
   # test
@@ -17,11 +19,7 @@
     ./modules/hypridle.nix
   ];
 
-  config = lib.mkIf (cfg.profile.hyprland.enable or false) {
-    home.packages = with pkgs; [
-
-    ];
-
+  config = lib.mkIf (isHyprlandOn) {
 
     wayland.windowManager.hyprland = {
       enable = true;

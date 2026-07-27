@@ -1,6 +1,9 @@
-{config, pkgs, lib, ... }:
+{config, pkgs, lib, cfg, ... }:
 
-{
+let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+in
+lib.mkIf (isHyprlandOn) {
   home.packages = with pkgs; [
     # GUI authentication daemon
     hyprpolkitagent

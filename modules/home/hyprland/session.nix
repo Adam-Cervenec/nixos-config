@@ -2,9 +2,11 @@
 
 #define variable cfg for path
 let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+
   hardware = cfg.hardware or {};
 in
-{
+lib.mkIf (isHyprlandOn) {
   wayland.windowManager.hyprland.settings = {
 
     monitor = hardware.monitors;

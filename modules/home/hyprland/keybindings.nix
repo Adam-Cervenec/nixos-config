@@ -1,6 +1,8 @@
 { lib, cfg, ... }:
 
 let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+
   mod = cfg.profile.hyprland.modKey;
 
   browser = cfg.profile.apps.default.browser;
@@ -25,7 +27,7 @@ let
       )
       10;
 in
-{
+lib.mkIf (isHyprlandOn) {
   wayland.windowManager.hyprland.settings = {
 
     bind = [

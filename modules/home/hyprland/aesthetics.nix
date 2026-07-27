@@ -1,10 +1,12 @@
 { cfg, config, lib, ... }:
 let
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+
   style = cfg.style;
   color = name:
     "rgb(${config.lib.stylix.colors.${style.colors.${name}}})";
 in
-{
+lib.mkIf (isHyprlandOn) {
   wayland.windowManager.hyprland.settings = {
     general = {
       gaps_in = style.gaps / 2;

@@ -1,9 +1,9 @@
 {config, pkgs, cfg, ...}:
 
 let
-  hypridle = cfg.profile.hypridle;
+  isHyprlandOn =  cfg.profile.hyprland.enable or false;
 in
-{
+lib.mkIf (isHyprlandOn) {
   services.hypridle = {
     enable = true;
     settings = {
