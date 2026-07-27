@@ -23,7 +23,6 @@ lib.mkIf (cfgNixvim.enable or false) {
       # automatic formatting
       smartindent = true;
       smartcase = true;
-      smarttab = true;
 
       # minimal number of screen lines to keep above and below the cursor
       scrolloff = 5;
