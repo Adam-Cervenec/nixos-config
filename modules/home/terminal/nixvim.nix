@@ -78,4 +78,4 @@ lib.mkIf (cfgNixvim.enable or false) {
         ];
     };
 
-
+}
