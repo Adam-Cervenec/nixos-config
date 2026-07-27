@@ -40,7 +40,6 @@
       "nvtopPackages.full"
       "yazi"
       "zellij"
-      "neovim"
       "lazyjournal"
       "numr"
 
@@ -69,7 +68,7 @@
     alacritty.enable = true;
     wol.enable = true;
     sddm.enable = true;
-    
+
     nixvim.enable = true;
 
 
