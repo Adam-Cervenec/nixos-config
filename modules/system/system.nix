@@ -2,7 +2,7 @@
 let
     stateVersion = cfg.machine.stateVersion;
     unfreePkgs = cfg.machine.unfreePkgs;
-    sudoCfg = cfg.profile.sudo;
+    sudoCfg = cfg.profile.sudo or {};
 in
 {
     # --- System ---
