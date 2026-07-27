@@ -54,6 +54,6 @@ in
     # sudo settings
     security.sudo.extraConfig = ''
         Defaults timestamp_type=tty
-        Defaults timestamp_timeout=${sudo.logoutDuration or "120"}
+        Defaults timestamp_timeout=${toString (sudo.logoutDuration or 120)}
     '';
 }
