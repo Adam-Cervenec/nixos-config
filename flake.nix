@@ -11,6 +11,7 @@
 
     stylix.url = "github:danth/stylix";
     zen-browser.url = "github:youwen5/zen-browser-flake";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
@@ -81,6 +82,7 @@
                 imports = [
                   #./hosts/${hostName}/home.nix
                   ./modules/home/default.nix
+                  inputs.nixvim.homeManagerModules.nixvim
                 ]
                 ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
 
