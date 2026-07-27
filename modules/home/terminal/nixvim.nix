@@ -28,6 +28,25 @@ lib.mkIf (cfgNixvim.enable or false) {
       # minimal number of screen lines to keep above and below the cursor
       scrolloff = 5;
     };
+
+    lsp = {
+      enable = true;
+      servers = {
+        clangd.enable = true; # C/C++
+        pyright.enable = true; # Python
+        rust_analyzer.enable = true; # Rust
+        bashls.enable = true; # Bash
+        nixd.enable = true; # Nix
+        html.enable = true; # HTML
+        cssls.enable = true; # CSS
+        jsonls.enable = true; # JSON
+        arduino_language_server.enable = true; # Arduino C
+      };
+    };
+
+    plugins = {
+      blink-cmp.enable = true;
+    };
   };
 
 }
