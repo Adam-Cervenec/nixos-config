@@ -55,7 +55,9 @@ lib.mkIf (cfgZsh.enable or false) {
                 nix flake update
                 sudo nixos-rebuild switch --flake .#$(hostname)
                 git add flake.lock
-                git commit -m "Update flake inputs $(date '+%Y-%m-%d %H:%M')"
+                if ! git diff --cached --quiet; then
+                    git commit -m "Update flake inputs $(date '+%Y-%m-%d %H:%M')"
+                fi
             }
 
             tmp() {
