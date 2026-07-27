@@ -53,7 +53,9 @@ lib.mkIf (cfgZsh.enable or false) {
 
             upgrade() {
                 nix flake update
-                sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname)
+                sudo nixos-rebuild switch --flake .#$(hostname)
+                git add flake.lock
+                git commit -m "Update flake inputs"
             }
 
             tmp() {
