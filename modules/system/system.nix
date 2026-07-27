@@ -49,4 +49,9 @@ in
     # networking.firewall.allowedUDPPorts = [ ... ];
 
     networking.firewall.enable = true; 
+
+    # sudo settings
+    security.sudo.extraConfig = ''
+        Defaults timestamp_type=tty
+    '';
 }
