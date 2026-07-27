@@ -17,9 +17,13 @@
     # One of: desktop, laptop, server, vm
     device = "desktop";
 
+    # Set a absolute path to your nixos-config folder
+    nixosPath = "~/nixos-config";
 
+    # Set to true if you want to use unfree packages
     unfreePkgs = true;
-    homeVersion = "25.11";
+    homeVersion = "25.11"; # leave it
+    stateVersion = "25.11"; # leave it
   };
 
 
