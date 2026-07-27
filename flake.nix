@@ -82,7 +82,7 @@
                 imports = [
                   #./hosts/${hostName}/home.nix
                   ./modules/home/default.nix
-                  inputs.nixvim.homeManagerModules.nixvim
+                  inputs.nixvim.homeModules.nixvim
                 ]
                 ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
 
