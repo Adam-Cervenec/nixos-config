@@ -2,7 +2,7 @@
 let
     stateVersion = cfg.machine.stateVersion;
     unfreePkgs = cfg.machine.unfreePkgs;
-    sudo = cfg.profile.sudo;
+    sudoCfg = cfg.profile.sudo;
 in
 {
     # --- System ---
@@ -53,7 +53,7 @@ in
 
     # sudo settings
     security.sudo.extraConfig = ''
-        Defaults timestamp_type=tty
-        Defaults timestamp_timeout=${toString (sudo.logoutDuration or 120)}
+        Defaults timestamp_type=${sudoCfg.timestampType or "tty"}
+        Defaults timestamp_timeout=${toString (sudoCfg.logoutDuration or 120)}
     '';
 }
