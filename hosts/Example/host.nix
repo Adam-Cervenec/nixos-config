@@ -9,7 +9,7 @@
     # set the hostname for this workstation
     # hostname is coresponding with flake name
     # and should be unique for each workstation
-    # it is also more organized if it corelates with the folder name in nixos/hosts
+    # and same as the host folder name
     hostname = "Example";
     username = "user"; # set the username
     system = "x86_64-linux"; # system architecture 
