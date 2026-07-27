@@ -2,6 +2,7 @@
 
 {
 
+  # test
   imports = [
     ./session.nix # monitor, input and evn settings
     ./aesthetics.nix # windowrules, appearance and animations 
@@ -16,7 +17,7 @@
     ./modules/hypridle.nix
   ];
 
-  config = {
+  config = lib.mkIf (cfg.profile.hyprland.enable or false) {
     home.packages = with pkgs; [
 
     ];
