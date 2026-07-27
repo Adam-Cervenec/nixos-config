@@ -1,4 +1,4 @@
-{ pkgs, cfg, ... }:
+{ pkgs, cfg, lib,... }:
 
 let
   isHyprlandOn =  cfg.profile.hyprland.enable or false;
