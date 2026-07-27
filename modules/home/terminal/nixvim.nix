@@ -85,6 +85,7 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<Esc>";
                 action = "<cmd>nohlsearch<CR>";
             }
+            # Open Oil at current file
             {
                 mode = "n";
                 key = "-";
