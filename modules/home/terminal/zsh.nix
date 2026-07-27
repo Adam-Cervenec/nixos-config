@@ -60,7 +60,7 @@ lib.mkIf (cfgZsh.enable or false) {
                 if ! git diff --quiet -- flake.lock; then
                     echo "💾 Committing flake.lock..."
                     git add flake.lock
-                    git commit -m "Update flake inputs $(date '+%Y-%m-%d %H:%M')" || return
+                    git commit -m "nix: Update flake inputs $(date '+%Y-%m-%d %H:%M')" || return
                 else
                     echo "✨ Flake already up to date!"
                 fi
