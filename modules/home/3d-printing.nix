@@ -7,6 +7,6 @@ lib.mkIf (cfg3d.enable or false) {
 
         #3D
         cura-appimage
-        #freecad
+        freecad
     ];
 }
