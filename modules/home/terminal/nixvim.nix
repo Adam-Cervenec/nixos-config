@@ -71,6 +71,7 @@ lib.mkIf (cfgNixvim.enable or false) {
                 };
             };
 
+            # set ESC to "jk"
             better-escape = {
                 enable = true;
                 settings = {
