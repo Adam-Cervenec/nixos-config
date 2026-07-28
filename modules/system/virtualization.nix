@@ -1,4 +1,4 @@
-{ cfg, ... }:
+{ cfg, lib, ... }:
 let
   username = cfg.machine.username;
   cfgVirt = cfg.profile.virtualisation or {};
