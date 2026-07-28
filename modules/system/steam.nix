@@ -3,7 +3,7 @@
 let
   cfgSteam = cfg.profile.steam or {};
 in
-lib.mkIf (cfgStean.enable or false) {
+lib.mkIf (cfgSteam.enable or false) {
     # --- Steam ---
 
     programs.steam.enable = true;
