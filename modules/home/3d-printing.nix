@@ -1,6 +1,6 @@
-{ config, pkgs, cfg, ... }:
+{ config, pkgs, cfg, lib, ... }:
 let
-    cfg3d = cfg.printing or {};
+    cfg3d = cfg.profile.printing or {};
 in
 lib.mkIf (cfg3d.enable or false) {
     home.packages = with pkgs; [

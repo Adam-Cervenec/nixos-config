@@ -1,7 +1,7 @@
 { cfg, ... }:
 let
   username = cfg.machine.username;
-  cfgVirt = cfg.virtualisation or {};
+  cfgVirt = cfg.profile.virtualisation or {};
 in
 lib.mkIf (cfgVirt.enable or false) {
   virtualisation.libvirtd.enable = true;
