@@ -66,11 +66,7 @@
     zsh.enable = true;
     fastfetch.enable = true;
     alacritty.enable = true;
-    wol.enable = true;
     sddm.enable = true;
-    virtualisation.enable = true;
-    steam.enable = true;
-    printing.enable = true;
 
     nixvim.enable = true;
 

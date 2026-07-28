@@ -25,11 +25,14 @@
   ];
 
   roles.system = [
+    "steam"
+    "virtualisation"
+    "wol"
     
   ];
 
   roles.home = [
-
+    "printing"
   ];
 
   hardware = {
