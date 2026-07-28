@@ -12,7 +12,7 @@
     };
 
     opacity = {
-      terminal = 0.5;
+      terminal = 0.8;
       window = {
         active = 0.95;
         inactive = 0.9;
