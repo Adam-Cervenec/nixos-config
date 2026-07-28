@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, cfg, ... }:
 
-{
+let
+  cfgStylix = cfgStean.steam or {};
+in
+lib.mkIf (cfgStean.enable or false) {
     # --- Steam ---
 
     programs.steam.enable = true;

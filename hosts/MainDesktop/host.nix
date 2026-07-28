@@ -25,15 +25,11 @@
   ];
 
   roles.system = [
-    "steam"
-    "virtualization"
-    "wol"
+    
   ];
 
   roles.home = [
-    "games"
-    "dev"
-    "3d-printing"
+
   ];
 
   hardware = {

@@ -1,6 +1,8 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, cfg, ... }:
+let
+  cfgOllama = cfg.ollama or {};
+in
+lib.mkIf (cfgOllama.enable or false) {
   # Ollama -> local LLM backend
   services.ollama = {
     enable = true;
