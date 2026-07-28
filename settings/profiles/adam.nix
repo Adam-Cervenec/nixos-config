@@ -67,6 +67,7 @@
     fastfetch.enable = true;
     alacritty.enable = true;
     sddm.enable = true;
+    sshAgent.enable = true;
 
     nixvim.enable = true;
 
