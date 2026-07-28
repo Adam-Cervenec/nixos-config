@@ -68,7 +68,7 @@
     alacritty.enable = true;
     wol.enable = true;
     sddm.enable = true;
-    virt.enable = true;
+    virtualisation.enable = true;
     steam.enable = true;
     printing.enable = true;
 
