@@ -70,6 +70,14 @@ lib.mkIf (cfgNixvim.enable or false) {
                     view_options.show_hidden = true;
                 };
             };
+
+            better-escape = {
+                enable = true;
+                settings = {
+                    mapping = [ "j" "k" ];
+                    timeout = 150;
+                };
+            };
         };
 
         keymaps = [
