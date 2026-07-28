@@ -37,7 +37,7 @@ lib.mkIf (cfgNixvim.enable or false) {
             undofile = true;
 
             # better normal mode cursor
-            guicursor = "n-v-c:ver35,i-ci-ve:ver25,r-cr:hor20";
+            # guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20;
         };
 
         lsp = {
