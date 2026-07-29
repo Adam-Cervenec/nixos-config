@@ -17,6 +17,7 @@ in
     ./modules/notifications.nix
     ./modules/waybar.nix
     ./modules/hypridle.nix
+    ./modules/rofi.nix
   ];
 
   config = lib.mkIf (isHyprlandOn) {

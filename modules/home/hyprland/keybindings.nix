@@ -47,6 +47,7 @@ lib.mkIf (isHyprlandOn) {
 
 
       "${mod}, W, exec, uwsm app -- hyprlauncher"
+      "${mod}, D, exec, uwsm app -- rofi -show drun"
 
 
       # submaps definitions
