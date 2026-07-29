@@ -51,6 +51,7 @@ lib.mkIf (isHyprlandOn) {
       "${mod}, V, submap, Volume"
       "${mod}, A, submap, Apps"
       "${mod}, S, submap, System"
+      "${mod}, R, submap, Rofi"
 
 
       # windows
@@ -157,6 +158,16 @@ lib.mkIf (isHyprlandOn) {
       ", N, exec, uwsm app -- nm-connection-editor"
       ", L, exec, uwsm app -- hyprlock"
       ", Q, exec, uwsm app -- hyprshutdown"
+      
+      ", catchall, submap, reset"
+    ];
+    Rofi.onDispatch = "reset";
+    Rofi.settings.bind = [
+      ", D, exec, uwsm app -- rofi -show drun"
+      ", W, exec, uwsm app -- rofi -show window"
+      ", R, exec, uwsm app -- rofi -show run"
+      ", S, exec, uwsm app -- rofi -show ssh"
+      ", C, exec, uwsm app -- rofi -show calc"
       
       ", catchall, submap, reset"
     ];
