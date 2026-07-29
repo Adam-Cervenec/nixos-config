@@ -46,10 +46,6 @@ lib.mkIf (isHyprlandOn) {
       "${mod} SHIFT, R, exec, hyprctl reload"
 
 
-      "${mod}, W, exec, uwsm app -- hyprlauncher"
-      "${mod}, D, exec, uwsm app -- rofi -show drun"
-
-
       # submaps definitions
 
       "${mod}, V, submap, Volume"
