@@ -53,7 +53,7 @@
   # Roles are located in nixos/roles/home.
   # You can also create your own roles in this directory.
   roles.home = [
-    "printing"
+
   ];
 
   hardware = {

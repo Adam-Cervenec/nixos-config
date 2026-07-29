@@ -68,6 +68,7 @@
     alacritty.enable = true;
     sddm.enable = true;
     sshAgent.enable = true;
+    printing.enable = true;
 
     nixvim.enable = true;
 
