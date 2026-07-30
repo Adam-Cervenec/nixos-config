@@ -14,7 +14,7 @@ lib.mkIf (cfgPrintScan.enable or false)
   };
 
   hardware.sane.enable = true;
-  hardware.save.extraBackends = [
+  hardware.sane.extraBackends = [
     pkgs.sane-airscan
   ];
 
