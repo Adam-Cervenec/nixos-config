@@ -6,6 +6,7 @@ in
 lib.mkIf (cfgPrintScan.enable or false)
 {
   services.printing.enable = true;
+  services.printing.browsing = true;
 
   services.avahi = {
     enable = true;
@@ -13,6 +14,9 @@ lib.mkIf (cfgPrintScan.enable or false)
   };
 
   hardware.sane.enable = true;
+  hardware.save.extraBackends = [
+    pkgs.sane-airscan
+  ];
 
   users.users.${cfgUser}.extraGroups = [
     "scanner"
