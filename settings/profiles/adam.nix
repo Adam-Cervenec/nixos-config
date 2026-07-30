@@ -69,7 +69,7 @@
     sddm.enable = true;
     sshAgent.enable = true;
     printing.enable = true;
-    printScan.nix = true;
+    printScan.enable = true;
     
     nixvim.enable = true;
     
