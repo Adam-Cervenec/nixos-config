@@ -19,7 +19,7 @@ lib.mkIf (cfgPrintScan.enable or false)
     "lp"
   ];
   environment.systemPackages = with pkgs; [
-    simple-scan
-    system-config-printer
+    simple-scan # GUI app for scaning
+    system-config-printer # GUI app for configuring printers
   ];
 }
