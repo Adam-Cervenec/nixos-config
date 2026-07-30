@@ -6,7 +6,7 @@ lib.mkIf (cfg3d.enable or false) {
     home.packages = with pkgs; [
 
         #3D
-        cura-appimage
+        #cura-appimage
         freecad
         orca-slicer
     ];
