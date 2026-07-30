@@ -1,4 +1,4 @@
-{ cfg, lib, ...}:
+{ cfg, lib, pkgs, ...}:
 let
     cfgPrintScan = cfg.profile.printScan or {};
     cfgUser = cfg.machine.username;
