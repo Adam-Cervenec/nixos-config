@@ -69,9 +69,10 @@
     sddm.enable = true;
     sshAgent.enable = true;
     printing.enable = true;
-
+    printScan.nix = true;
+    
     nixvim.enable = true;
-
+    
 
     musicPlayer.enable = true;
     musicPlayer.path = "~/Music";
