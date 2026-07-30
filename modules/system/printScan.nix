@@ -27,3 +27,5 @@ lib.mkIf (cfgPrintScan.enable or false)
     system-config-printer # GUI app for configuring printers
   ];
 }
+# Scan command example:
+# scanimage --resolution 300 --format=png > image.png
