@@ -70,7 +70,7 @@
     sshAgent.enable = true;
     printing.enable = true;
     printScan.enable = true;
-    
+    virtualisation.enable = true;    
     nixvim.enable = true;
     
 
