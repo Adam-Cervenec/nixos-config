@@ -72,7 +72,7 @@
     printScan.enable = true;
     virtualisation.enable = true;    
     nixvim.enable = true;
-    
+    steam.enable = true;    
 
     musicPlayer.enable = true;
     musicPlayer.path = "~/Music";
