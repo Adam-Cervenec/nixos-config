@@ -69,6 +69,7 @@
     sddm.enable = true;
     sshAgent.enable = true;
     printing.enable = true;
+    docker.enable = true;
 
     nixvim.enable = true;
 
