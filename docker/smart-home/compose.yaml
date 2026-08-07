@@ -14,13 +14,15 @@ services:
     image: koenkk/zigbee2mqtt:latest
     container_name: zigbee2mqtt
     restart: unless-stopped
-    user: root
+    privileged: true
+    user: "0:0"
     depends_on:
       - mosquitto
     volumes:
       - /srv/smart-home/zigbee2mqtt/data:/app/data
     devices:
       - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Max_MG24_f2009035f5a0f0118f952e81bb936ffa-if00-port0:/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Max_MG24_f2009035f5a0f0118f952e81bb936ffa-if00-port0
+      - /dev/ttyUSB0:/dev/ttyUSB0
     ports:
       - "8080:8080"
 
