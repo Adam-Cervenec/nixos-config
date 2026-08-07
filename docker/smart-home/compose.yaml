@@ -3,12 +3,10 @@ services:
     image: eclipse-mosquitto:2
     container_name: mosquitto
     restart: unless-stopped
-
     volumes:
       - /srv/smart-home/mosquitto/config:/mosquitto/config
       - /srv/smart-home/mosquitto/data:/mosquitto/data
       - /srv/smart-home/mosquitto/log:/mosquitto/log
-
     ports:
       - "1883:1883"
 
@@ -16,16 +14,13 @@ services:
     image: koenkk/zigbee2mqtt:latest
     container_name: zigbee2mqtt
     restart: unless-stopped
-
+    user: root
     depends_on:
       - mosquitto
-
     volumes:
       - /srv/smart-home/zigbee2mqtt/data:/app/data
-
     devices:
-      - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Max_MG24_f2009035f5a0f0118f952e81bb936ffa-if00-port0:/dev/ttyUSB0
-
+      - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Max_MG24_f2009035f5a0f0118f952e81bb936ffa-if00-port0:/dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Max_MG24_f2009035f5a0f0118f952e81bb936ffa-if00-port0
     ports:
       - "8080:8080"
 
@@ -33,13 +28,10 @@ services:
     image: ghcr.io/home-assistant/home-assistant:stable
     container_name: homeassistant
     restart: unless-stopped
-
     depends_on:
       - mosquitto
-
     volumes:
       - /srv/smart-home/home-assistant/config:/config
       - /etc/localtime:/etc/localtime:ro
-
     ports:
       - "8123:8123"
