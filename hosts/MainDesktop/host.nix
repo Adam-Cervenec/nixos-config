@@ -26,13 +26,12 @@
 
   roles.system = [
     "steam"
-    "virtualisation"
+    "virtualization"
     "wol"
     
   ];
 
   roles.home = [
-    "printing"
   ];
 
   hardware = {

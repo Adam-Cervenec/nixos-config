@@ -12,11 +12,12 @@ in
 
     #modules
     ./modules/tools.nix
-    ./modules/hyprlauncher.nix
+    #./modules/hyprlauncher.nix
     ./modules/wallpaper.nix
     ./modules/notifications.nix
     ./modules/waybar.nix
     ./modules/hypridle.nix
+    ./modules/rofi.nix
   ];
 
   config = lib.mkIf (isHyprlandOn) {
