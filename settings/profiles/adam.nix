@@ -71,6 +71,8 @@
     printing.enable = true;
     printScan.enable = true;
     virtualisation.enable = true;    
+    docker.enable = true;
+    
     nixvim.enable = true;
     steam.enable = true;    
 
