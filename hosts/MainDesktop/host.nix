@@ -25,8 +25,6 @@
   ];
 
   roles.system = [
-    "steam"
-    "wol"
     
   ];
 
