@@ -56,6 +56,9 @@
       "spek"
       "kid3" # manual metadata tagger
       "picard" # automatic metadata tagger
+
+      # nixvim
+      "ripgrep"
     ];
 
     vscode.enable = true;
