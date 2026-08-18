@@ -64,6 +64,12 @@ lib.mkIf (cfgNixvim.enable or false) {
             blink-cmp.enable = true;
             # git commit status plugin
             gitsigns.enable = true;
+
+            # TUI git integration
+            lazygit.enable = true;
+
+            # TUI menu
+            which-key.enable = true;
             # file explorer
             oil = {
                 enable = true;
