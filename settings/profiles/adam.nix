@@ -91,7 +91,7 @@
     hypridle.black-screen-time = 20; # int minutes
 
     wallpaper.loop.duration = 60*4; # int seconds
-    wallpaper.loop.enable = true;
+    wallpaper.loop.enable = false;
 
 
   };
