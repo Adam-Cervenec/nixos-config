@@ -17,8 +17,8 @@ lib.mkIf (cfgNixvim.enable or false) {
 
             # <TAB> settings
             tabstop = 4;
-            shiftwidth = 4;
-            softtabstop = 4;
+            shiftwidth = 0;
+            softtabstop = -1;
             expandtab = true;
 
             # automatic formatting
@@ -26,7 +26,7 @@ lib.mkIf (cfgNixvim.enable or false) {
             smartcase = true;
 
             # minimal number of screen lines to keep above and below the cursor
-            scrolloff = 8;
+            scrolloff = 20;
 
             wrap = false;
             clipboard = "unnamedplus";
@@ -78,6 +78,10 @@ lib.mkIf (cfgNixvim.enable or false) {
                     mapping = [ "j" "k" ];
                     timeout = 150;
                 };
+            };
+
+            treesitter = {
+                enable = true;
             };
         };
 
