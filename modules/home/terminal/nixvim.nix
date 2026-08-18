@@ -40,6 +40,10 @@ lib.mkIf (cfgNixvim.enable or false) {
             # guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20;
         };
 
+        globals = {
+            mapleader = " ";
+            maplocalleader = " ";
+        };
         lsp = {
             #enable = true;
             servers = {
