@@ -126,18 +126,21 @@ lib.mkIf (cfgNixvim.enable or false) {
         };
 
         keymaps = [
+
             # remap redo to U
             {
                 mode = "n";
                 key = "U";
                 action = "<C-r>";
             }
+
             # remap noh to Esc
             {
                 mode = "n";
                 key = "<Esc>";
                 action = "<cmd>nohlsearch<CR>";
             }
+
             # Open Oil at current file
             {
                 mode = "n";
@@ -149,6 +152,8 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>oo";
                 action = "<cmd>Oil<CR>";
             }
+
+            # telescope
             {
                 mode = "n";
                 key = "<leader>ff";
@@ -164,6 +169,8 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>fb";
                 action = "<cmd>Telescope buffers<CR>";
             }
+
+            # lazygit
             {
                 mode = "n";
                 key = "<leader>gg";
