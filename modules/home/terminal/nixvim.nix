@@ -87,6 +87,8 @@ lib.mkIf (cfgNixvim.enable or false) {
             treesitter = {
                 enable = true;
             };
+
+            telescope.enable = true;
         };
 
         keymaps = [
