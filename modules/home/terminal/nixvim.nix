@@ -110,7 +110,23 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "-";
                 action = "<cmd>Oil %:h<CR>";
             }
+            {
+                mode = "n";
+                key = "<leader>ff";
+                action = "<cmd>Telescope find_files<CR>";
+            }
+            {
+                mode = "n";
+                key = "<leader>fg";
+                action = "<cmd>Telescope live_grep<CR>";
+            }
+            {
+                mode = "n";
+                key = "<leader>fb";
+                action = "<cmd>Telescope buffers<CR>";
+            }
         ];
+
     };
 
 }
