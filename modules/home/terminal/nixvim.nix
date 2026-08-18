@@ -69,7 +69,35 @@ lib.mkIf (cfgNixvim.enable or false) {
             lazygit.enable = true;
 
             # TUI menu
-            which-key.enable = true;
+            which-key = {
+                enable = true;
+
+                settings = {
+                    spec = [
+                    {
+                        __unkeyed-1 = "<leader>f";
+                        group = "Find";
+                    }
+                    {
+                        __unkeyed-1 = "<leader>g";
+                        group = "Git";
+                    }
+                    {
+                        __unkeyed-1 = "<leader>o";
+                        group = "Oil";
+                    }
+                    {
+                        __unkeyed-1 = "<leader>t";
+                        group = "Terminal";
+                    }
+                    {
+                        __unkeyed-1 = "<leader>c";
+                        group = "Code";
+                    }
+                    ];
+                };
+            };
+
             # file explorer
             oil = {
                 enable = true;
@@ -118,6 +146,11 @@ lib.mkIf (cfgNixvim.enable or false) {
             }
             {
                 mode = "n";
+                key = "<leader>oo";
+                action = "<cmd>Oil<CR>";
+            }
+            {
+                mode = "n";
                 key = "<leader>ff";
                 action = "<cmd>Telescope find_files<CR>";
             }
@@ -131,6 +164,12 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>fb";
                 action = "<cmd>Telescope buffers<CR>";
             }
+            {
+                mode = "n";
+                key = "<leader>gg";
+                action = "<cmd>LazyGit<CR>";
+            }
+
         ];
 
     };
