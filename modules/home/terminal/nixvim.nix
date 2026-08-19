@@ -72,13 +72,12 @@ lib.mkIf (cfgNixvim.enable or false) {
             which-key = {
                 enable = true;
 
-                settings = {
-                    triggers = {
-                        "<leader>" = {
-                            mode = [ "n" "v" ];
-                        };
-                    };
-                };
+                settings.triggers = [
+                    {
+                        __unkeyed-1 = "<leader>";
+                        mode = [ "n" "v" ];
+                    }
+                ];
 
                 settings = {
                     plugins.presets = {
