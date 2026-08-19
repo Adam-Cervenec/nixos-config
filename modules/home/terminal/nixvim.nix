@@ -167,6 +167,9 @@ lib.mkIf (cfgNixvim.enable or false) {
                 enable = true;
 
                 settings = {
+
+                    legacy_commands = false;
+
                     workspaces = [
                     {
                         name = "personal";
