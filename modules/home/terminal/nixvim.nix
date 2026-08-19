@@ -115,6 +115,10 @@ lib.mkIf (cfgNixvim.enable or false) {
                         __unkeyed-1 = "<leader>m";
                         group = "Markdown";
                     }
+                    {
+                        __unkeyed-1 = "<leader>n";
+                        group = "Notes (Obsidian)";
+                    }
                     ];
                 };
             };
@@ -169,6 +173,7 @@ lib.mkIf (cfgNixvim.enable or false) {
                         path = "/mnt/hdd/Projekty/Obsidian/Trezor T/";
                     }
                     ];
+
                     picker = {
                         name = "telescope.nvim";
                     };
@@ -243,6 +248,32 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>mr";
                 action = "<cmd>RenderMarkdown toggle<CR>";
                 options.desc = "Toggle Markdown Rendering";
+            }
+
+            # Obsidian
+            {
+                mode = "n";
+                key = "<leader>nf";
+                action = "<cmd>Obsidian quick_switch<CR>";
+                options.desc = "Find note";
+            }
+            {
+                mode = "n";
+                key = "<leader>ns";
+                action = "<cmd>Obsidian search<CR>";
+                options.desc = "Search notes";
+            }
+            {
+                mode = "n";
+                key = "<leader>nn";
+                action = "<cmd>Obsidian new<CR>";
+                options.desc = "New note";
+            }
+            {
+                mode = "n";
+                key = "<leader>nb";
+                action = "<cmd>Obsidian backlinks<CR>";
+                options.desc = "Backlinks";
             }
 
         ];
