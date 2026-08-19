@@ -158,6 +158,23 @@ lib.mkIf (cfgNixvim.enable or false) {
             markdown-preview = {
                 enable = true;
             };
+
+            obsidian = {
+                enable = true;
+
+                settings = {
+                    workspaces = [
+                    {
+                        name = "personal";
+                        path = "/mnt/hdd/Projekty/Obsidian/Trezor T/";
+                    }
+                    ];
+                    picker = {
+                        name = "telescope.nvim";
+                    };
+                };
+
+            };
         };
 
         keymaps = [
