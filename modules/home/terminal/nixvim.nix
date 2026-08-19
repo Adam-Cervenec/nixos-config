@@ -140,6 +140,20 @@ lib.mkIf (cfgNixvim.enable or false) {
             };
 
             telescope.enable = true;
+
+            # Markdown rendering directly inside Neovim
+            render-markdown = {
+                enable = true;
+
+                settings = {
+                    preset = "obsidian";
+                };
+            };
+
+            # Markdown preview in browser
+            markdown-preview = {
+                enable = true;
+            };
         };
 
         keymaps = [
@@ -192,6 +206,22 @@ lib.mkIf (cfgNixvim.enable or false) {
                 mode = "n";
                 key = "<leader>gg";
                 action = "<cmd>LazyGit<CR>";
+            }
+            
+            # MD preview toggle
+            {
+                mode = "n";
+                key = "<leader>mp";
+                action = "<cmd>MarkdownPreviewToggle<CR>";
+                options.desc = "Markdown Preview";
+            }
+
+            # MD render toggle
+            {
+                mode = "n";
+                key = "<leader>mr";
+                action = "<cmd>RenderMarkdown toggle<CR>";
+                options.desc = "Toggle Markdown Rendering";
             }
 
         ];
