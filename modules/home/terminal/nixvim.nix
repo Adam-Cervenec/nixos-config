@@ -40,6 +40,15 @@ lib.mkIf (cfgNixvim.enable or false) {
             # guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20;
         };
 
+        # wraping paragraphs in .md files
+        autoCmd = [
+        {
+            event = [ "FileType" ];
+            pattern = [ "markdown" ];
+            command = "setlocal wrap linebreak";
+        }
+        ];
+
         globals = {
             mapleader = " ";
             maplocalleader = " ";
