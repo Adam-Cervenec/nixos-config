@@ -111,6 +111,11 @@ lib.mkIf (cfgNixvim.enable or false) {
                         __unkeyed-1 = "<leader>c";
                         group = "Code";
                     }
+                    {
+                        __unkeyed-1 = "<leader>m";
+                        group = "Markdown";
+                    }
+                    ];
                     ];
                 };
             };
