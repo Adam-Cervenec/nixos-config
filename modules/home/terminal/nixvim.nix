@@ -73,6 +73,14 @@ lib.mkIf (cfgNixvim.enable or false) {
                 enable = true;
 
                 settings = {
+                    triggers = {
+                        "<leader>" = {
+                            mode = [ "n" "v" ];
+                        };
+                    };
+                };
+
+                settings = {
                     plugins.presets = {
                         operators = false;
                         motions = false;
