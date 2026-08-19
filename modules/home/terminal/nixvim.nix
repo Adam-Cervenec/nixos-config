@@ -26,7 +26,7 @@ lib.mkIf (cfgNixvim.enable or false) {
             smartcase = true;
 
             # minimal number of screen lines to keep above and below the cursor
-            scrolloff = 20;
+            scrolloff = 999;
 
             wrap = false;
             clipboard = "unnamedplus";
