@@ -73,6 +73,16 @@ lib.mkIf (cfgNixvim.enable or false) {
                 enable = true;
 
                 settings = {
+                    plugins.presets = {
+                        operators = false;
+                        motions = false;
+                        text_objects = false;
+                        windows = false;
+                        nav = false;
+                        z = false;
+                        g = false;
+                    };
+
                     spec = [
                     {
                         __unkeyed-1 = "<leader>f";
