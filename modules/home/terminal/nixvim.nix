@@ -71,7 +71,7 @@ lib.mkIf (cfgNixvim.enable or false) {
             maplocalleader = " ";
         };
         lsp = {
-            #enable = true;
+            enable = true;
             servers = {
                 clangd.enable = true; # C/C++
                 pyright.enable = true; # Python
