@@ -116,6 +116,8 @@ lib.mkIf (cfgNixvim.enable or false) {
                 linehl = false;
             };
 
+            lspconfig.enable = true;
+
             # TUI git integration
             lazygit.enable = true;
 
