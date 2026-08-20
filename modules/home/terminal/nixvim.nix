@@ -227,6 +227,13 @@ lib.mkIf (cfgNixvim.enable or false) {
         enable = true;
 
         settings = {
+          formatters.nixfmt = {
+            command = "nixfmt";
+            args = [
+              "--indent"
+              "4"
+            ];
+          };
           formatters_by_ft = {
             nix = [ "nixfmt" ];
             c = [ "clang_format" ];
