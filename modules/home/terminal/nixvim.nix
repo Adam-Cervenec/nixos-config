@@ -154,6 +154,10 @@ lib.mkIf (cfgNixvim.enable or false) {
                         __unkeyed-1 = "<leader>n";
                         group = "Notes (Obsidian)";
                     }
+                    {
+                        __unkeyed-1 = "<leader>t";
+                        group = "Terminal";
+                    }
                     ];
                 };
             };
@@ -190,6 +194,19 @@ lib.mkIf (cfgNixvim.enable or false) {
             };
 
             telescope.enable = true;
+
+            # Terminal
+            toggleterm = {
+                enable = true;
+
+                settings = {
+                    direction = "horizontal";
+                    size = 15;
+                    open_mapping = "[[<c-\\>]]";
+                    insert_mappings = true;
+                    terminal_mappings = true;
+                };
+            };
 
             # Markdown rendering directly inside Neovim
             render-markdown = {
@@ -321,7 +338,14 @@ lib.mkIf (cfgNixvim.enable or false) {
                 action = "<cmd>Obsidian backlinks<CR>";
                 options.desc = "Backlinks";
             }
-
+            
+            # terminal
+            {
+                mode = "n";
+                key = "<leader>tt";
+                action = "<cmd>ToggleTerm<CR>";
+                options.desc = "Toggle terminal";
+            }
         ];
 
     };
