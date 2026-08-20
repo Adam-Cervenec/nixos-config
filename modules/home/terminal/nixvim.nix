@@ -73,6 +73,26 @@ lib.mkIf (cfgNixvim.enable or false) {
             blink-cmp.enable = true;
             # git commit status plugin
             gitsigns.enable = true;
+            gitsigns.settings.signs = {
+                add = {
+                    text = "█";
+                };
+                change = {
+                    text = "█";
+                };
+                delete = {
+                    text = "█";
+                };
+                topdelete = {
+                    text = "█";
+                };
+                changedelete = {
+                    text = "█";
+                };
+                untracked = {
+                    text = "█";
+                };
+            };
 
             # TUI git integration
             lazygit.enable = true;
