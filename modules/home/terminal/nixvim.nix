@@ -139,10 +139,6 @@ lib.mkIf (cfgNixvim.enable or false) {
                         group = "Oil";
                     }
                     {
-                        __unkeyed-1 = "<leader>t";
-                        group = "Terminal";
-                    }
-                    {
                         __unkeyed-1 = "<leader>c";
                         group = "Code";
                     }
