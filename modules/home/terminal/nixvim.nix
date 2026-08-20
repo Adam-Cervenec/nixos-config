@@ -166,8 +166,15 @@ lib.mkIf (cfgNixvim.enable or false) {
                     default_file_explorer = true;
 
                     view_options.show_hidden = true;
+                    
+                    win_options = {
+                        signcolumn = "yes:2";
+                    };
                 };
             };
+
+            # git status for oil
+            oil-git-status.enable = true;
 
             # set ESC to "jk"
             better-escape = {
