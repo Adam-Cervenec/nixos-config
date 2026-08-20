@@ -243,7 +243,8 @@ lib.mkIf (cfgNixvim.enable or false) {
             {
                 mode = "n";
                 key = "<leader>gg";
-                action = "<cmd>LazyGit<CR>";
+                action = "<cmd>LazyGitCurrentFile<CR>";
+                options.desc = "Lazygit";
             }
             
             # MD preview toggle
