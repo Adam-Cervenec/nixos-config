@@ -1,10 +1,23 @@
-{ cfg, lib, ...}:
+{ cfg, lib, pkgs, ...}:
 
 let
 cfgNixvim = cfg.profile.nixvim or {};
 in
 
 lib.mkIf (cfgNixvim.enable or false) {
+
+    # dependencies
+    home.packages = with pkgs; [
+        nixfmt-rfc-style
+        clang-tools
+        rustfmt
+        ruff
+        stylua
+        shfmt
+        prettier
+    ];
+
+
     programs.nixvim = {
         enable = true;
         opts = {
