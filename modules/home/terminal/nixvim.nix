@@ -27,6 +27,7 @@ lib.mkIf (cfgNixvim.enable or false) {
 
             # minimal number of screen lines to keep above and below the cursor
             scrolloff = 999;
+            scrollofpad = 1;
 
             wrap = false;
             clipboard = "unnamedplus";
