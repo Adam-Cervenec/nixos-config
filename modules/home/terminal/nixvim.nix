@@ -223,6 +223,23 @@ lib.mkIf (cfgNixvim.enable or false) {
             # comment lines
             comment.enable = true;
 
+            # visual block horizontal lines
+            indent-blankline.enable = true;
+
+            # animated horizontal lines for current block
+            mini-indentscope = {
+                enable = true;
+
+                settings = {
+                    symbol = "│";
+
+                    options = {
+                        try_as_border = true;
+                    };
+                };
+            };
+
+            # automatic formatter
             conform-nvim = {
                 enable = true;
 
