@@ -278,7 +278,7 @@ lib.mkIf (cfgNixvim.enable or false) {
 
                 settings = {
                     direction = "horizontal";
-                    size = 15;
+                    size = 8;
                     open_mapping = "[[<c-\\>]]";
                     insert_mappings = true;
                     terminal_mappings = true;
