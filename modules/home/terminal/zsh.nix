@@ -28,6 +28,7 @@ lib.mkIf (cfgZsh.enable or false) {
             test = "sudo nixos-rebuild test --flake ${nixosPath}#$(hostname) --show-trace";
             eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
             
+            size = "nix path-info --closure-size --human-readable /run/current-system";
         };
 
         plugins = [
