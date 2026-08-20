@@ -191,6 +191,41 @@ lib.mkIf (cfgNixvim.enable or false) {
 
             telescope.enable = true;
 
+            # automatic {}, [], <>, () pairs
+            nvim-autopairs.enable = true;
+
+            # error, warnings etc...
+            trouble.enable = true;
+
+            # comment lines
+            comment.enable = true;
+
+
+            conform-nvim = {
+                enable = true;
+
+                settings = {
+                    formatters_by_ft = {
+                        nix = [ "nixfmt" ];
+                        c = [ "clang_format" ];
+                        cpp = [ "clang_format" ];
+                        rust = [ "rustfmt" ];
+                        python = [ "ruff_format" ];
+                        lua = [ "stylua" ];
+                        bash = [ "shfmt" ];
+                        json = [ "prettier" ];
+                        html = [ "prettier" ];
+                        css = [ "prettier" ];
+                        markdown = [ "prettier" ];
+                    };
+
+                    format_on_save = {
+                        timeout_ms = 500;
+                        lsp_format = "fallback";
+                    };
+                };
+            };
+
             # Terminal
             toggleterm = {
                 enable = true;
@@ -341,6 +376,20 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>tt";
                 action = "<cmd>ToggleTerm<CR>";
                 options.desc = "Toggle terminal";
+            }
+
+            # trouble
+            {
+                mode = "n";
+                key = "<leader>cd";
+                action = "<cmd>Trouble diagnostics toggle<CR>";
+                options.desc = "Diagnostics";
+            }
+            {
+                mode = "n";
+                key = "<leader>cs";
+                action = "<cmd>Trouble symbols toggle<CR>";
+                options.desc = "Symbols";
             }
         ];
 
