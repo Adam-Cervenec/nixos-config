@@ -30,6 +30,10 @@ in
 
         wayland.windowManager.hyprland = {
             enable = true;
+
+            # this will stop generating systemctl stop in main hyprland.conf
+            systemd.enable = false;
+
             configType = "hyprlang";
             settings.cursor.no_hardware_cursors = true;
             settings.cursor.inactive_timeout = 1;
