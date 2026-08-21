@@ -56,6 +56,9 @@
       "spek"
       "kid3" # manual metadata tagger
       "picard" # automatic metadata tagger
+
+      # nixvim
+      "ripgrep"
     ];
 
     vscode.enable = true;
@@ -69,10 +72,13 @@
     sddm.enable = true;
     sshAgent.enable = true;
     printing.enable = true;
+    printScan.enable = true;
+    virtualisation.enable = true;    
     docker.enable = true;
-
+    wol.enable = true;
+    
     nixvim.enable = true;
-
+    steam.enable = true;    
 
     musicPlayer.enable = true;
     musicPlayer.path = "~/Music";
@@ -88,7 +94,7 @@
     hypridle.black-screen-time = 20; # int minutes
 
     wallpaper.loop.duration = 60*4; # int seconds
-    wallpaper.loop.enable = true;
+    wallpaper.loop.enable = false;
 
 
   };

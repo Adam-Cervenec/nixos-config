@@ -25,9 +25,6 @@
   ];
 
   roles.system = [
-    "steam"
-    "virtualization"
-    "wol"
     
   ];
 

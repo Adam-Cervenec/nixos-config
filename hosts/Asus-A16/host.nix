@@ -45,7 +45,6 @@
   # You can also create your own roles in this directory.
   roles.system = [
     "asusRog"
-    "steam"
 
   ];
 
