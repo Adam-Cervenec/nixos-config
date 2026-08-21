@@ -13,6 +13,9 @@ lib.mkIf (isHyprlandOn) {
 
         env = [
 
+            # cursor
+            "WLR_NO_HARDWARE_CURSORS,1"
+
             # Applications
             "MOZ_ENABLE_WAYLAND=1"
             "ELECTRON_OZONE_PLATFORM_HINT=auto"

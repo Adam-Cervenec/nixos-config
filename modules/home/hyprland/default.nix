@@ -32,7 +32,7 @@ in
             enable = true;
 
             configType = "hyprlang";
-            settings.cursor.no_hardware_cursors = true;
+            # settings.cursor.no_hardware_cursors = true;
             settings.cursor.inactive_timeout = 1;
             settings.cursor.no_warps = true;
         };
