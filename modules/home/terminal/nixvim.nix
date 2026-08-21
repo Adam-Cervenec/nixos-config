@@ -300,26 +300,26 @@ lib.mkIf (cfgNixvim.enable or false) {
                 enable = true;
             };
 
-            obsidian = {
-                enable = true;
-
-                settings = {
-
-                    legacy_commands = false;
-
-                    workspaces = [
-                        {
-                            name = "personal";
-                            path = "/mnt/hdd/Projekty/Obsidian/Trezor T/";
-                        }
-                    ];
-
-                    picker = {
-                        name = "telescope.nvim";
-                    };
-                };
-
-            };
+            # obsidian = {
+            #     enable = true;
+            #
+            #     settings = {
+            #
+            #         legacy_commands = false;
+            #
+            #         workspaces = [
+            #             {
+            #                 name = "personal";
+            #                 path = "/mnt/hdd/Projekty/Obsidian/Trezor T/";
+            #             }
+            #         ];
+            #
+            #         picker = {
+            #             name = "telescope.nvim";
+            #         };
+            #     };
+            #
+            # };
         };
 
         keymaps = [
