@@ -31,6 +31,9 @@ in
         wayland.windowManager.hyprland = {
             enable = true;
 
+            # fix uwsm systemd stop bug
+            systemd.enable = false;
+
             configType = "hyprlang";
             # settings.cursor.no_hardware_cursors = true;
             settings.cursor.inactive_timeout = 1;
