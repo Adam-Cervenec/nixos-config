@@ -11,7 +11,7 @@ in
 {
     # allow docker and add user to groups
     virtualisation.docker.enable = true;
-    users.users.cfgUsername.extraGroups = [
+    users.users.${cfgUsername}.extraGroups = [
         "docker"
         "dialout"
     ];
