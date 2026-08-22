@@ -67,5 +67,10 @@
 
         # needed for wol role, set the interface name for this machine
         network.interface = "";
+
+        # ToDo: add this to Example host
+        batteryPath = "/sys/class/power_supply/BAT0/charge_control_end_threshold";
+        batteryLimit = 70;
+
     };
 }
