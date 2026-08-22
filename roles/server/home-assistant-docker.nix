@@ -9,14 +9,14 @@ let
     cfgUsername = cfg.machine.username or { };
 in
 {
-    # 1. Povolení Dockeru a skupiny pro uživatele
+    # allow docker and add user to groups
     virtualisation.docker.enable = true;
-    users.users.adam.extraGroups = [
+    users.users.cfgUsername.extraGroups = [
         "docker"
         "dialout"
     ];
 
-    # 2. Vytvoření adresářové struktury v /srv/smart-home
+    # create folder structure with priviligies
     systemd.tmpfiles.rules = [
         "d /srv/smart-home/mosquitto/config 0755 root root -"
         "d /srv/smart-home/mosquitto/data 0755 root root -"
@@ -26,7 +26,7 @@ in
         "f /srv/smart-home/mosquitto/config/mosquitto.conf 0644 root root - listener 1883\\nallow_anonymous true\\n"
     ];
 
-    # 3. Definice kontejnerů
+    # defition of containers
     virtualisation.oci-containers.backend = "docker";
     virtualisation.oci-containers.containers = {
         mosquitto = {
