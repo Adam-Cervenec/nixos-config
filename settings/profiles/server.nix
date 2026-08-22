@@ -49,5 +49,10 @@
         git.username = "Adam-Cervenec";
         git.email = "cervenec.a@protonmail.com";
 
+        # server servicies
+        ssh.enable = true;
+        ssh.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICdJtCVaWgW7MeDnOTfLqrcRxsdM7F+beToHE+rLGzam cervenec.a@protonmail.com"
+        ];
     };
 }
