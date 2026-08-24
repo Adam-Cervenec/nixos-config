@@ -74,7 +74,7 @@
         printScan.enable = true;
         virtualisation.enable = true;
         docker.enable = true;
-        wol.enable = true;
+        # wol.enable = true;
         embedded.enable = true;
 
         nixvim.enable = true;
