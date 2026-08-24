@@ -24,16 +24,21 @@ lib.mkIf (cfgZsh.enable or false) {
         syntaxHighlighting.enable = true;
 
         shellAliases = {
-            rebuild-old = "sudo nixos-rebuild switch --flake ${nixosPath}#$(hostname)";
-            rebuild = "nh os switch ${nixosPath}#$(hostname)";
-            boot = "sudo nixos-rebuild boot --flake ${nixosPath}#$(hostname)";
-            update = "nix flake update";
-            rollback = "sudo nixos-rebuild switch --rollback";
+            nx-rebuild = "sudo nixos-rebuild switch --flake ${nixosPath}#$(hostname)";
+            nx-boot = "sudo nixos-rebuild boot --flake ${nixosPath}#$(hostname)";
+            nx-update = "nix flake update";
+            nx-rollback = "sudo nixos-rebuild switch --rollback";
 
-            test = "sudo nixos-rebuild test --flake ${nixosPath}#$(hostname) --show-trace";
-            eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
+            nx-test = "sudo nixos-rebuild test --flake ${nixosPath}#$(hostname) --show-trace";
+            nx-eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
 
-            size = "nix path-info --closure-size --human-readable /run/current-system";
+            nx-size = "nix path-info --closure-size --human-readable /run/current-system";
+
+            _nv = "nvim .";
+            _rb = "nh os switch ${nixosPath}#$(hostname)";
+            _gb = "nx-garbage";
+            _ug = "nx-upgrade";
+            _po = "poweroff";
         };
 
         plugins = [
@@ -55,7 +60,7 @@ lib.mkIf (cfgZsh.enable or false) {
             git commit -m "$*"
             }
 
-            upgrade() {
+            nx-upgrade() {
                 cd ${nixosPath} || return
 
                 echo "🔄 Updating flake inputs..."
@@ -75,13 +80,11 @@ lib.mkIf (cfgZsh.enable or false) {
                 echo "✅ Upgrade complete!"
             }
 
-            tmp() {
-                nix shell "nixpkgs#$1"
-            }
-
-            garbage() {
+            nx-garbage() {
                 echo "🗑️  Collecting old generations..."
-                sudo nix-collect-garbage --delete-older-than 7d
+                # sudo nix-collect-garbage --delete-older-than 7d
+                # let at least 3 generation, delete all older than 7 days
+                sudo nh clean all -k 3 -K 7d -a
 
                 echo "📦 Optimizing store..."
                 sudo nix store optimise
@@ -89,7 +92,7 @@ lib.mkIf (cfgZsh.enable or false) {
                 echo "✅ Done."
             }
 
-            nuke() {
+            nx-nuke() {
                 sudo nix-collect-garbage -d
                 sudo nix store optimise
             }
