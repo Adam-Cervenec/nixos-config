@@ -34,11 +34,11 @@ lib.mkIf (cfgZsh.enable or false) {
 
             nx-size = "nix path-info --closure-size --human-readable /run/current-system";
 
-            _nv = "nvim .";
-            _rb = "nh os switch ${nixosPath}#$(hostname)";
-            _gb = "nx-garbage";
-            _ug = "nx-upgrade";
-            _po = "poweroff";
+            nv = "nvim .";
+            rb = "nh os switch ${nixosPath}#$(hostname)";
+            gb = "nx-garbage";
+            ug = "nx-upgrade";
+            po = "poweroff";
         };
 
         plugins = [
