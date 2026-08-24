@@ -1,15 +1,20 @@
 #zsh.nix
 
-{ config, pkgs, cfg, lib, ... }:
+{
+    config,
+    pkgs,
+    cfg,
+    lib,
+    ...
+}:
 let
-    cfgZsh = cfg.profile.zsh or {};
+    cfgZsh = cfg.profile.zsh or { };
     nixosPath = cfg.machine.nixosPath or "/etc/nixos";
 
 in
 
 #if zsh is enabled, define zsh...
 lib.mkIf (cfgZsh.enable or false) {
-
 
     programs.zsh = {
         enable = true;
@@ -27,22 +32,20 @@ lib.mkIf (cfgZsh.enable or false) {
 
             test = "sudo nixos-rebuild test --flake ${nixosPath}#$(hostname) --show-trace";
             eval = "nix eval .#nixosConfigurations.$(hostname).config.system.build.toplevel";
-            
+
             size = "nix path-info --closure-size --human-readable /run/current-system";
         };
 
         plugins = [
             {
-            name = "zsh-autosuggestions";
-            src = pkgs.zsh-autosuggestions;
+                name = "zsh-autosuggestions";
+                src = pkgs.zsh-autosuggestions;
             }
         ];
 
         setOptions = [
             "PROMPT_SUBST"
         ];
-
-
 
         initContent = ''
 
@@ -91,7 +94,7 @@ lib.mkIf (cfgZsh.enable or false) {
                 sudo nix store optimise
             }
 
-            
+
             fastfetch
 
             # Funkce pro získání git větve a statusu
