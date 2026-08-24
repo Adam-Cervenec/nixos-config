@@ -81,7 +81,7 @@ lib.mkIf (cfgZsh.enable or false) {
 
             garbage() {
                 echo "🗑️  Collecting old generations..."
-                sudo nix-collect-garbage --delete-older-than 14d
+                sudo nix-collect-garbage --delete-older-than 7d
 
                 echo "📦 Optimizing store..."
                 sudo nix store optimise
