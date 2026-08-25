@@ -13,7 +13,7 @@ lib.mkIf (cfgNixvim.enable or false) {
 
     # dependencies
     home.packages = with pkgs; [
-        nixfmt-rfc-style
+        nixfmt
         clang-tools
         rustfmt
         ruff
