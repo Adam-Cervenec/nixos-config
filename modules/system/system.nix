@@ -1,15 +1,22 @@
-{ config, pkgs, cfg, ... }:
+{
+    config,
+    pkgs,
+    cfg,
+    ...
+}:
 let
     stateVersion = cfg.machine.stateVersion;
     unfreePkgs = cfg.machine.unfreePkgs;
-    sudoCfg = cfg.profile.sudo or {};
+    sudoCfg = cfg.profile.sudo or { };
 in
 {
     # --- System ---
 
     #experimental
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+    nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+    ];
 
     #allow unfree packages
     nixpkgs.config.allowUnfree = unfreePkgs;
@@ -17,7 +24,6 @@ in
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-
 
     # Set your time zone.
     time.timeZone = "Europe/Prague";
@@ -37,19 +43,18 @@ in
         LC_TIME = "cs_CZ.UTF-8";
     };
 
-
     # --- OS version ---
 
     system.stateVersion = stateVersion; # Did you read the comment?
 
-
     # --- Firewall ---
 
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
+    # 6969 -> minecraft
+    networking.firewall.allowedTCPPorts = [ 6969 ];
+    networking.firewall.allowedUDPPorts = [ 6969 ];
 
-    networking.firewall.enable = true; 
+    networking.firewall.enable = true;
 
     # sudo settings
     security.sudo.extraConfig = ''
