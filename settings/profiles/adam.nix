@@ -96,5 +96,7 @@
         wallpaper.loop.duration = 60 * 4; # int seconds
         wallpaper.loop.enable = false;
 
+        prism.enable = true;
+
     };
 }
