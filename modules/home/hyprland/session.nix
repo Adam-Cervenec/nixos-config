@@ -30,6 +30,12 @@ lib.mkIf (isHyprlandOn) {
         ++ lib.optionals (hardware.gpu.nvidia) [
             # NVIDIA
             "__GLX_VENDOR_LIBRARY_NAME=nvidia"
+
+            "LIBVA_DRIVER_NAME=nvidia"
+            "__GLX_VENDOR_LIBRARY_NAME=nvidia"
+            "GBM_BACKEND,nvidia-drm"
+            "__NV_PRIME_RENDER_OFFLOAD,1"
+            "__VK_LAYER_NV_optimus,NVIDIA_only"
         ];
 
         input = {

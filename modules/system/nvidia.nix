@@ -12,8 +12,12 @@ lib.mkIf (cfg.hardware.gpu.nvidia or false) {
 
     hardware.nvidia = {
         modesetting.enable = true;
-        powerManagement.enable = false;
+        powerManagement.enable = true;
         open = true;
         nvidiaSettings = true;
     };
+
+    environment.systemPackages = with pkgs; [
+        lsof
+    ];
 }
