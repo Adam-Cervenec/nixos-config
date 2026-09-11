@@ -66,10 +66,14 @@
         # output, mode (resolution), position, scale (float)
         monitors = [
             "eDP-1,preferred,0x0,1.25"
+            "Unknown-1,preferred,0x0,1.25"
         ];
 
         # define which monitors will be used by waybar
-        waybar.monitors = [ "eDP-1" ];
+        waybar.monitors = [
+            "eDP-1"
+            "Unknown-1"
+        ];
 
         # needed for wol role, set the interface name for this machine
         network.interface = "wlp4s0";
