@@ -1,4 +1,10 @@
-{ cfg, config, pkgs, lib, ... }:
+{
+    cfg,
+    config,
+    pkgs,
+    lib,
+    ...
+}:
 
 lib.mkIf (cfg.hardware.gpu.nvidia or false) {
     # --- nVidia GPU drivers and settings  ---
@@ -7,7 +13,7 @@ lib.mkIf (cfg.hardware.gpu.nvidia or false) {
     hardware.nvidia = {
         modesetting.enable = true;
         powerManagement.enable = false;
-        open = false;
+        open = true;
         nvidiaSettings = true;
     };
 }
