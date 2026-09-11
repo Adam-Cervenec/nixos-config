@@ -98,6 +98,12 @@ lib.mkIf (cfgZsh.enable or false) {
             }
 
 
+            # laptop shortcuts
+            battery_limit() {
+                asusctl battery limit "$1"
+            }
+
+
             fastfetch
 
             # Funkce pro získání git větve a statusu
