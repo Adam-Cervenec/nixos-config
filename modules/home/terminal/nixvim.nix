@@ -15,6 +15,7 @@ lib.mkIf (cfgNixvim.enable or false) {
     home.packages = with pkgs; [
         nixfmt
         clang-tools
+        gdb
         rustfmt
         ruff
         stylua
@@ -119,7 +120,36 @@ lib.mkIf (cfgNixvim.enable or false) {
             lspconfig.enable = true;
 
             # debugger
-            dap.enable = true;
+            dap = {
+                enable = true;
+
+                adapters.executables.gdb = {
+                    command = "gdb";
+                    args = [ "--interpreter=dap" ];
+                };
+
+                configurations.c = [
+                    {
+                        name = "Launch C program";
+                        type = "gdb";
+                        request = "launch";
+
+                        program.__raw = ''
+                            function()
+                              return vim.fn.input(
+                                "Executable: ",
+                                vim.fn.getcwd() .. "/",
+                                "file"
+                              )
+                            end
+                        '';
+
+                        cwd = "\${workspaceFolder}";
+                        stopAtBeginningOfMainSubprogram = false;
+                    }
+                ];
+            };
+
             dap-ui.enable = true;
             dap-virtual-text.enable = true;
 
