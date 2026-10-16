@@ -118,6 +118,11 @@ lib.mkIf (cfgNixvim.enable or false) {
 
             lspconfig.enable = true;
 
+            # debugger
+            dap.enable = true;
+            dap-ui.enable = true;
+            dap-virtual-text.enable = true;
+
             # TUI git integration
             lazygit.enable = true;
 
@@ -174,6 +179,10 @@ lib.mkIf (cfgNixvim.enable or false) {
                         {
                             __unkeyed-1 = "<leader>t";
                             group = "Terminal";
+                        }
+                        {
+                            __unkeyed-1 = "<leader>d";
+                            group = "Debugger";
                         }
                     ];
                 };
@@ -437,6 +446,50 @@ lib.mkIf (cfgNixvim.enable or false) {
                 key = "<leader>cs";
                 action = "<cmd>Trouble symbols toggle<CR>";
                 options.desc = "Symbols";
+            }
+
+            # Debugger
+            {
+                mode = "n";
+                key = "<leader>db";
+                action = "<cmd>lua require('dap').toggle_breakpoint()<CR>";
+                options.desc = "Toggle breakpoint";
+            }
+            {
+                mode = "n";
+                key = "<leader>dc";
+                action = "<cmd>lua require('dap').continue()<CR>";
+                options.desc = "Start / continue debugging";
+            }
+            {
+                mode = "n";
+                key = "<leader>dn";
+                action = "<cmd>lua require('dap').step_over()<CR>";
+                options.desc = "Step over";
+            }
+            {
+                mode = "n";
+                key = "<leader>di";
+                action = "<cmd>lua require('dap').step_into()<CR>";
+                options.desc = "Step into";
+            }
+            {
+                mode = "n";
+                key = "<leader>do";
+                action = "<cmd>lua require('dap').step_out()<CR>";
+                options.desc = "Step out";
+            }
+            {
+                mode = "n";
+                key = "<leader>du";
+                action = "<cmd>lua require('dapui').toggle()<CR>";
+                options.desc = "Toggle debugger UI";
+            }
+            {
+                mode = "n";
+                key = "<leader>dx";
+                action = "<cmd>lua require('dap').terminate()<CR>";
+                options.desc = "Stop debugging";
             }
         ];
 
