@@ -136,9 +136,11 @@ lib.mkIf (cfgNixvim.enable or false) {
 
                         program.__raw = ''
                             function()
+                              local dir = vim.fn.expand("%:p:h")
+
                               return vim.fn.input(
                                 "Executable: ",
-                                vim.fn.getcwd() .. "/",
+                                dir .. "/",
                                 "file"
                               )
                             end
