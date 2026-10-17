@@ -254,6 +254,17 @@ lib.mkIf (cfgNixvim.enable or false) {
                 enable = true;
             };
 
+            # Show the current function / code context at the top
+            treesitter-context = {
+                enable = true;
+
+                settings = {
+                    max_lines = 4;
+                    mode = "cursor";
+                    trim_scope = "outer";
+                };
+            };
+
             telescope.enable = true;
 
             # automatic {}, [], <>, () pairs
@@ -466,18 +477,50 @@ lib.mkIf (cfgNixvim.enable or false) {
                 options.desc = "Toggle terminal";
             }
 
-            # trouble
+            # LSP navigation
             {
                 mode = "n";
                 key = "<leader>cd";
+                action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+                options.desc = "Go to definition";
+            }
+            {
+                mode = "n";
+                key = "<leader>cD";
+                action = "<cmd>lua vim.lsp.buf.declaration()<CR>";
+                options.desc = "Go to declaration";
+            }
+            {
+                mode = "n";
+                key = "<leader>ci";
+                action = "<cmd>lua vim.lsp.buf.implementation()<CR>";
+                options.desc = "Go to implementation";
+            }
+            {
+                mode = "n";
+                key = "<leader>ct";
+                action = "<cmd>lua vim.lsp.buf.type_definition()<CR>";
+                options.desc = "Go to type definition";
+            }
+            {
+                mode = "n";
+                key = "<leader>ch";
+                action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+                options.desc = "Hover documentation";
+            }
+
+            # trouble
+            {
+                mode = "n";
+                key = "<leader>cu";
                 action = "<cmd>Trouble diagnostics toggle<CR>";
-                options.desc = "Diagnostics";
+                options.desc = "Diagnostics UI";
             }
             {
                 mode = "n";
                 key = "<leader>cs";
                 action = "<cmd>Trouble symbols toggle<CR>";
-                options.desc = "Symbols";
+                options.desc = "Symbols UI";
             }
 
             # Debugger
