@@ -67,6 +67,7 @@
         monitors = [
             "eDP-1,preferred,0x0,1.25"
             "eDP-2,preferred,0x0,1.25"
+            "HDMI-A-1, preferred, 0x0, 1.25" # monitor in Brno
         ];
 
         # define which monitors will be used by waybar
