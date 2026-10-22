@@ -26,18 +26,20 @@ in
         ./modules/rofi.nix
     ];
 
-    config = lib.mkIf (isHyprlandOn) {
+    home.packages = with pkgs; [
+        hyprmoncfg
+    ];
 
-        wayland.windowManager.hyprland = {
-            enable = true;
+    wayland.windowManager.hyprland = lib.mkIf isHyprlandOn {
 
-            # fix uwsm systemd stop bug
-            systemd.enable = false;
+        enable = true;
 
-            configType = "hyprlang";
-            # settings.cursor.no_hardware_cursors = true;
-            settings.cursor.inactive_timeout = 1;
-            settings.cursor.no_warps = true;
-        };
+        # fix uwsm systemd stop bug
+        systemd.enable = false;
+
+        configType = "hyprlang";
+        # settings.cursor.no_hardware_cursors = true;
+        settings.cursor.inactive_timeout = 1;
+        settings.cursor.no_warps = true;
     };
 }
