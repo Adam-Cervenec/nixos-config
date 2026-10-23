@@ -1,16 +1,15 @@
-{ cfg, lib, ... }:
+{ cfg, ... }:
 let
-  username = cfg.machine.username;
-  cfgVirt = cfg.profile.virtualisation or {};
+    username = cfg.machine.username;
 in
-lib.mkIf (cfgVirt.enable or false) {
-  virtualisation.libvirtd.enable = true;
+{
+    virtualisation.libvirtd.enable = true;
 
-  programs.virt-manager.enable = true;
+    programs.virt-manager.enable = true;
 
-  users.users.${username}.extraGroups = [
-    "libvirtd"
-  ];
+    users.users.${username}.extraGroups = [
+        "libvirtd"
+    ];
 
-  virtualisation.spiceUSBRedirection.enable = true;
+    virtualisation.spiceUSBRedirection.enable = true;
 }

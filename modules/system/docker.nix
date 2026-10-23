@@ -1,15 +1,14 @@
-{ cfg, config, lib, ... }:
+{ cfg, ... }:
 
 let
-  cfgDocker = cfg.profile.docker or {};
-  username = cfg.machine.username;
+    username = cfg.machine.username;
 in
-lib.mkIf (cfgDocker.enable or false){
-   virtualisation.docker.enable = true;
+{
+    virtualisation.docker.enable = true;
 
-   users.users.${username}.extraGroups = [ 
-      "docker"
-      "dialout"
-      "uucp"
-   ];
+    users.users.${username}.extraGroups = [
+        "docker"
+        "dialout"
+        "uucp"
+    ];
 }
