@@ -87,10 +87,7 @@
                 network.enable = true;
                 printers.enable = true;
             };
-            gui = {
-                hyprland.enable = true;
-                sddm.enable = true;
-            };
+            sddm.enable = true;
             virtualisation.enable = true;
             docker.enable = true;
             ollama.enable = false;
