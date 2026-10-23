@@ -1,109 +1,107 @@
 {
-  description = "My NixOS dotfiles";
+    description = "My NixOS dotfiles";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    inputs = {
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix.url = "github:danth/stylix";
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    nixvim.url = "github:nix-community/nixvim";
-  };
-
-  outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
-
-  let
-    lib = nixpkgs.lib;
-
-    hosts =
-      lib.filter
-        (host:
-          builtins.pathExists ./hosts/${host}/host.nix &&
-          builtins.pathExists ./hosts/${host}/hardware-configuration.nix)
-        (builtins.attrNames (builtins.readDir ./hosts));
-
-    mkHost = hostName:
-
-      let
-        host = import ./hosts/${hostName}/host.nix;
-
-        cfg =
-          lib.foldl'
-            lib.recursiveUpdate
-            {}
-            ((map import host.settings) ++ [ host ]);
-
-      in
-
-      lib.nixosSystem {
-
-        system = cfg.machine.system;
-
-        specialArgs = {
-          inherit cfg inputs;
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        modules = [
+        stylix.url = "github:danth/stylix";
+        zen-browser.url = "github:youwen5/zen-browser-flake";
+        nixvim.url = "github:nix-community/nixvim";
+    };
 
-          ./hosts/${hostName}/hardware-configuration.nix
-          #./hosts/${hostName}/configuration.nix
+    outputs =
+        {
+            nixpkgs,
+            home-manager,
+            stylix,
+            ...
+        }@inputs:
 
-          ./modules/system/default.nix
+        let
+            lib = nixpkgs.lib;
 
-          stylix.nixosModules.stylix
-        ]
-        ++ lib.optional
-          (builtins.pathExists ./hosts/${hostName}/disks.nix)
-          ./hosts/${hostName}/disks.nix
-        ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
-        ++
-        [
+            hosts = lib.filter (
+                host:
+                builtins.pathExists ./hosts/${host}/host.nix
+                && builtins.pathExists ./hosts/${host}/hardware-configuration.nix
+            ) (builtins.attrNames (builtins.readDir ./hosts));
 
-          home-manager.nixosModules.home-manager
+            mkHost =
+                hostName:
 
-          {
+                let
+                    host = import ./hosts/${hostName}/host.nix;
 
-            networking.hostName = cfg.machine.hostname;
+                    cfg = lib.foldl' lib.recursiveUpdate { } ((map import host.settings) ++ [ host ]);
 
-            home-manager = {
+                in
 
-              useUserPackages = true;
+                lib.nixosSystem {
 
-              extraSpecialArgs = {
-                inherit cfg inputs;
-              };
+                    system = cfg.machine.system;
 
-              users.${cfg.machine.username} = {
-                home.stateVersion = cfg.machine.homeVersion;
-                imports = [
-                  #./hosts/${hostName}/home.nix
-                  ./modules/home/default.nix
-                  inputs.nixvim.homeModules.nixvim
-                ]
-                ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
+                    specialArgs = {
+                        inherit cfg inputs;
+                    };
 
-                nixpkgs = {
-                  config.allowUnfree = cfg.machine.unfreePkgs;
+                    modules = [
+
+                        ./hosts/${hostName}/hardware-configuration.nix
+                        #./hosts/${hostName}/configuration.nix
+
+                        ./modules/system/default.nix
+
+                        stylix.nixosModules.stylix
+                    ]
+                    ++ lib.optional (builtins.pathExists ./hosts/${hostName}/disks.nix) ./hosts/${hostName}/disks.nix
+                    ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
+                    ++ [
+
+                        home-manager.nixosModules.home-manager
+
+                        {
+
+                            networking.hostName = cfg.machine.hostname;
+
+                            home-manager = {
+
+                                useUserPackages = true;
+
+                                extraSpecialArgs = {
+                                    inherit cfg inputs;
+                                };
+
+                                users.${cfg.machine.username} = {
+                                    home.stateVersion = cfg.machine.homeVersion;
+                                    imports = [
+                                        #./hosts/${hostName}/home.nix
+                                        ./modules/home/default.nix
+                                        inputs.nixvim.homeModules.nixvim
+                                    ]
+                                    ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
+
+                                    nixpkgs = {
+                                        config.allowUnfree = cfg.machine.unfreePkgs;
+                                    };
+                                };
+
+                                sharedModules = [
+                                    stylix.homeModules.stylix
+                                ];
+                            };
+                        }
+                    ];
                 };
-              };
 
-              sharedModules = [
-                stylix.homeModules.stylix
-              ];
-            };
-          }
-        ];
-      };
+        in
+        {
 
-  in
-  {
+            nixosConfigurations = lib.genAttrs hosts mkHost;
 
-    nixosConfigurations =
-      lib.genAttrs hosts mkHost;
-
-  };
+        };
 }
