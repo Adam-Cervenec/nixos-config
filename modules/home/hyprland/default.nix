@@ -9,6 +9,7 @@
         ./session.nix # monitor, input and evn settings
         ./aesthetics.nix # windowrules, appearance and animations
         ./keybindings.nix # bind and keymaps
+        ./windowrules.nix # windowrules
 
         #modules
         ./modules/tools.nix
