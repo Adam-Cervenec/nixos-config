@@ -1,27 +1,31 @@
-{ lib }:
+{ lib, modulesRoot }:
 
-directory: cfg: {
-    imports =
-        let
-            entries = builtins.readDir directory;
+directory: moduleConfig:
 
-            files = lib.filter (
-                name:
-                entries.${name} == "regular"
-                && name != "default.nix"
-                && lib.hasSuffix ".nix" name
-                && (
-                    let
-                        moduleName = lib.removeSuffix ".nix" name;
-                    in
-                    (cfg.${moduleName}.enable or false)
-                )
-            ) (builtins.attrNames entries);
+let
+    relativePath = lib.removePrefix "${toString modulesRoot}/" (toString directory);
 
-            directories = lib.filter (
-                name: entries.${name} == "directory" && builtins.pathExists (directory + "/${name}/default.nix")
-            ) (builtins.attrNames entries);
-        in
-        map (name: directory + "/${name}") files
-        ++ map (name: directory + "/${name}/default.nix") directories;
-}
+    pathParts = lib.splitString "/" relativePath;
+
+    currentConfig = lib.foldl' (config: name: config.${name} or { }) moduleConfig pathParts;
+
+    entries = builtins.readDir directory;
+
+    files = lib.filter (
+        name:
+        entries.${name} == "regular"
+        && name != "default.nix"
+        && lib.hasSuffix ".nix" name
+        && (currentConfig.${lib.removeSuffix ".nix" name}.enable or false)
+    ) (builtins.attrNames entries);
+
+    directories = lib.filter (
+        name:
+        entries.${name} == "directory"
+        && builtins.pathExists (directory + "/${name}/default.nix")
+        && (currentConfig.${name}.enable or false)
+    ) (builtins.attrNames entries);
+
+in
+map (name: directory + "/${name}") files
+++ map (name: directory + "/${name}/default.nix") directories
