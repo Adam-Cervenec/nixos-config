@@ -56,6 +56,8 @@
                         #./hosts/${hostName}/configuration.nix
 
                         ./modules/system/default.nix
+                        ./modules/hardware/default.nix
+                        ./modules/os/default.nix
 
                         stylix.nixosModules.stylix
                     ]
