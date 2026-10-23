@@ -5,7 +5,9 @@ directory: moduleConfig:
 let
     relativePath = lib.removePrefix "${toString modulesRoot}/" (toString directory);
 
-    pathParts = lib.splitString "/" relativePath;
+    allPathParts = lib.splitString "/" relativePath;
+
+    pathParts = builtins.tail allPathParts;
 
     currentConfig = lib.foldl' (config: name: config.${name} or { }) moduleConfig pathParts;
 
