@@ -65,6 +65,7 @@
                 firefox.enable = true;
                 vscode.enable = true;
                 zen.enable = true;
+                spotify.enable = true;
             };
             hyprland.enable = true;
             terminal = {
