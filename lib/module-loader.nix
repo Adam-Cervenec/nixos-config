@@ -11,6 +11,14 @@ let
 
     currentConfig = lib.foldl' (config: name: config.${name} or { }) moduleConfig pathParts;
 
+    hasEnabled =
+        value:
+        if builtins.isAttrs value then
+            (value.enable or false)
+            || lib.any hasEnabled (builtins.attrValues (builtins.removeAttrs value [ "enable" ]))
+        else
+            false;
+
     entries = builtins.readDir directory;
 
     files = lib.filter (
@@ -25,7 +33,7 @@ let
         name:
         entries.${name} == "directory"
         && builtins.pathExists (directory + "/${name}/default.nix")
-        && (currentConfig.${name}.enable or false)
+        && hasEnabled (currentConfig.${name} or { })
     ) (builtins.attrNames entries);
 
 in
