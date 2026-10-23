@@ -1,28 +1,25 @@
-{ pkgs, cfg, lib,... }:
+{ pkgs, ... }:
 
-let
-  isHyprlandOn =  cfg.profile.hyprland.enable or false;
-in
-lib.mkIf (isHyprlandOn) {
-  programs.rofi = {
-    enable = true;
+{
+    programs.rofi = {
+        enable = true;
 
-    modes = [
-      "drun"
-      "run"
-      "window"
-      "ssh"
-    ];
+        modes = [
+            "drun"
+            "run"
+            "window"
+            "ssh"
+        ];
 
-    extraConfig = {
-      show-icons = true;
-      terminal = "alacritty";
-      display-drun = "Apps";
-      case-sensitive = false;
-      modi = "drun,calc";
+        extraConfig = {
+            show-icons = true;
+            terminal = "alacritty";
+            display-drun = "Apps";
+            case-sensitive = false;
+            modi = "drun,calc";
+        };
+        plugins = [
+            pkgs.rofi-calc
+        ];
     };
-    plugins = [
-      pkgs.rofi-calc
-    ];
-  };
 }

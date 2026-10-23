@@ -1,175 +1,163 @@
 { lib, cfg, ... }:
 
 let
-  isHyprlandOn =  cfg.profile.hyprland.enable or false;
+    mod = cfg.profile.hyprland.modKey;
 
-  mod = cfg.profile.hyprland.modKey;
+    browser = cfg.profile.apps.default.browser;
+    terminal = cfg.profile.apps.default.terminal;
+    fileManager = cfg.profile.apps.default.fileManager;
+    codeEditor = cfg.profile.apps.default.codeEditorCommand;
+    notes = cfg.profile.apps.default.notes;
 
-  browser = cfg.profile.apps.default.browser;
-  terminal = cfg.profile.apps.default.terminal;
-  fileManager = cfg.profile.apps.default.fileManager;
-  codeEditor = cfg.profile.apps.default.codeEditorCommand;
-  notes = cfg.profile.apps.default.notes;
+    inherit (lib) genList;
 
-  inherit (lib) genList;
+    workspaceBinds = genList (
+        i: "${mod}, code:${toString (i + 10)}, workspace, ${toString (i + 1)}"
+    ) 10;
 
-  workspaceBinds =
-    genList
-      (i:
-        "${mod}, code:${toString (i + 10)}, workspace, ${toString (i + 1)}"
-      )
-      10;
-
-  moveWorkspaceBinds =
-    genList
-      (i:
-        "${mod} SHIFT, code:${toString (i + 10)}, movetoworkspace, ${toString (i + 1)}"
-      )
-      10;
+    moveWorkspaceBinds = genList (
+        i: "${mod} SHIFT, code:${toString (i + 10)}, movetoworkspace, ${toString (i + 1)}"
+    ) 10;
 in
-lib.mkIf (isHyprlandOn) {
-  wayland.windowManager.hyprland.settings = {
+{
+    wayland.windowManager.hyprland.settings = {
 
-    bind = [
+        bind = [
 
-      # terminal
+            # terminal
 
-      "${mod}, return, exec, uwsm app -- ${terminal}"
+            "${mod}, return, exec, uwsm app -- ${terminal}"
 
+            # operations
 
-      # operations
+            "${mod}, Q, killactive,"
+            "${mod}, F, fullscreen"
+            "${mod} SHIFT, F, togglefloating"
+            "${mod}, P, pseudo,"
+            "${mod} SHIFT, R, exec, hyprctl reload"
 
-      "${mod}, Q, killactive,"
-      "${mod}, F, fullscreen"
-      "${mod} SHIFT, F, togglefloating"
-      "${mod}, P, pseudo,"
-      "${mod} SHIFT, R, exec, hyprctl reload"
+            # submaps definitions
 
+            "${mod}, V, submap, Volume"
+            "${mod}, A, submap, Apps"
+            "${mod}, S, submap, System"
+            "${mod}, R, submap, Rofi"
 
-      # submaps definitions
+            # windows
 
-      "${mod}, V, submap, Volume"
-      "${mod}, A, submap, Apps"
-      "${mod}, S, submap, System"
-      "${mod}, R, submap, Rofi"
+            "${mod}, H, movefocus, l"
+            "${mod}, L, movefocus, r"
+            "${mod}, K, movefocus, u"
+            "${mod}, J, movefocus, d"
 
+            "${mod} SHIFT, H, movewindow, l"
+            "${mod} SHIFT, L, movewindow, r"
+            "${mod} SHIFT, K, movewindow, u"
+            "${mod} SHIFT, J, movewindow, d"
 
-      # windows
+            # worspaces
 
-      "${mod}, H, movefocus, l"
-      "${mod}, L, movefocus, r"
-      "${mod}, K, movefocus, u"
-      "${mod}, J, movefocus, d"
+            "${mod}, comma, workspace, -1"
+            "${mod}, period, workspace, +1"
 
-      "${mod} SHIFT, H, movewindow, l"
-      "${mod} SHIFT, L, movewindow, r"
-      "${mod} SHIFT, K, movewindow, u"
-      "${mod} SHIFT, J, movewindow, d"
+            "${mod} SHIFT, comma, movetoworkspace, -1"
+            "${mod} SHIFT, period, movetoworkspace, +1"
 
+            "${mod}, mouse_down, workspace, +1"
+            "${mod}, mouse_up, workspace, -1"
 
-      # worspaces
+            "${mod} SHIFT, mouse_down, movetoworkspace, +1"
+            "${mod} SHIFT, mouse_up, movetoworkspace, -1"
 
-      "${mod}, comma, workspace, -1"
-      "${mod}, period, workspace, +1"
+        ]
+        ++ workspaceBinds
+        ++ moveWorkspaceBinds;
 
-      "${mod} SHIFT, comma, movetoworkspace, -1"
-      "${mod} SHIFT, period, movetoworkspace, +1"
+        binde = [
+            "${mod} CTRL, H, resizeactive, -15 0"
+            "${mod} CTRL, L, resizeactive, 15 0"
+            "${mod} CTRL, K, resizeactive, 0 -15"
+            "${mod} CTRL, J, resizeactive, 0 15"
+        ];
 
-      "${mod}, mouse_down, workspace, +1"
-      "${mod}, mouse_up, workspace, -1"
+        bindm = [
+            "${mod}, mouse:272, movewindow"
+            "${mod}, mouse:273, resizewindow"
+        ];
 
-      "${mod} SHIFT, mouse_down, movetoworkspace, +1"
-      "${mod} SHIFT, mouse_up, movetoworkspace, -1"
+        bindl = [
+            ", XF86AudioNext, exec, playerctl next"
+            ", XF86AudioPause, exec, playerctl play-pause"
+            ", XF86AudioPlay, exec, playerctl play-pause"
+            ", XF86AudioPrev, exec, playerctl previous"
+        ];
 
-    ]
-    ++ workspaceBinds
-    ++ moveWorkspaceBinds;
+        bindel = [
+            ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+            ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
+            ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ];
+    };
 
-    binde = [      
-      "${mod} CTRL, H, resizeactive, -15 0"
-      "${mod} CTRL, L, resizeactive, 15 0"
-      "${mod} CTRL, K, resizeactive, 0 -15"
-      "${mod} CTRL, J, resizeactive, 0 15"
-    ];
+    wayland.windowManager.hyprland.submaps = {
+        Volume.settings.binde = [
+            ", U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+            ", D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+            ", comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%-"
+            ", period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%+"
 
-    bindm = [
-      "${mod}, mouse:272, movewindow"
-      "${mod}, mouse:273, resizewindow"
-    ];
+            "SHIFT, U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+"
+            "SHIFT, D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-"
+            "SHIFT, comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%-"
+            "SHIFT, period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+"
+        ];
+        Volume.settings.bind = [
+            ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-    bindl = [
-      ", XF86AudioNext, exec, playerctl next"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
-    ];
+            ", H, exec, playerctl previous"
+            ", J, exec, playerctl play-pause"
+            ", K, exec, playerctl stop"
+            ", L, exec, playerctl next"
 
-    bindel = [
-      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-      ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-    ];
-  };
+            ", escape, submap, reset"
+            ", SPACE, submap, reset"
+        ];
 
-  wayland.windowManager.hyprland.submaps = {
-    Volume.settings.binde = [
-      ", U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
-      ", D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-      ", comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%-"
-      ", period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 1%+"
+        Apps.settings.bind = [
+            ", A, exec, uwsm app -- ${terminal}"
+            ", F, exec, uwsm app -- ${browser}"
+            ", O, exec, uwsm app -- ${notes}"
+            ", C, exec, uwsm app -- ${codeEditor}"
+            ", E, exec, uwsm app -- ${fileManager}"
 
-      "SHIFT, U, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+"
-      "SHIFT, D, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-"
-      "SHIFT, comma, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%-"
-      "SHIFT, period, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+"
-    ];
-    Volume.settings.bind = [
-      ", M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      "SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+            ", escape, submap, reset"
+            ", SPACE, submap, reset"
+        ];
 
-      ", H, exec, playerctl previous"
-      ", J, exec, playerctl play-pause"
-      ", K, exec, playerctl stop"
-      ", L, exec, playerctl next"
+        System.onDispatch = "reset";
+        System.settings.bind = [
+            ", C, exec, uwsm app -- copyq toggle"
+            ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -zs"
+            ", V, exec, uwsm app -- hyprpwcenter"
+            ", N, exec, uwsm app -- nm-connection-editor"
+            ", L, exec, uwsm app -- hyprlock"
+            ", Q, exec, uwsm app -- hyprshutdown"
 
-      ", escape, submap, reset"
-      ", SPACE, submap, reset"
-    ];
+            ", catchall, submap, reset"
+        ];
+        Rofi.onDispatch = "reset";
+        Rofi.settings.bind = [
+            ", D, exec, uwsm app -- rofi -show drun"
+            ", W, exec, uwsm app -- rofi -show window"
+            ", R, exec, uwsm app -- rofi -show run"
+            ", S, exec, uwsm app -- rofi -show ssh"
+            ", C, exec, uwsm app -- rofi -show calc"
 
-    Apps.settings.bind = [
-      ", A, exec, uwsm app -- ${terminal}"
-      ", F, exec, uwsm app -- ${browser}"
-      ", O, exec, uwsm app -- ${notes}"
-      ", C, exec, uwsm app -- ${codeEditor}"
-      ", E, exec, uwsm app -- ${fileManager}"
-
-      ", escape, submap, reset"
-      ", SPACE, submap, reset"
-    ];
-
-    System.onDispatch = "reset";
-    System.settings.bind = [
-      ", C, exec, uwsm app -- copyq toggle"
-      ", S, exec, uwsm app -- hyprshot -m region --clipboard-only -zs"
-      ", V, exec, uwsm app -- hyprpwcenter"
-      ", N, exec, uwsm app -- nm-connection-editor"
-      ", L, exec, uwsm app -- hyprlock"
-      ", Q, exec, uwsm app -- hyprshutdown"
-      
-      ", catchall, submap, reset"
-    ];
-    Rofi.onDispatch = "reset";
-    Rofi.settings.bind = [
-      ", D, exec, uwsm app -- rofi -show drun"
-      ", W, exec, uwsm app -- rofi -show window"
-      ", R, exec, uwsm app -- rofi -show run"
-      ", S, exec, uwsm app -- rofi -show ssh"
-      ", C, exec, uwsm app -- rofi -show calc"
-      
-      ", catchall, submap, reset"
-    ];
-  };
+            ", catchall, submap, reset"
+        ];
+    };
 }

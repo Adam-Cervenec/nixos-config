@@ -1,20 +1,17 @@
-{ pkgs, cfg, lib, ... }:
+{ pkgs, ... }:
 
-let
-  isHyprlandOn =  cfg.profile.hyprland.enable or false;
-in
-lib.mkIf (isHyprlandOn) {
-  home.packages = with pkgs; [
-    libnotify
-    socat
-  ];
+{
+    home.packages = with pkgs; [
+        libnotify
+        socat
+    ];
 
-  services.swaync = {
-    enable = true;
+    services.swaync = {
+        enable = true;
 
-    settings = {
-      positionX = "right";
-      positionY = "top";
+        settings = {
+            positionX = "right";
+            positionY = "top";
+        };
     };
-  };
 }

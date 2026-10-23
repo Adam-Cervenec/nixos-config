@@ -1,13 +1,7 @@
 {
-    config,
     pkgs,
-    lib,
-    cfg,
     ...
 }:
-let
-    isHyprlandOn = cfg.profile.hyprland.enable or false;
-in
 {
 
     # test
@@ -30,7 +24,7 @@ in
         hyprmoncfg
     ];
 
-    wayland.windowManager.hyprland = lib.mkIf isHyprlandOn {
+    wayland.windowManager.hyprland = {
 
         enable = true;
 
