@@ -1,20 +1,17 @@
 #zsh.nix
 
 {
-    config,
     pkgs,
     cfg,
-    lib,
     ...
 }:
 let
-    cfgZsh = cfg.profile.zsh or { };
     nixosPath = cfg.machine.nixosPath or "/etc/nixos";
 
 in
 
 #if zsh is enabled, define zsh...
-lib.mkIf (cfgZsh.enable or false) {
+{
 
     programs.zsh = {
         enable = true;

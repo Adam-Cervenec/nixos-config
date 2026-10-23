@@ -1,39 +1,39 @@
-{ lib, pkgs, cfg, ... }:
+{ pkgs, cfg, ... }:
 
 let
-  cfgMusicPlayer = cfg.profile.musicPlayer or {};
+    cfgMusicPlayer = cfg.profile.musicPlayer or { };
 in
 
-lib.mkIf (cfgMusicPlayer.enable or false) {
+{
 
-  home.packages = with pkgs; [
-    rmpc
-    mpd
-    mpc
-  ];
+    home.packages = with pkgs; [
+        rmpc
+        mpd
+        mpc
+    ];
 
-  services.mpd = {
-    enable = true;
+    services.mpd = {
+        enable = true;
 
-    musicDirectory = cfgMusicPlayer.path;
+        musicDirectory = cfgMusicPlayer.path;
 
-    network = {
-      listenAddress = "127.0.0.1";
-      port = 6600;
+        network = {
+            listenAddress = "127.0.0.1";
+            port = 6600;
+        };
+
+        extraConfig = ''
+            audio_output {
+              type "pipewire"
+              name "PipeWire"
+            }
+            auto_update "yes"
+        '';
     };
 
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "PipeWire"
-      }
-      auto_update "yes"
+    xdg.configFile."rmpc/config.ron".text = ''
+        (
+          address: "127.0.0.1:6600",
+        )
     '';
-  };
-
-  xdg.configFile."rmpc/config.ron".text = ''
-    (
-      address: "127.0.0.1:6600",
-    )
-  '';
 }

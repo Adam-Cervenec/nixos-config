@@ -1,15 +1,9 @@
 {
-    cfg,
-    lib,
     pkgs,
     ...
 }:
 
-let
-    cfgNixvim = cfg.profile.nixvim or { };
-in
-
-lib.mkIf (cfgNixvim.enable or false) {
+{
 
     # dependencies
     home.packages = with pkgs; [
