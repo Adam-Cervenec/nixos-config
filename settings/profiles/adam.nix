@@ -60,34 +60,48 @@
             "ripgrep"
         ];
 
-        vscode.enable = true;
-        firefox.enable = true;
-        zen.enable = true;
-        thunar.enable = true;
-        stylix.enable = true;
-        zsh.enable = true;
-        fastfetch.enable = true;
-        alacritty.enable = true;
-        sddm.enable = true;
-        sshAgent.enable = true;
-        printing.enable = true;
-        printScan.enable = true;
-        virtualisation.enable = true;
-        docker.enable = true;
-        # wol.enable = true;
-        embedded.enable = true;
+        modules = {
+            apps = {
+                firefox.enable = true;
+                vscode.enable = true;
+                zen.enable = true;
+            };
+            hyprland.enable = true;
+            terminal = {
+                alacritty.enable = true;
+                fastfetch.enable = true;
+                git.enable = true;
+                musicPlayer.enable = true;
+                nixvim.enable = true;
+                sshAgent.enable = true;
+                zsh.enable = true;
 
-        nixvim.enable = true;
-        steam.enable = true;
+            };
+            embedded.enable = true;
+            printing.enable = true;
+            prism.enable = true;
+            stylix.enable = true;
+            thunar.enable = true;
+            desktop = {
+                audio.enable = true;
+                network.enable = true;
+                printers.enable = true;
+            };
+            gui = {
+                hyprland.enable = true;
+                sddm.enable = true;
+            };
+            virtualisation.enable = true;
+            docker.enable = true;
+            ollama.enable = false;
+            steam.enable = true;
+        };
 
-        musicPlayer.enable = true;
         musicPlayer.path = "~/Music";
 
-        git.enable = true;
         git.username = "Adam-Cervenec";
         git.email = "cervenec.a@protonmail.com";
 
-        hyprland.enable = true;
         hyprland.modKey = "SUPER";
 
         hypridle.lock-time = 10; # int minutes
@@ -95,8 +109,6 @@
 
         wallpaper.loop.duration = 60 * 4; # int seconds
         wallpaper.loop.enable = false;
-
-        prism.enable = true;
 
     };
 }
