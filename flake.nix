@@ -24,6 +24,7 @@
 
         let
             lib = nixpkgs.lib;
+            myLib = import ./lib { inherit lib; };
 
             hosts = lib.filter (
                 host:
@@ -46,7 +47,7 @@
                     system = cfg.machine.system;
 
                     specialArgs = {
-                        inherit cfg inputs;
+                        inherit cfg inputs myLib;
                     };
 
                     modules = [
@@ -73,7 +74,7 @@
                                 useUserPackages = true;
 
                                 extraSpecialArgs = {
-                                    inherit cfg inputs;
+                                    inherit cfg inputs myLib;
                                 };
 
                                 users.${cfg.machine.username} = {
