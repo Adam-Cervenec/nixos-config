@@ -1,4 +1,10 @@
-{ cfg, myLib, ... }:
+{
+    cfg,
+    myLib,
+    lib,
+    pkgs,
+    ...
+}:
 
 {
     imports = myLib.importModules ./. (cfg.profile.modules or { });
