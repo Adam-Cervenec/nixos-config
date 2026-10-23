@@ -4,22 +4,23 @@
     programs.rofi = {
         enable = true;
 
-        modes = [
-            "drun"
-            "run"
-            "window"
-            "ssh"
+        plugins = [
+            pkgs.rofi-calc
         ];
 
-        extraConfig = {
+        settings = {
+            modes = [
+                "drun"
+                "run"
+                "window"
+                "ssh"
+            ];
+
             show-icons = true;
             terminal = "alacritty";
             display-drun = "Apps";
             case-sensitive = false;
             modi = "drun,calc";
         };
-        plugins = [
-            pkgs.rofi-calc
-        ];
     };
 }
