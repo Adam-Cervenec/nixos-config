@@ -61,6 +61,8 @@
         gpu.amd = false;
         gpu.intel = false;
 
+        bluetooth = true;
+
         # monitors configuration
         # hyprland format:
         # output, mode (resolution), position, scale (float)
