@@ -62,7 +62,7 @@
 
         vscode.enable = true;
         firefox.enable = true;
-        zen.enable = false;
+        zen.enable = true;
         thunar.enable = true;
         stylix.enable = true;
         zsh.enable = true;
