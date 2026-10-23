@@ -1,23 +1,29 @@
-{ config, pkgs, cfg, lib, ... }:
+{
+    config,
+    pkgs,
+    cfg,
+    lib,
+    ...
+}:
 
 #define variable cfg for path
 let
-  cfgFirefox = cfg.profile.firefox or {};
+    cfgFirefox = cfg.profile.firefox or { };
 in
 
 # Enable Firefox if configured
 lib.mkIf (cfgFirefox.enable or false) {
-  programs.firefox = {
-    enable = true;
-    configPath = "${config.xdg.configHome}/firefox";
+    programs.firefox = {
+        enable = true;
+        configPath = "${config.xdg.configHome}/firefox";
 
-    policies = {
-      DisableTelemetry = true;
-      DisablePocket = true;
+        policies = {
+            DisableTelemetry = true;
+            DisablePocket = true;
 
-      SearchEngines = {
-        Default = "DuckDuckGo";
-      };
+            SearchEngines = {
+                Default = "DuckDuckGo";
+            };
+        };
     };
-  };
 }
