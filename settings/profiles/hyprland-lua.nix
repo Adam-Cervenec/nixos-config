@@ -50,7 +50,7 @@
             embedded.enable = false;
             printing.enable = false;
             prism.enable = false;
-            stylix.enable = true;
+            stylix.enable = false;
             thunar.enable = true;
             desktop = {
                 audio.enable = true;
