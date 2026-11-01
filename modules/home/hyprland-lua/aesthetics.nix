@@ -7,19 +7,14 @@
 
 let
     style = cfg.style;
-
-    color = name: "rgb(${config.lib.stylix.colors.${style.colors.${name}}})";
-
 in
 {
-    wayland.windowManager.hyprland.settings = {
+    wayland.windowManager.hyprland.settings.config = {
 
         general = {
             gaps_in = style.gaps / 2;
             gaps_out = style.gaps;
             border_size = style.border.width.bold;
-
-            "col.active_border" = lib.mkForce "${color "primary"} ${color "special"} 169deg";
         };
 
         decoration = {
