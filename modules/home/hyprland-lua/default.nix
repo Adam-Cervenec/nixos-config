@@ -7,7 +7,7 @@
 {
     imports = [
         ./session.nix
-        #./aesthetics.nix
+        ./aesthetics.nix
         ./keybindings.nix
         ./windowrules.nix
         ./autostart.nix
