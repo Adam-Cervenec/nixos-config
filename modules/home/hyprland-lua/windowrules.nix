@@ -1,4 +1,14 @@
 {
+    cfg,
+    config,
+    lib,
+    ...
+}:
+let
+    style = cfg.style;
+    color = name: "rgb(${config.lib.stylix.colors.${style.colors.${name}}})";
+in
+{
     wayland.windowManager.hyprland.settings = {
         window_rule = [
             {
@@ -24,6 +34,21 @@
                 float = true;
                 center = true;
                 size = "800 500";
+            }
+            {
+                name = "Floating windows";
+                match.float = true;
+
+                #no_blur = true;
+                opacity = style.opacity.window.floatOverride;
+                border_color = color "secondary";
+
+            }
+            {
+                name = "Fullscreen windows";
+                match.fullscreen = true;
+                opacity = style.opacity.window.fullscreenOverride;
+                no_shadow = true;
             }
         ];
     };
