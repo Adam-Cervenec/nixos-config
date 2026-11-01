@@ -9,15 +9,15 @@
         #./session.nix
         #./aesthetics.nix
         ./keybindings.nix
-        #./windowrules.nix
+        ./windowrules.nix
 
         # Modules
         #./modules/tools.nix
         #./modules/wallpaper.nix
-        #./modules/notifications.nix
-        #./modules/waybar.nix
-        #./modules/hypridle.nix
-        #./modules/rofi.nix
+        ./modules/notifications.nix
+        ./modules/waybar.nix
+        ./modules/hypridle.nix
+        ./modules/rofi.nix
     ];
 
     home.packages = with pkgs; [
