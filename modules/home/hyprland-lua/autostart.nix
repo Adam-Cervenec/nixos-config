@@ -1,11 +1,19 @@
+{ lib, ... }:
 {
     wayland.windowManager.hyprland.settings = {
-        exec-once = [
-            "uwsm app -- systemctl --user start hyprpolkitagent"
-            "uwsm app -- hyprland-per-window-layout"
-            "uwsm app -- waybar"
-            "uwsm app -- swaync"
-            "uwsm app -- copyq --start-server"
-        ];
+        on = {
+            _args = [
+                "hyprland.start"
+                (lib.generators.mkLuaInline ''
+                    function()
+                      hl.exec_cmd("uwsm app -- systemctl --user start hyprpolkitagent")
+                      hl.exec_cmd("uwsm app -- hyprland-per-window-layout")
+                      hl.exec_cmd("uwsm app -- waybar")
+                      hl.exec_cmd("uwsm app -- swaync")
+                      hl.exec_cmd("uwsm app -- copyq --start-server")
+                    end
+                '')
+            ];
+        };
     };
 }
