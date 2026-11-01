@@ -67,7 +67,8 @@
                 zen.enable = true;
                 spotify.enable = true;
             };
-            hyprland.enable = true;
+            hyprland.enable = false;
+            hyprland-lua.enable = true;
             terminal = {
                 alacritty.enable = true;
                 fastfetch.enable = true;
