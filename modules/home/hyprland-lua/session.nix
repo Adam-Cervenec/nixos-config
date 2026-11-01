@@ -30,10 +30,28 @@ let
 
 in
 {
-    wayland.windowManager.hyprland.settings.env = lib.mapAttrsToList (name: value: {
-        _args = [
-            name
-            value
-        ];
-    }) envVars;
+    wayland.windowManager.hyprland.settings = {
+        # Environment variables
+        env = lib.mapAttrsToList (name: value: {
+            _args = [
+                name
+                value
+            ];
+        }) envVars;
+
+        # Keyboard and input
+        config.input = {
+            kb_layout = "us,cz";
+            kb_variant = ",qwerty";
+            kb_options = "grp:win_space_toggle";
+            numlock_by_default = true;
+
+            follow_mouse = 1;
+            sensitivity = 0.5;
+
+            touchpad = {
+                natural_scroll = true;
+            };
+        };
+    };
 }
