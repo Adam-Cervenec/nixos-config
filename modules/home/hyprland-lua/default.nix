@@ -6,7 +6,7 @@
 }:
 {
     imports = [
-        #./session.nix
+        ./session.nix
         #./aesthetics.nix
         ./keybindings.nix
         ./windowrules.nix
