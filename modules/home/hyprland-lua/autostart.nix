@@ -11,6 +11,7 @@
                       hl.exec_cmd("uwsm app -- waybar")
                       hl.exec_cmd("uwsm app -- swaync")
                       hl.exec_cmd("uwsm app -- copyq --start-server")
+                      hl.exec_cmd("uwsm app -- waypaper --random")
                     end
                 '')
             ];

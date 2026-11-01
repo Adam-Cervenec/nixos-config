@@ -13,8 +13,7 @@
         ./autostart.nix
 
         # Modules
-        #./modules/tools.nix
-        #./modules/wallpaper.nix
+        ./modules/wallpaper.nix
         ./modules/notifications.nix
         ./modules/waybar.nix
         ./modules/hypridle.nix
