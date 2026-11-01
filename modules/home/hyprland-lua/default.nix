@@ -23,6 +23,30 @@
 
     home.packages = with pkgs; [
         hyprmoncfg
+
+        # GUI authentication daemon
+        hyprpolkitagent
+
+        # GUI pipewire controller
+        hyprpwcenter
+
+        # GUI logout util
+        hyprshutdown
+
+        # per window keyboard layout
+        hyprland-per-window-layout
+
+        #sceenshot agent
+        hyprshot
+
+        #lockscreen
+        hyprlock
+
+        #copy history
+        copyq
+
+        # pause, stop, play... audio
+        playerctl
     ];
 
     wayland.windowManager.hyprland = {
