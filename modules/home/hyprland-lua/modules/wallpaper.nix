@@ -16,24 +16,6 @@ in
         awww
     ];
 
-    wayland.windowManager.hyprland.settings = {
-
-        windowrule = [
-            {
-                name = "Waypaper";
-                "match:class" = "^waypaper$";
-
-                float = "on";
-                center = "on";
-                size = "800 500";
-            }
-        ];
-        exec-once = [
-            #"mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ${cfg.monitor} ~/nixos-config/assets/wallpapers"
-            "uwsm app -- waypaper --random"
-        ];
-    };
-
     # systemd user service: change wallpaper
     systemd.user.services.wallpaper-random = {
         Unit = {
