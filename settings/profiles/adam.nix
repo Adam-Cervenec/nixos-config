@@ -89,6 +89,7 @@
                 printers.enable = true;
             };
             sddm.enable = true;
+            plasma.enable = true;
             virtualisation.enable = true;
             docker.enable = true;
             ollama.enable = false;
