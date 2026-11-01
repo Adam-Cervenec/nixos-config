@@ -10,6 +10,7 @@
         #./aesthetics.nix
         ./keybindings.nix
         ./windowrules.nix
+        ./autostart.nix
 
         # Modules
         #./modules/tools.nix
