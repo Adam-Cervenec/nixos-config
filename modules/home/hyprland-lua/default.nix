@@ -8,7 +8,7 @@
     imports = [
         #./session.nix
         #./aesthetics.nix
-        #./keybindings.nix
+        ./keybindings.nix
         #./windowrules.nix
 
         # Modules
