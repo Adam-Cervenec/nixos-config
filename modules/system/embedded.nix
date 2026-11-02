@@ -1,13 +1,13 @@
 {
-    cfg,
+    myHost,
     ...
 }:
 
 let
-    cfgUsername = cfg.machine.username;
+    username = myHost.machine.username;
 in
 {
-    users.users.${cfgUsername}.extraGroups = [
+    users.users.${username}.extraGroups = [
         "dialout"
         "plugdev"
     ];

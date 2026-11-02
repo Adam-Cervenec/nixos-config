@@ -38,16 +38,16 @@
                 let
                     host = import ./hosts/${hostName}/host.nix;
 
-                    cfg = lib.foldl' lib.recursiveUpdate { } ((map import host.settings) ++ [ host ]);
+                    myHost = lib.foldl' lib.recursiveUpdate { } ((map import host.settings) ++ [ host ]);
 
                 in
 
                 lib.nixosSystem {
 
-                    system = cfg.machine.system;
+                    system = myHost.machine.system;
 
                     specialArgs = {
-                        inherit cfg inputs myLib;
+                        inherit myHost inputs myLib;
                     };
 
                     modules = [
@@ -62,34 +62,34 @@
                         stylix.nixosModules.stylix
                     ]
                     ++ lib.optional (builtins.pathExists ./hosts/${hostName}/disks.nix) ./hosts/${hostName}/disks.nix
-                    ++ map (r: ./roles/system/${r}.nix) cfg.roles.system
+                    ++ map (r: ./roles/system/${r}.nix) myHost.roles.system
                     ++ [
 
                         home-manager.nixosModules.home-manager
 
                         {
 
-                            networking.hostName = cfg.machine.hostname;
+                            networking.hostName = myHost.machine.hostname;
 
                             home-manager = {
 
                                 useUserPackages = true;
 
                                 extraSpecialArgs = {
-                                    inherit cfg inputs myLib;
+                                    inherit myHost inputs myLib;
                                 };
 
-                                users.${cfg.machine.username} = {
-                                    home.stateVersion = cfg.machine.homeVersion;
+                                users.${myHost.machine.username} = {
+                                    home.stateVersion = myHost.machine.homeVersion;
                                     imports = [
                                         #./hosts/${hostName}/home.nix
                                         ./modules/home/default.nix
                                         inputs.nixvim.homeModules.nixvim
                                     ]
-                                    ++ map (r: ./roles/home/${r}.nix) cfg.roles.home;
+                                    ++ map (r: ./roles/home/${r}.nix) myHost.roles.home;
 
                                     nixpkgs = {
-                                        config.allowUnfree = cfg.machine.unfreePkgs;
+                                        config.allowUnfree = myHost.machine.unfreePkgs;
                                     };
                                 };
 

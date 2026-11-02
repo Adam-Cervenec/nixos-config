@@ -1,13 +1,13 @@
 {
     config,
     pkgs,
-    cfg,
+    myHost,
     ...
 }:
 let
-    stateVersion = cfg.machine.stateVersion;
-    unfreePkgs = cfg.machine.unfreePkgs;
-    sudoCfg = cfg.profile.sudo or { };
+    stateVersion = myHost.machine.stateVersion;
+    unfreePkgs = myHost.machine.unfreePkgs;
+    sudoCfg = myHost.profile.sudo or { };
 in
 {
     # --- System ---

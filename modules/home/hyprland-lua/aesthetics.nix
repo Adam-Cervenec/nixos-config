@@ -1,12 +1,12 @@
 {
-    cfg,
+    myHost,
     config,
     lib,
     ...
 }:
 
 let
-    style = cfg.style;
+    style = myHost.style;
 in
 {
     wayland.windowManager.hyprland.settings.config = {

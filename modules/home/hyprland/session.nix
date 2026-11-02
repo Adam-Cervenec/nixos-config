@@ -1,8 +1,8 @@
-{ cfg, lib, ... }:
+{ myHost, lib, ... }:
 
-#define variable cfg for path
+#define variable myHost for path
 let
-    hardware = cfg.hardware or { };
+    hardware = myHost.hardware or { };
 in
 {
     wayland.windowManager.hyprland.settings = {

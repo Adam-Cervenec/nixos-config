@@ -1,6 +1,11 @@
-{ config, pkgs, cfg, ... }:
+{
+    config,
+    pkgs,
+    myHost,
+    ...
+}:
 let
-    username = cfg.machine.username;
+    username = myHost.machine.username;
 in
 
 {

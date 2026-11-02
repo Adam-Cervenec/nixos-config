@@ -1,7 +1,7 @@
-{ cfg, lib, ... }:
+{ myHost, lib, ... }:
 
 let
-    hardware = cfg.hardware or { };
+    hardware = myHost.hardware or { };
     gpu = hardware.gpu or { };
     hasNvidia = gpu.nvidia or false;
 

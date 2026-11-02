@@ -1,5 +1,5 @@
-{ cfg, myLib, ... }:
+{ myHost, myLib, ... }:
 
 {
-    imports = myLib.importModules ./. (cfg.profile.modules or { });
+    imports = myLib.importModules ./. (myHost.profile.modules or { });
 }

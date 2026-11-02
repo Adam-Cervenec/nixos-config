@@ -1,7 +1,7 @@
-{ cfg, ... }:
+{ myHost, ... }:
 
 let
-    username = cfg.machine.username;
+    username = myHost.machine.username;
 in
 {
     virtualisation.docker.enable = true;

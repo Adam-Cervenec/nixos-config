@@ -1,12 +1,12 @@
 {
     pkgs,
-    cfg,
+    myHost,
     lib,
     ...
 }:
 
 let
-    wallpaper = cfg.profile.wallpaper;
+    wallpaper = myHost.profile.wallpaper;
 in
 {
     home.packages = with pkgs; [
@@ -29,7 +29,7 @@ in
             }
         ];
         exec-once = [
-            #"mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${cfg.duration}\" ${cfg.monitor} ~/nixos-config/assets/wallpapers"
+            #"mpvpaper -o \"no-audio --loop-playlist shuffle --image-display-duration=${myHost.duration}\" ${myHost.monitor} ~/nixos-config/assets/wallpapers"
             "uwsm app -- waypaper --random"
         ];
     };

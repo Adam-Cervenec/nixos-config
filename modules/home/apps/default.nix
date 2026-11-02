@@ -1,5 +1,5 @@
 {
-    cfg,
+    myHost,
     myLib,
     lib,
     pkgs,
@@ -7,9 +7,8 @@
 }:
 
 {
-    imports = myLib.importModules ./. (cfg.profile.modules or { });
+    imports = myLib.importModules ./. (myHost.profile.modules or { });
     home.packages = map (name: lib.attrByPath (lib.splitString "." name) null pkgs) (
-        cfg.profile.apps.packages or [ ]
+        myHost.profile.apps.packages or [ ]
     );
 }
-

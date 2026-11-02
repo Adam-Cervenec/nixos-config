@@ -1,8 +1,8 @@
-{ pkgs, cfg, ... }:
+{ pkgs, myHost, ... }:
 
-#define variable cfg for path
+#define variable myHost for path
 let
-    style = cfg.style or { };
+    style = myHost.style or { };
 in
 
 #if stylix is enabled, define stylix...

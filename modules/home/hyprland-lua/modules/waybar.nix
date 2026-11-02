@@ -1,8 +1,8 @@
-{ config, cfg, ... }:
+{ config, myHost, ... }:
 
 let
-    monitors = cfg.hardware.waybar.monitors;
-    style = cfg.style;
+    monitors = myHost.hardware.waybar.monitors;
+    style = myHost.style;
     #stylix = device.modules.stylix;
 
     color = name: "#${config.lib.stylix.colors.${style.colors.${name}}}";

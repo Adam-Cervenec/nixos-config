@@ -1,12 +1,12 @@
 {
     pkgs,
-    cfg,
+    myHost,
     lib,
     ...
 }:
 
 let
-    wallpaper = cfg.profile.wallpaper;
+    wallpaper = myHost.profile.wallpaper;
 in
 {
     home.packages = with pkgs; [

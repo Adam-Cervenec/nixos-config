@@ -1,6 +1,6 @@
-{ cfg, pkgs, ... }:
+{ myHost, pkgs, ... }:
 let
-    cfgUser = cfg.machine.username;
+    cfg = myHost.machine.username;
 in
 {
     services.printing.enable = true;
@@ -16,7 +16,7 @@ in
         pkgs.sane-airscan
     ];
 
-    users.users.${cfgUser}.extraGroups = [
+    users.users.${cfg}.extraGroups = [
         "scanner"
         "lp"
     ];

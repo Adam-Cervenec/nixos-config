@@ -1,11 +1,11 @@
 {
-    cfg,
+    myHost,
     config,
     lib,
     ...
 }:
 let
-    style = cfg.style;
+    style = myHost.style;
     color = name: "rgb(${config.lib.stylix.colors.${style.colors.${name}}})";
 in
 {

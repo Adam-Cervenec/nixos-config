@@ -1,8 +1,8 @@
-{ cfg, ... }:
+{ myHost, ... }:
 
-#define variable cfg for path
+#define variable myHost for path
 let
-    cfgGit = cfg.profile.git or { };
+    cfg = myHost.profile.git or { };
 in
 
 {
@@ -11,8 +11,8 @@ in
         enable = true;
 
         settings = {
-            user.name = cfgGit.username;
-            user.email = cfgGit.email;
+            user.name = cfg.username;
+            user.email = cfg.email;
         };
     };
 

@@ -1,7 +1,7 @@
-{ pkgs, cfg, ... }:
+{ pkgs, myHost, ... }:
 
 let
-    cfgMusicPlayer = cfg.profile.musicPlayer or { };
+    cfg = myHost.profile.musicPlayer or { };
 in
 
 {
@@ -15,7 +15,7 @@ in
     services.mpd = {
         enable = true;
 
-        musicDirectory = cfgMusicPlayer.path;
+        musicDirectory = cfg.path;
 
         network = {
             listenAddress = "127.0.0.1";

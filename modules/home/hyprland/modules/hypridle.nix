@@ -1,7 +1,7 @@
-{ cfg, ... }:
+{ myHost, ... }:
 
 let
-    hypridle = cfg.profile.hypridle;
+    hypridle = myHost.profile.hypridle;
 in
 {
     services.hypridle = {

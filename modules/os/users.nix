@@ -1,16 +1,16 @@
-{ cfg, ... }:
+{ myHost, ... }:
 
 let
-    username = cfg.machine.username;
+    username = myHost.machine.username;
 in
 {
-  users.users.${username} = {
-    isNormalUser = true;
-    description = username;
+    users.users.${username} = {
+        isNormalUser = true;
+        description = username;
 
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
+        extraGroups = [
+            "networkmanager"
+            "wheel"
+        ];
+    };
 }

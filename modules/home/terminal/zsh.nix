@@ -2,11 +2,11 @@
 
 {
     pkgs,
-    cfg,
+    myHost,
     ...
 }:
 let
-    nixosPath = cfg.machine.nixosPath or "/etc/nixos";
+    nixosPath = myHost.machine.nixosPath or "/etc/nixos";
 
 in
 
