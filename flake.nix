@@ -12,7 +12,6 @@
         stylix.url = "github:danth/stylix";
         zen-browser.url = "github:youwen5/zen-browser-flake";
         nixvim.url = "github:nix-community/nixvim";
-        hyprsplit.url = "github:shezdy/hyprsplit";
     };
 
     outputs =
