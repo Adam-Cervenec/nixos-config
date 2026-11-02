@@ -160,21 +160,21 @@ let
         (bind "${mod} + SHIFT + J" "hl.dsp.window.move({ direction = \"d\" })")
 
         # Workspaces
-        (bind "${mod} + comma" "hl.dsp.focus({ workspace = \"e-1\" })")
+        (bind "${mod} + comma" "hl.dsp.focus({ workspace = \"-1\" })")
 
-        (bind "${mod} + period" "hl.dsp.focus({ workspace = \"e+1\" })")
+        (bind "${mod} + period" "hl.dsp.focus({ workspace = \"+1\" })")
 
-        (bind "${mod} + SHIFT + comma" "hl.dsp.window.move({ workspace = \"e-1\" })")
+        (bind "${mod} + SHIFT + comma" "hl.dsp.window.move({ workspace = \"-1\" })")
 
-        (bind "${mod} + SHIFT + period" "hl.dsp.window.move({ workspace = \"e+1\" })")
+        (bind "${mod} + SHIFT + period" "hl.dsp.window.move({ workspace = \"+1\" })")
 
-        (bind "${mod} + mouse_down" "hl.dsp.focus({ workspace = \"e+1\" })")
+        (bind "${mod} + mouse_down" "hl.dsp.focus({ workspace = \"+1\" })")
 
-        (bind "${mod} + mouse_up" "hl.dsp.focus({ workspace = \"e-1\" })")
+        (bind "${mod} + mouse_up" "hl.dsp.focus({ workspace = \"-1\" })")
 
-        (bind "${mod} + SHIFT + mouse_down" "hl.dsp.window.move({ workspace = \"e+1\" })")
+        (bind "${mod} + SHIFT + mouse_down" "hl.dsp.window.move({ workspace = \"+1\" })")
 
-        (bind "${mod} + SHIFT + mouse_up" "hl.dsp.window.move({ workspace = \"e-1\" })")
+        (bind "${mod} + SHIFT + mouse_up" "hl.dsp.window.move({ workspace = \"-1\" })")
     ]
     ++ workspaceBinds
     ++ moveWorkspaceBinds
