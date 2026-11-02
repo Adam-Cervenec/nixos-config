@@ -130,7 +130,7 @@ let
 
         (bind "${mod} + P" "hl.dsp.window.pseudo({ action = \"toggle\" })")
 
-        (bind "${mod} + SHIFT + R" "hl.dsp.reload_config()")
+        #(bind "${mod} + SHIFT + R" "hl.dsp.reload_config()")
 
         # Submap definitions
         (bind "${mod} + V" "hl.dsp.submap(\"Volume\")")
