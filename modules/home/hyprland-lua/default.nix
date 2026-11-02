@@ -18,6 +18,7 @@
         ./modules/waybar.nix
         ./modules/hypridle.nix
         ./modules/rofi.nix
+        ./modules/hyprmoncfg.nix
     ];
 
     home.packages = with pkgs; [
