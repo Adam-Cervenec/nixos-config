@@ -64,13 +64,15 @@ let
 
     # Workspaces
     workspaceBinds = genList (
-        i: bind "${mod} + code:${toString (i + 10)}" "hl.dsp.focus({ workspace = ${toString (i + 1)} })"
+        i: bind "${mod} + code:${toString (i + 10)}" "${hs}.dsp.focus({ workspace = ${toString (i + 1)} })"
     ) 10;
 
     moveWorkspaceBinds = genList (
         i:
-        bind "${mod} + SHIFT + code:${toString (i + 10)}" "hl.dsp.window.move({ workspace = ${toString (i + 1)} })"
+        bind "${mod} + SHIFT + code:${toString (i + 10)}" "${hs}.dsp.window.move({ workspace = ${toString (i + 1)}, follow = false })"
     ) 10;
+
+    hs = ''require("hyprsplit")'';
 
     # Resize windows
     resizeBinds = [
@@ -160,21 +162,21 @@ let
         (bind "${mod} + SHIFT + J" "hl.dsp.window.move({ direction = \"d\" })")
 
         # Workspaces
-        (bind "${mod} + comma" "hl.dsp.focus({ workspace = \"-1\" })")
+        (bind "${mod} + comma" "${hs}.dsp.focus({ workspace = \"-1\" })")
 
-        (bind "${mod} + period" "hl.dsp.focus({ workspace = \"+1\" })")
+        (bind "${mod} + period" "${hs}.dsp.focus({ workspace = \"+1\" })")
 
-        (bind "${mod} + SHIFT + comma" "hl.dsp.window.move({ workspace = \"-1\" })")
+        (bind "${mod} + SHIFT + comma" "${hs}.dsp.window.move({ workspace = \"-1\", follow = false })")
 
-        (bind "${mod} + SHIFT + period" "hl.dsp.window.move({ workspace = \"+1\" })")
+        (bind "${mod} + SHIFT + period" "${hs}.dsp.window.move({ workspace = \"+1\", follow = false })")
 
-        (bind "${mod} + mouse_down" "hl.dsp.focus({ workspace = \"+1\" })")
+        (bind "${mod} + mouse_down" "${hs}.dsp.focus({ workspace = \"+1\" })")
 
-        (bind "${mod} + mouse_up" "hl.dsp.focus({ workspace = \"-1\" })")
+        (bind "${mod} + mouse_up" "${hs}.dsp.focus({ workspace = \"-1\" })")
 
-        (bind "${mod} + SHIFT + mouse_down" "hl.dsp.window.move({ workspace = \"+1\" })")
+        (bind "${mod} + SHIFT + mouse_down" "${hs}.dsp.window.move({ workspace = \"+1\", follow = false })")
 
-        (bind "${mod} + SHIFT + mouse_up" "hl.dsp.window.move({ workspace = \"-1\" })")
+        (bind "${mod} + SHIFT + mouse_up" "${hs}.dsp.window.move({ workspace = \"-1\", follow = false })")
     ]
     ++ workspaceBinds
     ++ moveWorkspaceBinds

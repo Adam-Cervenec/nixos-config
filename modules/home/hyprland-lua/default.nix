@@ -19,6 +19,7 @@
         ./modules/hypridle.nix
         ./modules/rofi.nix
         ./modules/hyprmoncfg.nix
+        ./modules/hyprsplit.nix
     ];
 
     home.packages = with pkgs; [
