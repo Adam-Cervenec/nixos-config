@@ -13,13 +13,13 @@ in
         general = {
             gaps_in = style.gaps / 2;
             gaps_out = style.gaps;
-            border_size = style.border.width.bold;
+            border_size = style.border.width.normal;
 
             "col.active_border" = lib.mkForce "${color "primary"} ${color "special"} 169deg";
         };
 
         decoration = {
-            rounding = style.border.roundness.medium;
+            rounding = style.border.roundness.small;
 
             shadow = {
                 enabled = style.shadow.enable or true;
