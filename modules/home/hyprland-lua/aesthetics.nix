@@ -18,7 +18,7 @@ in
         };
 
         decoration = {
-            rounding = style.border.roundness.medium;
+            rounding = style.border.roundness.window;
 
             shadow = {
                 enabled = style.shadow.enable or true;

@@ -28,7 +28,8 @@
         border = {
             width.normal = 2;
             width.bold = 3;
-            roundness.small = 0;
+            roundness.window = 0;
+            roundness.small = 2;
             roundness.medium = 5;
             roundness.large = 7;
         };
