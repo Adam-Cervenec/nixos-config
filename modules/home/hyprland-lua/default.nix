@@ -66,5 +66,13 @@
                 };
             };
         };
+        # fix some electron scaling bugs
+        extraConfig = ''
+            hl.config({
+                xwayland = {
+                    force_zero_scaling = true
+                }
+            })
+        '';
     };
 }
