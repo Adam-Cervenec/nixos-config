@@ -36,6 +36,9 @@ in
             gb = "nx-garbage";
             ug = "nx-upgrade";
             po = "poweroff";
+            vi = "nvim";
+            vim = "nvim";
+            neovim = "nvim";
         };
 
         plugins = [
