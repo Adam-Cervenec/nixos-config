@@ -210,6 +210,10 @@
                             __unkeyed-1 = "<leader>d";
                             group = "Debugger";
                         }
+                        {
+                            __unkeyed-1 = "<leader>b";
+                            group = "Bufferline";
+                        }
                     ];
                 };
             };
@@ -272,6 +276,8 @@
 
             # visual block vertical lines
             indent-blankline.enable = true;
+
+            bufferline.enable = true;
 
             # animated vertical lines for current block
             mini-indentscope = {
@@ -375,13 +381,6 @@
         };
 
         keymaps = [
-
-            # remap redo to U
-            {
-                mode = "n";
-                key = "U";
-                action = "<C-r>";
-            }
 
             # remap noh to Esc
             {
@@ -565,6 +564,25 @@
                 key = "<leader>dx";
                 action = "<cmd>lua require('dap').terminate()<CR>";
                 options.desc = "Stop debugging";
+            }
+            # Bufferline (tabs) navigation
+            {
+                mode = "n";
+                key = "<Tab>";
+                action = "<cmd>BufferLineCycleNext<CR>";
+                options.desc = "Next buffer";
+            }
+            {
+                mode = "n";
+                key = "<S-Tab>";
+                action = "<cmd>BufferLineCyclePrev<CR>";
+                options.desc = "Previous buffer";
+            }
+            {
+                mode = "n";
+                key = "<leader>bc";
+                action = "<cmd>bdelete<CR>";
+                options.desc = "Close buffer";
             }
         ];
 
