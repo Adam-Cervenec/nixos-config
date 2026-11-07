@@ -52,6 +52,13 @@
 
             # better normal mode cursor
             # guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20;
+
+            # folding, treesitter
+            foldmethod = "expr";
+            foldexpr = "v:lua.vim.treesitter.foldexpr()";
+            foldlevel = 99;
+            foldlevelstart = 99;
+            foldenable = true;
         };
 
         # wraping paragraphs in .md files
@@ -66,6 +73,9 @@
         globals = {
             mapleader = " ";
             maplocalleader = " ";
+            foldlevel = 99;
+            foldlevelstart = 99;
+            foldenable = true;
         };
         lsp = {
             servers = {
@@ -175,7 +185,7 @@
                         text_objects = false;
                         windows = false;
                         nav = false;
-                        z = false;
+                        z = true;
                         g = false;
                     };
 
@@ -226,8 +236,20 @@
 
                 settings = {
                     default_file_explorer = true;
+                    columns = [
+                        "icon"
+                        "type"
+                        "permissions"
+                        "size"
+                        "mtime"
+
+                    ];
+                    delete_to_trash = true;
+                    watch_for_changes = true;
 
                     view_options.show_hidden = true;
+                    view_options.natural_order = true;
+                    view_options.case_insensitive = true;
 
                     win_options = {
                         signcolumn = "yes:2";
@@ -252,6 +274,32 @@
 
             treesitter = {
                 enable = true;
+                folding.enable = true;
+                settings = {
+                    highlight.enable = true;
+                    indent.enable = true;
+
+                    ensure_installed = [
+                        "lua"
+                        "nix"
+                        "vim"
+                        "vimdoc"
+                        "bash"
+                        "c"
+                        "cpp"
+                        "rust"
+                        "python"
+                        "javascript"
+                        "typescript"
+                        "json"
+                        "yaml"
+                        "toml"
+                        "markdown"
+                        "markdown_inline"
+                    ];
+
+                    auto_install = true;
+                };
             };
 
             # Show the current function / code context at the top
@@ -497,6 +545,18 @@
                 key = "<leader>oo";
                 action = "<cmd>Oil<CR>";
             }
+            {
+                mode = "n";
+                key = "<leader>od";
+                action = "<cmd>vsplit | Oil<CR>";
+                options.desc = "Open Oil split view";
+            }
+            {
+                mode = "n";
+                key = "<leader>of";
+                action = "<cmd>lua require('oil').open_float()<CR>";
+                options.desc = "Open Oil floating";
+            }
 
             # telescope
             {
@@ -569,7 +629,9 @@
             {
                 mode = "n";
                 key = "<leader>tt";
-                action = "<cmd>ToggleTerm<CR>";
+                action = ''
+                    <cmd>toggleterm<CR><cmd>ToggleTerm<CR>
+                '';
                 options.desc = "Toggle terminal";
             }
 
