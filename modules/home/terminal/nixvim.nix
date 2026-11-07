@@ -1,5 +1,7 @@
 {
     pkgs,
+    lib,
+    config,
     ...
 }:
 
@@ -296,7 +298,95 @@
             alpha = {
                 enable = true;
                 autoLoad = true;
-                theme = "dashboard";
+                # theme = "dashboard";
+                settings = {
+                    layout = [
+                        {
+                            type = "padding";
+                            val = 2;
+                        }
+                        {
+                            opts = {
+                                hl = "Type";
+                                position = "center";
+                            };
+                            type = "text";
+                            val = [
+                                "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
+                                "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
+                                "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
+                                "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
+                                "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
+                                "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+                            ];
+                        }
+                        {
+                            type = "padding";
+                            val = 5;
+                        }
+                        {
+                            type = "group";
+                            opts = {
+                                spacing = 1;
+                                position = "left";
+                            };
+                            val = [
+                                {
+                                    on_press = config.lib.nixvim.mkRaw "function() vim.cmd[[ene]] end";
+                                    opts = {
+                                        shortcut = "n";
+                                    };
+                                    type = "button";
+                                    val = "    New file";
+                                }
+                                {
+                                    on_press = config.lib.nixvim.mkRaw "function() vim.cmd[[Telescope find_files]] end";
+                                    opts = {
+                                        shortcut = "ff";
+                                    };
+                                    type = "button";
+                                    val = "   Find files";
+                                }
+                                {
+                                    on_press = config.lib.nixvim.mkRaw "function() vim.cmd[[Telescope live_grep]] end";
+                                    opts = {
+                                        shortcut = "fg";
+                                    };
+                                    type = "button";
+                                    val = "   Live grep";
+                                }
+                                {
+                                    on_press = config.lib.nixvim.mkRaw "function() vim.cmd[[Telescope projects]] end";
+                                    opts = {
+                                        shortcut = "p";
+                                    };
+                                    type = "button";
+                                    val = "    Recent projects";
+                                }
+                                {
+                                    on_press = config.lib.nixvim.mkRaw "function() vim.cmd[[qa]] end";
+                                    opts = {
+                                        shortcut = "q";
+                                    };
+                                    type = "button";
+                                    val = "    Quit Neovim";
+                                }
+                            ];
+                        }
+                        {
+                            type = "padding";
+                            val = 2;
+                        }
+                        {
+                            opts = {
+                                hl = "Keyword";
+                                position = "center";
+                            };
+                            type = "text";
+                            val = "Inspiring quote here.";
+                        }
+                    ];
+                };
             };
 
             # automatic formatter
