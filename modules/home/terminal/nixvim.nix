@@ -292,6 +292,13 @@
                 };
             };
 
+            # Startup dashboard
+            alpha = {
+                enable = true;
+                autoLoad = true;
+                theme = "dashboard";
+            };
+
             # automatic formatter
             conform-nvim = {
                 enable = true;
