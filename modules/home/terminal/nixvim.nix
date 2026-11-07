@@ -176,6 +176,27 @@
                             "v"
                         ];
                     }
+                    {
+                        __unkeyed-1 = "z";
+                        mode = [
+                            "n"
+                            "v"
+                        ];
+                    }
+                    {
+                        __unkeyed-1 = "g";
+                        mode = [
+                            "n"
+                            "v"
+                        ];
+                    }
+                    {
+                        __unkeyed-1 = "<C-w>";
+                        mode = [
+                            "n"
+                            "v"
+                        ];
+                    }
                 ];
 
                 settings = {
@@ -183,10 +204,10 @@
                         operators = false;
                         motions = false;
                         text_objects = false;
-                        windows = false;
+                        windows = true;
                         nav = false;
                         z = true;
-                        g = false;
+                        g = true;
                     };
 
                     spec = [
