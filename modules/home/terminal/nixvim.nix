@@ -298,6 +298,12 @@
                             "4"
                         ];
                     };
+                    formatters.clang_format = {
+                        command = "clang-format";
+                        args = [
+                            "--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}"
+                        ];
+                    };
                     formatters_by_ft = {
                         nix = [ "nixfmt" ];
                         c = [ "clang_format" ];
